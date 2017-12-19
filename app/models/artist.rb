@@ -14,7 +14,7 @@ class Artist < ApplicationRecord
 
     def self.find_by_credentials(email, password)
         artist = Artist.find_by(email: email)
-        artist && artist.is_password(password) ? artist : nil
+        artist && artist.is_password?(password) ? artist : nil
     end
 
     def is_password?(password)

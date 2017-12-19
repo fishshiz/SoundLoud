@@ -18,7 +18,7 @@ class Api::SessionsController < ApplicationController
             logout!
             render :show
         else
-            render json: ['Must Sign in'], status: 422
+            render json: ['Must Sign in'], status: 404
         end
     end
     
