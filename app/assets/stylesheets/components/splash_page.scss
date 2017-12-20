@@ -1,0 +1,168 @@
+
+@import '../base/colors.scss';
+
+.frontHero {
+    color: $white;
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid $borderOrange;
+    background-color: $grey;
+    height: 450px;
+    background: url(https://a-v2.sndcdn.com/assets/images/home/hp_image-6155d6b.jpg) 0 0/cover no-repeat;
+    -webkit-font-smoothing: antialiased;
+}
+
+.l-front {
+    display: block;
+}
+
+.l-inner-fullwidth {
+    margin-left: -30px;
+    margin-right: -30px;
+}
+
+body {
+    overflow-y: scroll;
+    background: #f2f2f2 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABNgAAABkAQMAAABuPx8iAAAAA1BMV…R4Xu3AMQEAAADCIPunNsYeWAQAAAAAAAAAAAAAAAAAAOA88AABMGQBNwAAAABJRU5ErkJggg==) repeat-y 50% 0;
+    padding-bottom: 75px;
+    margin: 0;
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
+}
+
+.frontHero__container {
+    height: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.frontHero__logo {
+    position: absolute;
+    top: 13px;
+    left: 19px;
+    background: url(https://a-v2.sndcdn.com/assets/images/header/cloud-e365a47.png) no-repeat 12px 11px;
+    background-size: 48px 22px;
+    display: block;
+    width: 184px;
+    height: 46px;
+    text-indent: -999em;
+}
+
+.frontHero__signin {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+
+
+
+.sc-button {
+    display: inline-block;
+    position: relative;
+    height: 26px;
+    margin: 0;
+    padding: 2px 11px 2px 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    box-sizing: border-box;
+}
+
+.g-button-transparent-inverted {
+    background: 0 0;
+    color: #fff;
+    border-color: #ccc;
+}
+
+
+.g-opacity-transition {
+    transition: opacity .2s linear;
+}
+
+
+.frontHero__loginButton {
+    margin-right: 6px;
+    height: 30px;
+    padding: 0 15px;
+}
+
+
+.sc-button-cta {
+    background-color: #f50;
+    border-color: #f50;
+    color: #fff;
+}
+
+.frontHero__createAccountButton {
+    height: 30px;
+    padding: 0 16px;
+}
+
+.frontHero__content {
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 145px 0 0;
+}
+
+.frontHero__title {
+    margin-bottom: 8px;
+    font-size: 36px;
+    font-weight: 100;
+}
+
+.frontHero__tagline {
+    font-size: 18px;
+    max-width: 530px;
+    text-align: center;
+}
+
+.sc-type-large {
+    font-size: 18px;
+}
+
+.frontHero__cta {
+    margin-top: 17px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.frontHero__ctaButton {
+    font-size: 18px;
+    min-width: 210px;
+    height: 46px;
+}
+
+.l-container {
+    padding: 0 30px;
+    width: 1180px;
+    margin: 0 auto;
+}
