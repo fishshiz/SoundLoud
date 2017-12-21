@@ -11,6 +11,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/" component={SplashPage} />
     </Switch>
+    {/* <ModalContainer /> */}
   </div>
 );
 

@@ -5,18 +5,15 @@ import { login, signup, clearErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { closeModal } from '../../actions/modal_actions';
 
-const mapStateToProps = (state, ownProps) => {
-    let formType = ownProps.location.pathname.slice(1);
-    let altButton = (formType === 'login') ? 'signup' : 'login';
+const mapStateToProps = ({ session, errors }, { formType }) => {
     return {
-      loggedIn: Boolean(state.session.currentArtist),
-      errors: state.errors,
+      loggedIn: Boolean(session.currentArtist),
+      errors,
       formType
     };
   };
   
-  const mapDispatchToProps = (dispatch, ownProps) => {
-    let formType = ownProps.location.pathname.slice(1);
+  const mapDispatchToProps = (dispatch, { formType }) => {
     let processForm = (formType === 'login') ? login : signup;
     return {
       processForm: artist => dispatch(processForm(artist)),
