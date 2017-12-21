@@ -9,30 +9,55 @@ export default class SessionForm extends React.Component {
             name: '',
             password: ''
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.loggedIn) {
+          this.props.history.push('/dashboard');
+          this.props.closeModal();
+        }
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const artist = merge({}, this.state);
         this.props.processForm(artist)
-        .then(() => this.props.hideModal());
+        .then(() => this.props.closeModal());
     }
 
-    handleChange(field) {
-        return (e) => this.setState({ [field]: e.target.value });
+    handleInput(type) {
+        return (e) => {
+          this.setState({ [type]: e.target.value });
+        };
     }
+
+    renderErrors() {
+        if(this.props.errors.length > 0) {
+          return (
+            <ul>
+              {this.props.errors.map((error, idx) => (
+                <li key={`error-${idx}`}>
+                  {error}
+                </li>
+              ))}
+            </ul>
+          );
+        }
+      }
 
     render() {
         let buttonType = this.props.formType === 'signup' ? 'Sign Up' : 'Log In';
 
         return (
           <form className="session-form animated slideInDown" onSubmit={this.handleSubmit} >
-            <input type="text" className="modal-input" value={this.state.email} placeholder="Email address" onChange={this.handleChange('email')}/>
-            <input type="text" className="modal-input" value={this.state.name} placeholder="Artist/Band name" onChange={this.handleChange('name')}/>
-            <input type="password" className="modal-input" value={this.state.password} placeholder="Password" onChange={this.handleChange('password')}/>
+            <input type="text" className="modal-input" value={this.state.email} placeholder="Email address" onChange={this.handleInput('email')}/>
+            <input type="text" className="modal-input" value={this.state.name} placeholder="Artist/Band name" onChange={this.handleInput('name')}/>
+            <input type="password" className="modal-input" value={this.state.password} placeholder="Password" onChange={this.handleInput('password')}/>
             <button type="submit">{buttonType}</button>
+            {this.renderErrors()}
           </form>  
         );
     }

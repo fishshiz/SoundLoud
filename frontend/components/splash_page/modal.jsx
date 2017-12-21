@@ -1,13 +1,13 @@
 import React from 'react';
 import SessionFormContainer from './session_form_container';
-import ModalBackground from './modal_background';
+import ModalBackgroundContainer from './modal_background_container';
 
 export default class Modal extends React.Component {
     render() {
         return (
-            <ModalBackground>
+            <ModalBackgroundContainer>
                 <SessionFormContainer formType={this.props.modalType} content={this.props.content} />
-            </ModalBackground>
+            </ModalBackgroundContainer>
         );
     }
 }

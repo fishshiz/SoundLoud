@@ -1,19 +1,12 @@
 import { connect } from 'react-redux';
-import Modal from './modal';
+import ModalBackground from './modal_background';
 import { closeModal } from '../../actions/modal_actions';
-
-const mapStateToProps = state => {
-    return {
-        content: state.content,
-        modalType: state.modalType
-    };
-};
 
 const mapDispatchToProps = dispatch => ({
     closeModal: () => dispatch(closeModal())
 });
 
 export default connect(
-    mapStateToProps,
-    null
-)(Modal);
+    null,
+    mapDispatchToProps
+)(ModalBackground);
