@@ -47,12 +47,24 @@ body {
     position: absolute;
     top: 13px;
     left: 19px;
-    background: url(https://a-v2.sndcdn.com/assets/images/header/cloud-e365a47.png) no-repeat 12px 11px;
+    background: url(soundloud-logo@4x.png) no-repeat 12px 11px;
     background-size: 48px 22px;
     display: block;
     width: 184px;
     height: 46px;
     text-indent: -999em;
+}
+
+.frontHero__logo__txt:after {
+    display: block;
+    position: absolute;
+    left: 66px;
+    top: 11px;
+    background-image: url(soundloud-txt.png);
+    background-repeat: no-repeat;
+    content: "";
+    height: 100%;
+    width: 100%;
 }
 
 .frontHero__signin {

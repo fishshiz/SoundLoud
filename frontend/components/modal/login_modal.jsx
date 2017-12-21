@@ -10,7 +10,7 @@ export default class LoginModal extends React.Component {
             <div className="l-fron-hero l-inner-fullwidth">
             <div className="frontHero">
             <div className="frontHero__container">
-                <h1 className="frontHero__logo">SoundLoud</h1>
+                <h1 className="frontHero__logo frontHero__logo__txt">SoundLoud</h1>
                 <div className="frontHero__signin">
                     <button className="g-opacity-transition frontHero__loginButton g-button-transparent-inverted sc-button sc-button-medium loginButton" onClick={()=> openModal('signin')}>Sign In</button>
                     <button className="g-opacity-transition frontHero__createAccountButton sc-button sc-button-medium signupButton sc-button-cta" onClick={()=> openModal('signup')}>Create Account</button>
