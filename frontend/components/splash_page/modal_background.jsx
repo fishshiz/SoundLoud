@@ -9,7 +9,7 @@ export default class ModalBackground extends React.Component {
     }
 
     handleClick(e) {
-        console.log(this.props)
+        console.log(this.props);
         if (e.target === e.currentTarget) {
           this.props.closeModal();
         }

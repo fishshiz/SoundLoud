@@ -8,11 +8,11 @@ import DashboardContainer from './dashboard/dashboard_container';
 const App = () => (
   <div>
     <header id="header">
-    </header>
     <Switch>
       <AuthRoute exact path="/" component={SplashPage} />
     </Switch>
     <ModalContainer />
+    </header>
     <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
   </div>
 );

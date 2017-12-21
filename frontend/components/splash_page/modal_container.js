@@ -5,7 +5,8 @@ import { closeModal } from '../../actions/modal_actions';
 const mapStateToProps = state => {
     return {
         content: state.content,
-        modalType: state.modalType
+        modalType: state.modalType,
+        modalOpen: state.modalOpen
     };
 };
 

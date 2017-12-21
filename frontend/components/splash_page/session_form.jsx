@@ -53,10 +53,10 @@ export default class SessionForm extends React.Component {
 
         return (
           <form className="session-form animated slideInDown" onSubmit={this.handleSubmit} >
-            <input type="text" className="modal-input" value={this.state.email} placeholder="Email address" onChange={this.handleInput('email')}/>
-            <input type="text" className="modal-input" value={this.state.name} placeholder="Artist/Band name" onChange={this.handleInput('name')}/>
-            <input type="password" className="modal-input" value={this.state.password} placeholder="Password" onChange={this.handleInput('password')}/>
-            <button type="submit">{buttonType}</button>
+            <input type="text" className="session-input" value={this.state.email} placeholder="Email address" onChange={this.handleInput('email')}/>
+            <input type="text" className="session-input" value={this.state.name} placeholder="Artist/Band name" onChange={this.handleInput('name')}/>
+            <input type="password" className="session-input" value={this.state.password} placeholder="Password" onChange={this.handleInput('password')}/>
+            <button type="submit" className="session-button">{buttonType}</button>
             {this.renderErrors()}
           </form>  
         );
