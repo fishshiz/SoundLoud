@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
 
 export default class SessionForm extends React.Component {
@@ -50,11 +51,18 @@ export default class SessionForm extends React.Component {
 
     render() {
         let buttonType = this.props.formType === 'signup' ? 'Sign Up' : 'Log In';
+        let nameField = this.props.formType === 'signup' ? 
+          <input 
+          type="text" 
+          className="session-input" 
+          value={this.state.name} 
+          placeholder="Artist/Band name" 
+          onChange={this.handleInput('name')}/> : null;
 
         return (
           <form className="session-form animated slideInDown" onSubmit={this.handleSubmit} >
             <input type="text" className="session-input" value={this.state.email} placeholder="Email address" onChange={this.handleInput('email')}/>
-            <input type="text" className="session-input" value={this.state.name} placeholder="Artist/Band name" onChange={this.handleInput('name')}/>
+            {nameField}
             <input type="password" className="session-input" value={this.state.password} placeholder="Password" onChange={this.handleInput('password')}/>
             <button type="submit" className="session-button">{buttonType}</button>
             {this.renderErrors()}

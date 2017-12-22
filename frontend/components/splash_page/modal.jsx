@@ -2,23 +2,18 @@ import React from 'react';
 import SessionFormContainer from './session_form_container';
 import ModalBackgroundContainer from './modal_background_container';
 
-export default class Modal extends React.Component {
-    constructor(props) {
-        super(props);
-        console.log(this.props);
+const Modal = ({modalType}) => {
+    switch(modalType) {
+        case 'signup':
+    case 'signin':
+      return (
+        <ModalBackgroundContainer>
+          <SessionFormContainer formType={modalType} />
+        </ModalBackgroundContainer>
+      );
+    default:
+      return null;
     }
+};
 
-    componentDidMount() {
-        this.setState({ modalOpen: true});
-    }
-
-    render() {
-        
-            return (
-                <ModalBackgroundContainer>
-                    <SessionFormContainer formType={this.props.modalType} content={this.props.content} />
-                </ModalBackgroundContainer>
-            );
-    }
-}
-
+export default Modal;

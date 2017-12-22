@@ -1,47 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Route, Redirect } from 'react-router';
-import { openModal } from '../actions/modal_actions';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 
-const Auth = ({component: Component, path, exact, loggedIn}) => (
-  <Route
-    exact={Boolean(exact)}
-    path={path}
-    render={ (props) =>
-      !loggedIn ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to='/dashboard' />
-      )
-    }
-  />
+const mapStateToProps = state => (
+  {loggedIn: Boolean(state.session.currentArtist)}
 );
 
-const Protected = ({component: Component, path, exact, loggedIn}) => (
-  <Route
-    exact={Boolean(exact)}
-    path={path}
-    render={ (props) =>
-      loggedIn ? (
-        <Component {...props} />
-      ) : (
-        openModal('signin')
-      )
-    }
-  />
+const Auth = ({ component: Component, path, loggedIn }) => (
+  <Route path={path} render={(props) => (
+    loggedIn ? (
+      <Redirect to="/dashboard" />
+    ) : (
+      <Component {...props} />
+    )
+  )} />
 );
 
-const mapStateToProps = state => ({
-  loggedIn: Boolean(state.session.currentArtist)
-});
-
-const mapDispatchToProps = dispatch => ({
-  openModal: (modalType) => dispatch(openModal(modalType))
-});
-
-export const AuthRoute = withRouter(
-  connect(mapStateToProps, null)(Auth)
+const Protected = ({ component: Component, path, loggedIn }) => (
+  <Route path={path}
+    render={props => (
+      loggedIn ? <Component {...props} /> : <Redirect to="/signup" />
+    )}
+    />
 );
-export const ProtectedRoute = withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(Auth)
-);
+
+export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
+export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));

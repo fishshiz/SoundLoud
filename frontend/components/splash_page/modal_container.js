@@ -2,11 +2,10 @@ import { connect } from 'react-redux';
 import Modal from './modal';
 import { closeModal } from '../../actions/modal_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ui}) => {
+    console.log(ui);
     return {
-        content: state.content,
-        modalType: state.modalType,
-        modalOpen: state.modalOpen
+        modalType: ui.modal.modalType
     };
 };
 

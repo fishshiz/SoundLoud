@@ -5,11 +5,12 @@ import SplashPage from './splash_page/splash_page';
 import ModalContainer from './splash_page/modal_container';
 import DashboardContainer from './dashboard/dashboard_container';
 
+
 const App = () => (
   <div>
     <header id="header">
     <Switch>
-      <AuthRoute exact path="/" component={SplashPage} />
+      <AuthRoute exact path='/' component={SplashPage} />
     </Switch>
     <ModalContainer />
     </header>
