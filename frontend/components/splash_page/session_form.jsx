@@ -15,13 +15,6 @@ export default class SessionForm extends React.Component {
         this.renderErrors = this.renderErrors.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
-        if(nextProps.loggedIn) {
-          this.props.history.push('/stream');
-          this.props.closeModal();
-        }
-    }
-
     handleSubmit(e) {
         e.preventDefault();
         const artist = merge({}, this.state);

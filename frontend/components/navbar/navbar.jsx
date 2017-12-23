@@ -36,7 +36,7 @@ export default ({ currentArtist, logout }) => {
                     <div className="userNav sc-clearfix">
                         <a href="/edan" className="userNav__button userNav__usernameButton">
                             <div className="userNav__item">
-                                <div className="userNav__username sc-truncate">Edan</div>
+                                <div className="userNav__username sc-truncate">{currentArtist.name}</div>
                             </div>
                         </a>
                     </div>
