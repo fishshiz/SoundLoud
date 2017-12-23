@@ -4,9 +4,14 @@ import configureStore from './store/store';
 import React from 'react';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
+  const root = document.getElementById('root');
+  let preloadedState = undefined;
+
+  if (window.currentArtist) {
+    preloadedState = { session: { currentArtist: window.currentArtist }};
+  } 
+  const store = configureStore(preloadedState); 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store } />, root);
 });
