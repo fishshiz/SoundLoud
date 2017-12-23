@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { login, signup, clearErrors } from '../../actions/session_actions';
+import { login, signup } from '../../actions/session_actions';
 import { closeModal } from '../../actions/modal_actions';
 import SessionForm from './session_form';
 
@@ -23,8 +23,7 @@ const mapDispatchToProps = (dispatch, { formType }) => {
   return {
     processForm: processForm,
     closeModal: () => dispatch(closeModal()),
-    login: artist => dispatch(login(artist)),
-    clearErrors: () => dispatch(clearErrors())
+    login: artist => dispatch(login(artist))
   };
 };
 
