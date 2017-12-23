@@ -67,9 +67,28 @@ li {
     float: left;
 }
 
-.show .header__navWrapper, .show .header__search, .show .header__right {
+.show .header__navWrapper, .show .header__search, .show {
     display: block;
     visibility: visible;
+}
+
+.header__right {
+    display: flex;
+    justify-content: space-around;
+    width: 25%;
+    align-items: center;
+}
+
+.sc-input {
+    display: inline-block;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    transition: border-color .1s;
 }
 
 .header__navMenu>li>a {
@@ -193,3 +212,14 @@ form {
     max-width: 149px;
 }
 
+.logoutButton__title {
+    background: transparent;
+    border: none;
+    color: #ccc;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+}
+
+.userNav {
+    display: flex;
+    align-items: center;
+}

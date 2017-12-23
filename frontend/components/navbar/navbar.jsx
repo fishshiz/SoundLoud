@@ -30,7 +30,7 @@ export default ({ currentArtist, logout }) => {
                     </a>
                 </div>
                 <div className="header__soundInput left">
-                    <button className="logoutButton__title" onClick={logout}>logout</button>
+                    <button className="logoutButton__title" onClick={logout}>Logout</button>
                 </div>
                 <div className="header__userNav">
                     <div className="userNav sc-clearfix">
