@@ -17,7 +17,7 @@ export default class SessionForm extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if(nextProps.loggedIn) {
-          this.props.history.push('/dashboard');
+          this.props.history.push('/stream');
           this.props.closeModal();
         }
     }
