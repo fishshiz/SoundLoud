@@ -32,12 +32,14 @@ export default ({ currentArtist, logout }) => {
                 <div className="header__soundInput left">
                     <button className="logoutButton__title" onClick={logout}>Logout</button>
                 </div>
+                        <div className="image userNav__item userNav__avatar m-user image__lightOutline readOnly customImage sc-artwork sc-artwork-placeholder-1 image__rounded m-loaded">
+                        <a href="/edan" className="userNav__button userNav__usernameButton">
+                        <img className="sc-artwork sc-artwork-placeholder-1 image__rounded image__full g-opacity-transition" src={currentArtist.image_url} />
+                        </a>
+                        </div>
                 <div className="header__userNav">
                     <div className="userNav sc-clearfix">
                         <a href="/edan" className="userNav__button userNav__usernameButton">
-                        <div className="image userNav__item userNav__avatar m-user image__lightOutline readOnly customImage sc-artwork sc-artwork-placeholder-1 image__rounded m-loaded">
-                        <img className="sc-artwork sc-artwork-placeholder-1 image__rounded image__full g-opacity-transition" src={currentArtist.image_url} />
-                        </div>
                             <div className="userNav__item">
                                 <div className="userNav__username sc-truncate">{currentArtist.name}</div>
                             </div>
