@@ -223,3 +223,19 @@ form {
     display: flex;
     align-items: center;
 }
+
+.userNav__avatar {
+    height: 26px;
+    width: 26px;
+}
+
+.image__lightOutline .image__full {
+    box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
+}
+
+.image__rounded {
+    width: 26px;
+    height: 26px;
+    opacity: 1;
+    border-radius: 50%;
+}
