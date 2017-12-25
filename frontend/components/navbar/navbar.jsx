@@ -34,13 +34,13 @@ export default ({ currentArtist, logout }) => {
                     <button className="logoutButton__title" onClick={logout}>Logout</button>
                 </div>
                         <div className="image userNav__item userNav__avatar m-user image__lightOutline readOnly customImage sc-artwork sc-artwork-placeholder-1 image__rounded m-loaded">
-                        <Link to={`/artists/${currentArtist.name}`} className="userNav__button userNav__usernameButton">
+                        <Link to={`/artists/${currentArtist.id}`} className="userNav__button userNav__usernameButton">
                         <img className="sc-artwork sc-artwork-placeholder-1 image__rounded image__full g-opacity-transition" src={currentArtist.image_url} />
                         </Link>
                         </div>
                 <div className="header__userNav">
                     <div className="userNav sc-clearfix">
-                        <Link to={`/artists/${currentArtist.name}`} className="userNav__button userNav__usernameButton">
+                        <Link to={`/artists/${currentArtist.id}`} className="userNav__button userNav__usernameButton">
                             <div className="userNav__item">
                                 <div className="userNav__username sc-truncate">{currentArtist.name}</div>
                             </div>

@@ -18,7 +18,7 @@ const App = () => (
     <ModalContainer />
     </header>
     <ProtectedRoute exact path="/stream" component={StreamContainer} />
-    <ProtectedRoute exact path="/artists/:artistName" component={ArtistShowContainer} />
+    <ProtectedRoute exact path="/artists/:artistId" component={ArtistShowContainer} />
     <ProtectedRoute exact path="/upload" component={ArtistShowContainer} />
 
   </div>
