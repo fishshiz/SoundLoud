@@ -9,6 +9,15 @@ class Api::ArtistsController < ApplicationController
         end
     end
 
+    def show
+        @artist = Artist.find_by(id: params[:id])
+        if @artist
+            render :show
+        else
+            render json: ["Artist not found."], status: 404
+        end
+    end
+
     private
     
     def artist_params

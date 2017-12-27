@@ -234,8 +234,11 @@ form {
 }
 
 .image__rounded {
+    border-radius: 50%;
+}
+
+.header_nav_pic {
     width: 26px;
     height: 26px;
     opacity: 1;
-    border-radius: 50%;
 }

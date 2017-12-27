@@ -1,14 +1,26 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import ArtistShow from './artist_show';
+import { fetchArtist, updateArtist } from '../../actions/artist_actions';
+import ArtistPage from './artist_show';
+import { withRouter } from 'react-router';
 
-import { logout } from '../../actions/session_actions';
+const mapStateToProps = (state, ownProps) => {
 
-const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+  const artistId = parseInt(ownProps.match.params.artistId);
+console.log(state.entities);
+  return {
+    artistId,
+    artist: state.entities.artists[artistId],
+    currentArtist: state.session.currentArtist,
+  };
+};
+
+
+const mapDispatchToProps = dispatch => ({
+  fetchArtist: id => dispatch(fetchArtist(id)),
+  updateArtist: artist => dispatch(updateArtist(artist))
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
-  null
-)(ArtistShow);
+  mapDispatchToProps
+)(ArtistPage));

@@ -3,7 +3,6 @@ import Modal from './modal';
 import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ui}) => {
-    console.log(ui);
     return {
         modalType: ui.modal.modalType
     };

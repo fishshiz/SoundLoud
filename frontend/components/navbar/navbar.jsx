@@ -35,7 +35,7 @@ export default ({ currentArtist, logout }) => {
                 </div>
                         <div className="image userNav__item userNav__avatar m-user image__lightOutline readOnly customImage sc-artwork sc-artwork-placeholder-1 image__rounded m-loaded">
                         <Link to={`/artists/${currentArtist.id}`} className="userNav__button userNav__usernameButton">
-                        <img className="sc-artwork sc-artwork-placeholder-1 image__rounded image__full g-opacity-transition" src={currentArtist.image_url} />
+                        <img className="header_nav_pic sc-artwork sc-artwork-placeholder-1 image__rounded image__full g-opacity-transition" src={currentArtist.image_url} />
                         </Link>
                         </div>
                 <div className="header__userNav">
