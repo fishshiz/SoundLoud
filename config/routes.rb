@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :upload, only: [:create] do
       post "payload_request", on: :collection
     end
+    resources :tracks, only: [:create, :index, :show]
   end
 
   root "static_pages#root"

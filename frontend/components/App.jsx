@@ -7,6 +7,7 @@ import StreamContainer from './stream/stream_container';
 import NavBarContainer from './navbar/navbar_container';
 import ArtistShowContainer from './artist/artist_show_container';
 import EditContainer from './artist/edit_container';
+import UploadContainer from './track/upload_container';
 
 
 const App = () => (
@@ -20,7 +21,7 @@ const App = () => (
     </header>
     <ProtectedRoute exact path="/stream" component={StreamContainer} />
     <ProtectedRoute exact path="/artists/:artistId" component={ArtistShowContainer} />
-    <ProtectedRoute exact path="/upload" component={ArtistShowContainer} />
+    <ProtectedRoute exact path="/upload" component={UploadContainer} />
     <ProtectedRoute exact path="/edit" component={EditContainer} />
 
 
