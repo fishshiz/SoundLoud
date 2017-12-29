@@ -2,7 +2,8 @@ class Artist < ApplicationRecord
     validates :name, :session_token, :password_digest, presence: true
     validates :email, presence: true, uniqueness: true
     validates :password, length: { minimum: 6, allow_nil: true }
-
+    
+    has_many :tracks
 
     has_attached_file :image, default_url: "missing.png"
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/

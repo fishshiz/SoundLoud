@@ -53,6 +53,7 @@ class artistPage extends React.Component {
                     <h3 className="profileHeaderInfo__userName g-type-shrinkwrap-block g-type-shrinkwrap-large-primary">
                         { this.props.artist.name }
                     </h3>
+                    <h3> {this.props.artist.bio } </h3>
                 </div>
             </div>
             {this.conditionalEditButton()}

@@ -39,7 +39,9 @@ class Edit extends React.Component {
       let formData = new FormData();
       
       formData.append("artist[bio]", bio);
-      formData.append("artist[image]", imageFile);
+      if (imageFile) {
+          formData.append("artist[image]", imageFile);
+      }
 
       this.props.updateArtist(formData, this.props.currentArtist.id).then(() => this.props.history.push(`/artists/${this.state.id}`));
     }
