@@ -11,7 +11,12 @@ class Api::TracksController < ApplicationController
     end
 
     def show
-        
+        @track = Track.find_by(id: params[:id])
+        if @track
+            render :show
+        else
+            render json: ['Track not found'], status: 422
+        end
     end
 
     private

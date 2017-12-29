@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ArtistTrackIndex from '../track/artist_track_index';
+import TrackIndexItem from '../track/track_index_item';
 
 
 class artistPage extends React.Component {
@@ -7,6 +9,7 @@ class artistPage extends React.Component {
     super(props);
     console.log(props);
     this.conditionalEditButton = this.conditionalEditButton.bind(this);
+    this.trackList = this.trackList.bind(this);
   }
 
   componentDidMount() {
@@ -17,6 +20,27 @@ class artistPage extends React.Component {
   componentWillReceiveProps(newProps) {
     if(this.props.artistId !== newProps.artistId) {
       this.props.fetchArtist(newProps.artistId);
+    }
+  }
+
+  trackList() {
+    const tracks = this.props.tracks;
+    console.log(tracks.length);
+    if (tracks.length !== 0) {
+      return (
+        <div className="track-list">
+          {Object.values(tracks).map((track, idx) => <TrackIndexItem
+            className="track"
+            track={track}
+            key={idx} />)}
+          </div>
+        );
+    } else {
+      return (
+        <div className="empty-track-list">
+          <h3>This artist does not have any tracks... yet.</h3>
+        </div>
+      );
     }
   }
 
@@ -58,7 +82,9 @@ class artistPage extends React.Component {
             </div>
             {this.conditionalEditButton()}
         </div>
+        {this.trackList()}
         </div>
+            
         </div>
       );
     }

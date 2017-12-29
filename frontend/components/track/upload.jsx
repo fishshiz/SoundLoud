@@ -8,6 +8,7 @@ class Upload extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.updateAudioFile = this.updateAudioFile.bind(this);
   }
 
 //   componentDidMount() {
@@ -63,11 +64,16 @@ class Upload extends React.Component {
 
     form() {
       return (
-
+        <div className="l-container l-content">
+        <div>
+            <div className="l-main-upload">
+            <div className="uploadMain upsell">
+            <div className="uploadMain__chooserContainer sc-border-light g-shadow-light">
+            <div className="uploadMain__title"><h2>Upload to SoundLoud</h2></div>
           <form className="track-form"
             onSubmit={this.handleSubmit}>
               <div className="form-side">
-                <h2>Update your Page</h2>
+                
                 
                 <label>
                   Upload Photo:
@@ -96,7 +102,11 @@ class Upload extends React.Component {
               <img className="upload-display" src={this.state.imageUrl} />
             </div>
           </form>
-
+          </div>
+          </div>
+          </div>
+          </div>
+        </div>
       );
     
   }

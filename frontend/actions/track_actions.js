@@ -7,8 +7,8 @@ export const createTrack = track => dispatch => (
   then(track => (dispatch(receiveTrack(track))))
 );
 
-export const fetchTracks = artistId => dispatch => (
-  TrackAPIUtil.fetchTracks(artistId).
+export const fetchArtistTracks = artistId => dispatch => (
+  TrackAPIUtil.fetchArtistTracks(artistId).
   then(tracks => dispatch(receiveTracks(tracks)))
 );
 

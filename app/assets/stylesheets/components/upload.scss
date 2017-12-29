@@ -1,0 +1,28 @@
+@import '../base/colors.scss';
+.uploadMain {
+    margin: auto;
+    padding: 30px 0;
+    width: 800px;
+}
+
+.uploadMain__chooserContainer {
+    position: relative;
+    margin: 0 0 5px 0;
+    border-radius: 2px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.g-shadow-light {
+    box-shadow: 0 2px 12px -5px rgba(0,0,0,.1);
+}
+
+.sc-border-light {
+    border: 1px solid #f2f2f2;
+}
+
+.uploadMain__title {
+    padding: 36px 0 0;
+    font-size: 24px;
+    line-height: 1;
+}

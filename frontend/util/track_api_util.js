@@ -17,7 +17,7 @@ export const fetchTrack = id => {
   });
 };
 
-export const fetchTracks = id => {
+export const fetchArtistTracks = id => {
   $.ajax({
     url: `api/artists/${id}/tracks`,
     method: 'GET'
