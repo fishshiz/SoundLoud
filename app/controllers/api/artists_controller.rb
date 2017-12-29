@@ -18,10 +18,23 @@ class Api::ArtistsController < ApplicationController
         end
     end
 
+    def update
+        @artist = current_artist
+        if @artist.update_attributes(update_params)
+            render 'api/artists/show'
+        else
+            render json: @artist.errors.full_messages, status: 422
+        end
+    end
+
     private
     
     def artist_params
         params.require(:artist).permit(:name, :email, :password)
+    end
+
+    def update_params
+        params.require(:artist).permit(:bio, :image)
     end
 
 end

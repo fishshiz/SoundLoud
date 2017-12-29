@@ -13,15 +13,17 @@ export const fetchArtist = id => (
     })
   );
   
-  export const updateArtist = artist => (
+  export const updateArtist = (formData, id) => (
     $.ajax({
-      url: `api/artist/${artist.id}`,
+      url: `/api/artists/${id}`,
       method: 'PATCH',
       processData: false,
       contentType: false,
-      data: artist,
+      dataType: 'json',
+      data: formData
     })
   );
+  
   
   export const deleteArtist = id => (
     $.ajax({
