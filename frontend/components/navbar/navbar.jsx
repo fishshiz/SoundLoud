@@ -8,11 +8,11 @@ export default ({ currentArtist, logout }) => {
         <div className="header__inner l-container l-fullwidth">
             <div className="header__left">
                 <div className="header__logo left">
-                    <a href="/" title="Home" className="header__logoLink sc-border-box sc-ir">SoundLoud</a>
+                    <Link to="/" title="Home" className="header__logoLink sc-border-box sc-ir">SoundLoud</Link>
                 </div>
                 <nav className="left header__navWrapper" role="navigation">
                     <ul className="header__navMenu header__mainMenu left sc-list-nostyle">
-                        <li><a className="header__mainMenu-loggedInHome header__mainMenu-stream selected" href="/">Home</a></li>
+                        <li><Link className="header__mainMenu-loggedInHome header__mainMenu-stream selected" to="/">Home</Link></li>
                     </ul>
                 </nav>
             </div>

@@ -2,14 +2,10 @@ import { connect } from 'react-redux';
 import Player from './player';
 
 const mapStateToProps = ({ ui }) => ({
-  
-});
-
-const mapDispatchToProps = dispatch => ({
-  
+  track: ui.player.track
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(Player);

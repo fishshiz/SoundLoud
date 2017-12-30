@@ -2,12 +2,40 @@ import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 
 export default class Player extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            track: { id: '', title: '', imageUrl: '', audio_url: '' },
+        };
+    }
+    
+    componentDidMount(track) {
+        
+        this.setState({track });
+    }
+    
+    componentWillReceiveProps(nextProps) {
+        this.setState({ track: nextProps.track });
+        console.log(nextProps.track);
+    }
+    
+    shouldComponentUpdate(nextProps) {
+        console.log(nextProps)
+        if(this.props.track !== nextProps.track) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 
     render() {
+        const {track} = this.state;
+        
+        console.log(track);
         return (
             <ReactAudioPlayer
-            src="http://s3-us-west-1.amazonaws.com/soundloud-dev/tracks/audios/000/000/004/original/Remo_Drive_-_Im_My_Own_Doctor.mp3?1514585869"
+            src={track.audio_url}
             autoPlay
             controls
             />

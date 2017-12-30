@@ -6,7 +6,6 @@ import { withRouter } from 'react-router';
 const mapStateToProps = (state, ownProps) => {
 
   const artistId = parseInt(ownProps.match.params.artistId);
-console.log(state.entities);
   return {
     artistId,
     artist: state.entities.artists[artistId],

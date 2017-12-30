@@ -2,7 +2,6 @@ import React from 'react';
 import TrackIndexItem from './track_index_item';
 
 const TrackIndex = ({tracks, artists}) => {
-    console.log(artists);
     return (
         <ul className="soundList sc-list-nostyle">
             {

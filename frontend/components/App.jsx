@@ -8,7 +8,7 @@ import NavBarContainer from './navbar/navbar_container';
 import ArtistShowContainer from './artist/artist_show_container';
 import EditContainer from './artist/edit_container';
 import UploadContainer from './track/upload_container';
-import Player from './player/player';
+import PlayerContainer from './player/player_container';
 
 
 const App = () => (
@@ -26,7 +26,7 @@ const App = () => (
     <ProtectedRoute exact path="/edit" component={EditContainer} />
 
     <footer>
-      <Player />
+      <PlayerContainer />
     </footer>
   </div>
 );
