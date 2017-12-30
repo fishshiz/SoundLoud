@@ -1,0 +1,100 @@
+@import '../base/colors.scss';
+.sc-list-nostyle {
+    list-style: none;
+    margin: 0;
+}
+
+.soundList__item:first-child {
+    padding-top: 0;
+}
+
+.soundList__item {
+    clear: both;
+    margin-bottom: 36px;
+    position: relative;
+}
+
+.sound {
+    height: auto;
+}
+
+.sound__body {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: relative;
+    height: 100%;
+}
+
+.sound__artwork {
+    position: relative;
+    margin-right: 15px;
+}
+
+.sound__coverArt {
+    background: center center/contain no-repeat;
+    display: block;
+    width: 160px;
+    height: 160px;
+    z-index: 2;
+}
+
+.sc-artwork.sc-artwork-placeholder-4 {
+    background-image: linear-gradient(135deg,#70929c,#e6846e);
+}
+
+.image__full, .image {
+    text-align: center;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+.sc-artwork {
+    background-size: cover;
+    background-position: 50% 50%;
+    display: inline-block;
+}
+
+.sound__content {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow-x: hidden;
+}
+
+.sound__header {
+    position: relative;
+    margin: 0 0 6px 0;
+    padding-top: 7px;
+    min-height: 43px;
+    z-index: 2;
+}
+
+.soundTitle__titleContainer {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.soundTitle__usernameTitleContainer {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 0;
+}
+
+.soundTitle.streamContext .soundTitle__title {
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.sound__coverArt img {
+    height: 100%;
+    width: 100%;
+}

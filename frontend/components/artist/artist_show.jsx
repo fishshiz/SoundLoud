@@ -82,9 +82,11 @@ class artistPage extends React.Component {
             </div>
             {this.conditionalEditButton()}
         </div>
-        <TrackIndexContainer artistId={this.props.artist.id} />
         </div>
-            
+        <div className="userStream__list">
+        
+        <TrackIndexContainer artistId={this.props.artist.id} />
+            </div>
         </div>
       );
     }
