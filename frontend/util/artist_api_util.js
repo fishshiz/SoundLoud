@@ -1,8 +1,7 @@
 export const fetchArtist = id => (
     $.ajax({
       url: `api/artists/${id}`,
-      method: 'GET',
-      id
+      method: 'GET'
     })
   );
   

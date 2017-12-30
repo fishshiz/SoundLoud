@@ -1,4 +1,3 @@
-import merge from 'lodash/merge';
 export const createTrack = track => {
   return $.ajax({
     url: 'api/tracks',
@@ -19,7 +18,8 @@ export const fetchTrack = id => {
 
 export const fetchArtistTracks = id => {
   $.ajax({
-    url: `api/artists/${id}/tracks`,
-    method: 'GET'
+    url: `api/tracks`,
+    method: 'GET',
+    id
   });
 };

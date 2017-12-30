@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import { fetchArtist, updateArtist } from '../../actions/artist_actions';
 import ArtistPage from './artist_show';
 import { withRouter } from 'react-router';
-import { fetchArtistTracks } from '../../actions/track_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -11,16 +10,14 @@ console.log(state.entities);
   return {
     artistId,
     artist: state.entities.artists[artistId],
-    currentArtist: state.session.currentArtist,
-    tracks: state.entities.tracks
+    currentArtist: state.session.currentArtist
   };
 };
 
 
 const mapDispatchToProps = dispatch => ({
   fetchArtist: id => dispatch(fetchArtist(id)),
-  updateArtist: artist => dispatch(updateArtist(artist)),
-  fetchArtistTracks: artistId => dispatch(fetchArtistTracks(artistId))
+  updateArtist: artist => dispatch(updateArtist(artist))
 });
 
 export default withRouter(connect(

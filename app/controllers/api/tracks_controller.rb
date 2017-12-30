@@ -19,6 +19,11 @@ class Api::TracksController < ApplicationController
         end
     end
 
+    def index
+        @tracks = Track.select { |track| track.artist_id == params[:artist_id] }
+        render :index
+    end
+
     private
 
     def track_params

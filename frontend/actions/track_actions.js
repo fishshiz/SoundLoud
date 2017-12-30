@@ -17,7 +17,8 @@ export const receiveTrack = track => ({
   track
 });
 
-const receiveTracks = tracks => ({
+const receiveTracks = ({ tracks, artists }) => ({
   type: RECEIVE_TRACKS,
-  tracks
+  tracks,
+  artists
 });

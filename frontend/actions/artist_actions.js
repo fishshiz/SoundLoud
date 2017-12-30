@@ -6,7 +6,7 @@ export const UPDATE_ARTIST = 'UPDATE_ARTIST';
 
 export const fetchArtist = id => dispatch => (
   ArtistAPIUtil.fetchArtist(id).
-  then(artist => (dispatch(receiveArtist(artist))))
+  then(payload => dispatch(receiveArtist(payload)))
 );
 
 export const fetchArtists = () => dispatch => (
@@ -28,9 +28,10 @@ const receiveSearchResults = searchResults => ({
   searchResults
 });
 
-const receiveArtist = artist => ({
+const receiveArtist = ({artist, tracks}) => ({
   type: RECEIVE_ARTIST,
-  artist
+  artist,
+  tracks
 });
 
 const receiveArtists = artists => ({

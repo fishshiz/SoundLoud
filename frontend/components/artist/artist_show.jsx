@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ArtistTrackIndex from '../track/artist_track_index';
+import TrackIndexContainer from '../track/track_index_container';
 import TrackIndexItem from '../track/track_index_item';
 
 
@@ -25,7 +25,7 @@ class artistPage extends React.Component {
 
   trackList() {
     const tracks = this.props.tracks;
-    console.log(tracks.length);
+    console.log(this.props);
     if (tracks.length !== 0) {
       return (
         <div className="track-list">
@@ -82,7 +82,7 @@ class artistPage extends React.Component {
             </div>
             {this.conditionalEditButton()}
         </div>
-        {this.trackList()}
+        <TrackIndexContainer artistId={this.props.artist.id} />
         </div>
             
         </div>
