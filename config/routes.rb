@@ -9,6 +9,9 @@ Rails.application.routes.draw do
       post "payload_request", on: :collection
     end
     resources :tracks, only: [:create, :index, :show]
+    resources :search, only: [:index] do
+      get "tracks_by_artist", on: :collection
+    end
   end
 
   root "static_pages#root"

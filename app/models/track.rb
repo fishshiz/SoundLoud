@@ -8,4 +8,9 @@ class Track < ApplicationRecord
     validates_attachment_content_type :audio, :content_type => [ 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio']
 
     belongs_to :artist
+
+    def self.top_three(query)
+        param = '%' + query_param.downcase + '%'
+        Track.where('lower(name) LIKE ?', param).limit(3)
+    end
 end

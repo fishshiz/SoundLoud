@@ -48,7 +48,7 @@ class artistPage extends React.Component {
     if(this.props.currentArtist.id === this.props.artistId) {
         return (
             <div className="image__button" >
-                <Link  to="/edit"><i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></Link>
+                <Link  to="/edit"><i className="fa fa-pencil-square-o fa-2x" aria-hidden="true">Edit</i></Link>
             </div>
         );
     }

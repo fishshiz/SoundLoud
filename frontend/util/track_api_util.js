@@ -23,3 +23,19 @@ export const fetchArtistTracks = id => {
     id
   });
 };
+
+export const searchMusicDatabase = (query) => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/search',
+    data: {search: { query } }
+  });
+};
+
+export const getTracksByArtist = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/search/tracks_by_artist',
+    data: { search: {artist_id: id} }
+  });
+};

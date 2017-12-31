@@ -32,6 +32,11 @@ class Artist < ApplicationRecord
         self.session_token
     end
 
+    def self.top_three(query)
+        param = '%' + query_param.downcase + '%'
+        Artist.where('lower(name) LIKE ?', param).limit(3)
+    end
+
     private
 
     def ensure_token

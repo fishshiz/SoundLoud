@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchContainer from './search_container';
 
 export default ({ currentArtist, logout }) => {
   const artistPath = currentArtist ? currentArtist.id : '/';

@@ -1,0 +1,54 @@
+.playControls {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    -webkit-perspective: 900;
+    perspective: 900;
+    -webkit-perspective-origin: 80% 100%;
+    perspective-origin: 80% 100%;
+}
+
+.player {
+    width: 80%;
+}
+
+.playbackSoundBadge {
+    height: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.playbackSoundBadge__avatar {
+    margin: 0 10px 0 0;
+    height: 30px;
+    width: 30px;
+}
+
+.playbackSoundBadge__titleContextContainer {
+    width: 250px;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    line-height: 1.5em;
+}
+
+.playbackSoundBadge__lightLink {
+    font-size: 11px;
+    line-height: 16px;
+}
+
+.sc-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: normal;
+}
+
+.playControls__wrapper {
+    display: flex;
+    justify-content: space-between;
+}

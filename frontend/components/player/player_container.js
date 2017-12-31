@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import Player from './player';
 
-const mapStateToProps = ({ ui }) => ({
-  track: ui.player.track
+const mapStateToProps = (state) => ({
+  track: state.ui.player.track,
+  artists: state.entities.artists
 });
 
 export default connect(
