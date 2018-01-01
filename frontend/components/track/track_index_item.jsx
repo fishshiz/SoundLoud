@@ -17,7 +17,7 @@ const TrackIndexItem = ({ track, artist }) => {
                 <div className="soundTitle sc-clearfix sc-hyphenate sc-type-h2 streamContext">
                   <div className="soundTitle__titleContainer">
                   <div className="soundTitle__playButton">
-                  <TogglePlayContainer track={track} className="sc-button-play playButton sc-button sc-button-xlarge"><i className="fa fa-play" aria-hidden="true"></i></TogglePlayContainer>
+                  <TogglePlayContainer track={track} ></TogglePlayContainer>
                   </div>
                     <div className="soundTitle__usernameTitleContainer">
                       <div className="sc-type-light soundTitle__secondary ">
