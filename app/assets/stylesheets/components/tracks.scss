@@ -126,3 +126,55 @@
     color: white;
     size: 12px 18px;
 }
+
+.sound__footer {
+    position: relative;
+    margin-top: 10px;
+    min-height: 30px;
+    box-sizing: border-box;
+}
+
+.g-all-transitions-300 {
+    transition: all 300ms ease-in-out;
+}
+
+.sound__footerRight {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.sc-ministats-group {
+    list-style: none;
+    margin: 0;
+}
+
+.sc-ministats-group>.sc-ministats-item {
+    float: left;
+}
+
+.sc-ministats-group .sc-ministats-small {
+    margin-right: 5px;
+    padding-right: 4px;
+}
+
+.sc-ministats-group .sc-ministats {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 7px;
+    padding-right: 6px;
+}
+
+.sc-ministats-small {
+    color: #999;
+    font-size: 11px;
+    line-height: 12px;
+}
+
+.sc-ministats {
+    display: inline-block;
+    font-family: "InterstateSound Tnum","Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    color: #999;
+}

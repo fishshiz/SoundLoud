@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :upload, only: [:create] do
       post "payload_request", on: :collection
     end
-    resources :tracks, only: [:create, :index, :show]
+    resources :tracks, only: [:create, :index, :show, :update]
     resources :search, only: [:index] do
       get "tracks_by_artist", on: :collection
     end

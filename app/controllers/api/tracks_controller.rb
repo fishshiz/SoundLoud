@@ -24,6 +24,17 @@ class Api::TracksController < ApplicationController
         render :index
     end
 
+    def update
+        @track = Track.find_by(id: params[:id])
+        if @track
+            @track.play_count += 1
+            @track.save!
+            render :show
+        else
+            render json: @track.errors.full_messages, status: 422
+        end
+      end
+
     private
 
     def track_params

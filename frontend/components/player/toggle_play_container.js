@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
 import TogglePlay from './toggle_play';
-import { getPlay } from '../../actions/player_actions';
+import { getPlay, getPause } from '../../actions/player_actions';
 
 const mapStateToProps = ({ ui }) => ({
-  trackId: ui.player.trackId
+  trackId: ui.player.trackId,
+  paused: ui.player.paused
 });
 
 const mapDispatchToProps = dispatch => ({
-    play: track => dispatch(getPlay(track))
+    play: track => dispatch(getPlay(track)),
+    pause: track => dispatch(getPause(track)),
 });
 
 export default connect(

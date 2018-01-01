@@ -10,11 +10,16 @@ export default class Player extends React.Component {
             track: { id: '', title: '', imageUrl: '', audio_url: '' }
         };
         this.grabArtistName = this.grabArtistName.bind(this);
+        this.updatePlayCount = this.updatePlayCount.bind(this);
     }
     
     componentDidMount(track) {
         
         this.setState({track });
+    }
+
+    updatePlayCount() {
+        this.props.incrementPlayCount(this.state.track.id)
     }
     
     componentWillReceiveProps(nextProps) {
@@ -58,6 +63,7 @@ export default class Player extends React.Component {
             style={{'display': 'flex', 'alignItems': 'center', 'backgroundColor': 'orange', 'color': 'orange' }}
             autoPlay
             controls
+            onPlay={this.updatePlayCount}
             />
             <div className="playbackSoundBadge">
             <img className="playbackSoundBadge__avatar sc-media-image" src={track.image_url} />

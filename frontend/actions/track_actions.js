@@ -25,6 +25,11 @@ export const fetchSongsByArtist = (id) => (dispatch) => (
   )
 );
 
+export const incrementPlayCount = trackId => dispatch => (
+  TrackAPIUtil.incrementPlayCount(trackId).then(
+    track => dispatch(receiveTrack(track)))
+);
+
 export const receiveTrack = track => ({
   type: RECEIVE_TRACK,
   track

@@ -1,4 +1,4 @@
-import { PLAY_TRACK, FETCH_CURRENT_TRACK } from '../actions/player_actions';
+import { PLAY_TRACK, PAUSE_TRACK, FETCH_CURRENT_TRACK } from '../actions/player_actions';
 import merge from 'lodash/merge';
 
 const _nullPlayer = {
@@ -14,6 +14,9 @@ const playerReducer = (state = _nullPlayer, action) => {
     switch(action.type) {
         case PLAY_TRACK:
         return action.payload;
+        case PAUSE_TRACK:
+        newState = merge({}, state);
+        return newState;
         case FETCH_CURRENT_TRACK:
         if (action.trackId === state.trackId) {
         newState = merge({}, state);

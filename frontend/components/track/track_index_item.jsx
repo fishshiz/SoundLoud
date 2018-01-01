@@ -33,6 +33,20 @@ const TrackIndexItem = ({ track, artist }) => {
                   {track.description}
                 </div>
               </div>
+              <div className="sound__footer g-all-transitions-300">
+                <div className="sound__footerRight">
+                  <div className="sound__soundStats">
+                    <ul className="soundStats sc-ministats-group">
+                      <li className="sc-ministats-item">
+                      <i className="sc-ministats-small fa fa-play" aria-hidden="true"></i>
+                        <span className="sc-ministats sc-ministats-small sc-ministats-plays">
+                          {track.play_count}
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -39,3 +39,10 @@ export const getTracksByArtist = (id) => {
     data: { search: {artist_id: id} }
   });
 };
+
+export const incrementPlayCount = (trackId) => (
+  $.ajax({
+    url: `api/tracks/${trackId}`,
+    method: 'PATCH'
+  })
+);
