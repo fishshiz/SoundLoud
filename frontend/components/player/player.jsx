@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
-import Link from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export default class Player extends React.Component {
     constructor(props) {
@@ -41,7 +41,7 @@ export default class Player extends React.Component {
         if(this.state.track.id !== '') {
             const artist = this.props.artists[this.state.track.artist_id];
             return (
-                <div to={`/artists/${artist.id}`}>{artist.name}</div>
+                <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
             );
         } else {
             return null;
