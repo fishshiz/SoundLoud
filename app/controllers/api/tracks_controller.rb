@@ -29,11 +29,17 @@ class Api::TracksController < ApplicationController
         if @track
             @track.play_count += 1
             @track.save!
-            render :show
+            render :track
         else
             render json: @track.errors.full_messages, status: 422
         end
       end
+
+    def destroy
+        @track = current_artist.tracks.find(params[:id])
+        @track.destroy!
+        render :track
+    end
 
     private
 

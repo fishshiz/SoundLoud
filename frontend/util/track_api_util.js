@@ -46,3 +46,10 @@ export const incrementPlayCount = (trackId) => (
     method: 'PATCH'
   })
 );
+
+export const destroyTrack = (track) => (
+  $.ajax({
+    url: `api/tracks/${track.id}`,
+    method: 'DELETE'
+  })
+);

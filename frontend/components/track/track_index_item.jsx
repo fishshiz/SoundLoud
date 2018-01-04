@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TogglePlayContainer from '../player/toggle_play_container';
+import DeleteTrackContainer from './delete_track_container';
 
-const TrackIndexItem = ({ track, artist }) => {
+const TrackIndexItem = ({currentArtist, track, artist }) => {
     return (
       <div className="userStreamItem">
         <div className="sound streamContext owned">
@@ -13,11 +14,13 @@ const TrackIndexItem = ({ track, artist }) => {
               </div>
             </div>
             <div className="sound__content">
+            
               <div className="sound__header">
                 <div className="soundTitle sc-clearfix sc-hyphenate sc-type-h2 streamContext">
                   <div className="soundTitle__titleContainer">
+                  
                   <div className="soundTitle__playButton">
-                  <TogglePlayContainer track={track} ></TogglePlayContainer>
+                  <TogglePlayContainer track={track} />
                   </div>
                     <div className="soundTitle__usernameTitleContainer">
                       <div className="sc-type-light soundTitle__secondary ">
@@ -32,7 +35,14 @@ const TrackIndexItem = ({ track, artist }) => {
                   </div>
                   {track.description}
                 </div>
+                {
+                currentArtist.id === artist.id ? (
+                  <DeleteTrackContainer track={track} />
+                ) : null
+              }
+              
               </div>
+              
               <div className="sound__footer g-all-transitions-300">
                 <div className="sound__footerRight">
                   <div className="sound__soundStats">

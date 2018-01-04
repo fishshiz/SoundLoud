@@ -78,3 +78,27 @@
 .l-user-hero {
     display: block;
 }
+
+.image__button {
+    border-radius: 10px;
+    background-color: transparent;
+    width: 86px;
+}
+
+.fa-pencil {
+    padding-right: 13px;
+}
+
+.edit__link {
+    color: white;   
+}
+
+.l-container {
+    padding: 0 30px;
+    width: 1180px;
+    margin: 0 auto;
+}
+
+.l-container.l-content {
+    padding-top: 46px;
+}

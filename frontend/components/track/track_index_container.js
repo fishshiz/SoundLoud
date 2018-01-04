@@ -1,19 +1,22 @@
 import { connect } from 'react-redux';
 import TrackIndex from './track_index';
 import { tracksArray } from '../../reducers/selector';
-import { requestTracksByArtist } from '../../actions/track_actions';
+import { requestTracksByArtist, deleteTrack } from '../../actions/track_actions';
 import { getPlay } from '../../actions/player_actions';
 
-const mapStateToProps = (state, { artistId }) => ({
+const mapStateToProps = (state) => ({
     tracks: tracksArray(state),
-    artists: state.entities.artists
+    artists: state.entities.artists,
+    currentArtist: state.session.currentArtist
   });
   
-  const mapDispatchToProps = (dispatch) => {
+  const mapDispatchToProps = (dispatch, { track }) => {
   
     const getTracks = (artistId) => dispatch(requestTracksByArtist(artistId));
   
-    return { getTracks, getPlay };
+    return { getTracks,
+       getPlay,
+      destroyTrack: () => dispatch(deleteTrack(track)) };
   };
   
   export default connect(

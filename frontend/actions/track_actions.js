@@ -1,7 +1,8 @@
 import * as TrackAPIUtil from '../util/track_api_util';
 export const RECEIVE_TRACK = 'RECEIVE_TRACK';
 export const RECEIVE_TRACKS = 'RECEIVE_TRACKS';
-export const RECEIVE_SEARCH_RESULTS = "RECEIVE_SEARCH_RESULTS";
+export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
+export const REMOVE_TRACK = 'REMOVE_TRACK';
 
 export const createTrack = track => dispatch => (
   TrackAPIUtil.createTrack(track).
@@ -30,6 +31,11 @@ export const incrementPlayCount = trackId => dispatch => (
     track => dispatch(receiveTrack(track)))
 );
 
+export const deleteTrack = track => dispatch => (
+  TrackAPIUtil.destroyTrack(track).then(
+    track => dispatch(removeTrack(track)))
+);
+
 export const receiveTrack = track => ({
   type: RECEIVE_TRACK,
   track
@@ -44,4 +50,9 @@ const receiveTracks = ({ tracks, artists }) => ({
 const receiveSearchResults = (searchResults) => ({
   type: RECEIVE_SEARCH_RESULTS,
   searchResults
+});
+
+export const removeTrack = track => ({
+  type: REMOVE_TRACK,
+  track
 });
