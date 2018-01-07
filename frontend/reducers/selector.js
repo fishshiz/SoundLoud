@@ -5,5 +5,5 @@ export const tracksArray = state => {
 };
 
 export const searchResults = state => (
-  values(state.search)
+  values(state.entities.searches)
 );

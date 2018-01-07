@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  searchDatabase: (query) => dispatch(searchDatabase(query))
+  searchDatabase: (query) => dispatch(searchDatabase(query)),
+  clearSearchResults: () => dispatch(clearSearchResults())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
