@@ -20,8 +20,7 @@ export default ({ currentArtist, logout }) => {
             <div className="header__middle">
                 <div className="header__search" role="search">
                     <form className="headerSearch">
-                        <input className="headerSearch__input sc-input g-all-transitions-300" placeholder="Search" type="search" />
-                        <button className="headerSearch__submit submit sc-ir" type="submit">Search</button>
+                        <SearchContainer />
                     </form>
                 </div>
             </div>

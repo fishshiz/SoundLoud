@@ -1,10 +1,11 @@
 import {connect} from 'react-redux';
 import Search from './search';
-import {searchDatabase} from '../../actions/track_actions';
+import {searchDatabase, clearSearchResults} from '../../actions/search_actions';
+import { searchResults } from '../../reducers/selector';
 
 const mapStateToProps = (state) => ({
   currentArtist: state.session.currentArtist,
-  searchResults: state.entities.searchResults
+  searchResults: searchResults(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

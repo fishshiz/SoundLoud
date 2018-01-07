@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class Player extends React.Component {
     constructor(props) {
@@ -13,13 +13,12 @@ export default class Player extends React.Component {
         this.updatePlayCount = this.updatePlayCount.bind(this);
     }
     
-    componentDidMount(track) {
-        
-        this.setState({track });
+    componentDidMount(track) {    
+        this.setState({ track });
     }
 
     updatePlayCount() {
-        this.props.incrementPlayCount(this.state.track.id)
+        this.props.incrementPlayCount(this.state.track.id);
     }
     
     componentWillReceiveProps(nextProps) {

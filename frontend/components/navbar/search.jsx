@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchResults from './search_results';
 
 export default class Search extends React.Component {
     constructor(props) {
@@ -19,16 +20,20 @@ export default class Search extends React.Component {
 }
 
     clearState() {
-        this.setState({ searchVal: '' });
+        this.setState({ input: '' });
+        setTimeout( () => {
+            this.props.clearSearchResults();
+          }, 400);
       }
 
       render() {
           return (
               <div>
-            <input onChange={this.handleChange} type="text"
-            placeholder="Search for a song, artist, or album"
+            <input className="headerSearch__input sc-input g-all-transitions-300" onChange={this.handleChange} type="text"
+            placeholder="Search"
             value={this.state.input}></input>
-          
+            <button className="headerSearch__submit submit sc-ir" type="submit">Search</button>
+            <SearchResults value={this.state.input} results={this.props.searchResults}/>
             </div>
           );
       }

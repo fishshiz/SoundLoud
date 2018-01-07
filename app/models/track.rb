@@ -10,7 +10,7 @@ class Track < ApplicationRecord
     belongs_to :artist
 
     def self.top_three(query)
-        param = '%' + query_param.downcase + '%'
-        Track.where('lower(name) LIKE ?', param).limit(3)
+        param = '%' + query.downcase + '%'
+        Track.where('lower(title) LIKE ?', param).limit(3)
     end
 end
