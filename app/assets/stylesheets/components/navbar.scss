@@ -237,3 +237,33 @@ form {
     height: 26px;
     opacity: 1;
 }
+
+.dropdownMenu {
+    outline: none;
+    width: 581px;
+    min-height: auto;
+    position: fixed;
+    top: 46px;
+    left: 210px;
+    background-color: #333;
+}
+
+.search-img {
+    width: 26px;
+    height: 26px;
+    padding: 5px;
+}
+
+.search-link {
+    display: flex;
+    justify-content: space-between;
+    width: 581px;
+}
+
+.search-link:hover {
+    background-color: #666;
+}
+
+.search-results-li {
+    
+}

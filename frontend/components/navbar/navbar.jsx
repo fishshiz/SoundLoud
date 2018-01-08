@@ -19,9 +19,9 @@ export default ({ currentArtist, logout }) => {
             </div>
             <div className="header__middle">
                 <div className="header__search" role="search">
-                    <form className="headerSearch">
+                    
                         <SearchContainer />
-                    </form>
+                    
                 </div>
             </div>
             <div className="header__right sc-clearfix">
