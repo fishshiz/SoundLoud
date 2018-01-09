@@ -3,14 +3,17 @@ import { Link } from 'react-router-dom';
 import TogglePlayContainer from '../player/toggle_play_container';
 import DeleteTrackContainer from './delete_track_container';
 
-const TrackIndexItem = ({currentArtist, track, artist }) => {
+const TrackIndexItem = ({ currentArtist, track, artist }) => {
+  console.log("TEATSTSETSETSETDFSDF");
+  console.log(artist);
+  console.log(track);
     return (
       <div className="userStreamItem">
         <div className="sound streamContext owned">
           <div className="sound__body">
             <div className="sound__artwork">
               <div className="sound__coverArt">
-                  <img src={track.image_url}/>
+                  <img src={ track.image_url }/>
               </div>
             </div>
             <div className="sound__content">
@@ -20,7 +23,7 @@ const TrackIndexItem = ({currentArtist, track, artist }) => {
                   <div className="soundTitle__titleContainer">
                   
                   <div className="soundTitle__playButton">
-                  <TogglePlayContainer track={track} />
+                  <TogglePlayContainer track={ track } />
                   </div>
                     <div className="soundTitle__usernameTitleContainer">
                       <div className="sc-type-light soundTitle__secondary ">

@@ -257,7 +257,12 @@ form {
 .search-link {
     display: flex;
     justify-content: space-between;
-    width: 581px;
+
+}
+
+.img-name-search {
+    display: flex;
+    justify-content: space-around;
 }
 
 .search-link:hover {
@@ -265,5 +270,15 @@ form {
 }
 
 .search-results-li {
-    
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.name-search {
+    padding: 5px;
+}
+
+.search-icon {
+    padding: 5px;
 }

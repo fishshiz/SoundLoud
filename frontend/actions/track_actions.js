@@ -1,7 +1,6 @@
 import * as TrackAPIUtil from '../util/track_api_util';
 export const RECEIVE_TRACK = 'RECEIVE_TRACK';
 export const RECEIVE_TRACKS = 'RECEIVE_TRACKS';
-export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 export const REMOVE_TRACK = 'REMOVE_TRACK';
 
 export const createTrack = track => dispatch => (
@@ -12,12 +11,6 @@ export const createTrack = track => dispatch => (
 export const fetchArtistTracks = artistId => dispatch => (
   TrackAPIUtil.fetchArtistTracks(artistId).
   then(tracks => dispatch(receiveTracks(tracks)))
-);
-
-export const searchDatabase = (query) => (dispatch) => (
-  TrackAPIUtil.searchMusicDatabase(query).then(
-    (results) => dispatch(receiveSearchResults(results))
-  )
 );
 
 export const fetchSongsByArtist = (id) => (dispatch) => (
@@ -45,11 +38,6 @@ const receiveTracks = ({ tracks, artists }) => ({
   type: RECEIVE_TRACKS,
   tracks,
   artists
-});
-
-const receiveSearchResults = (searchResults) => ({
-  type: RECEIVE_SEARCH_RESULTS,
-  searchResults
 });
 
 export const removeTrack = track => ({

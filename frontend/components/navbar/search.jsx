@@ -12,6 +12,10 @@ export default class Search extends React.Component {
 
     handleChange(e) {
     e.preventDefault();
+    if (e.target.value === '') {
+        this.setState({ input: '' });
+        setTimeout(() => this.props.clearSearchResults(), 100);
+    }
 
     const newVal = e.target.value;
     this.setState({ input: newVal }, () => {
@@ -21,7 +25,8 @@ export default class Search extends React.Component {
 
     clearState() {
         this.setState({ input: '' });
-        this.props.clearSearchResults();
+        setTimeout(() => this.props.clearSearchResults(), 200);
+        // this.props.clearSearchResults();
       }
 
       render() {
