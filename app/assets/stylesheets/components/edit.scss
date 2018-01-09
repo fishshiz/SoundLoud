@@ -1,0 +1,70 @@
+@import '../base/colors.scss';
+
+.artist-form {
+    width: 850px;
+    left: 215px;
+    margin-top: 76px;
+    height: auto;
+    margin: 76px 0 30px;
+    position: absolute;
+    top: 0;
+    padding: 25px;
+    background: #fff;
+}
+
+.for-content {
+    color: $black;
+}
+
+.artist-form-title{
+    font-size: 22px;
+    line-height: 1;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #f2f2f2;
+    margin-bottom: 24px;
+}
+
+.profileSettings__avatar {
+    margin-right: 18px;
+}
+
+.editImage {
+    position: relative;
+    width: 260px;
+}
+
+.upload-display {
+    width: 260px;
+    height: 260px;
+    opacity: 1;
+    box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
+}
+
+.profileSettings__cell.m-fullWidth {
+    width: 100%;
+}
+
+.profileSettings__cell {
+    margin-bottom: 15px;
+    width: 48.9%;
+}
+
+.textfield__label {
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+.profileSettings__description textarea {
+    height: 66px;
+    resize: vertical;
+}
+
+.textfield__input {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.textfield__inputWrapper {
+    width: 540px;
+}
