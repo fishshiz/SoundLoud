@@ -7,3 +7,7 @@ export const tracksArray = state => {
 export const searchResults = state => (
   values(state.entities.searches)
 );
+
+export const featuredTracks = state => (
+  values(state.entities.featured)
+);

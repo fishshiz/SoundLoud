@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :search, only: [:index] do
       get "tracks_by_artist", on: :collection
     end
+    resources :feature, only: [:index]
   end
 
   root "static_pages#root"

@@ -13,4 +13,8 @@ class Track < ApplicationRecord
         param = '%' + query.downcase + '%'
         Track.where('lower(title) LIKE ?', param).limit(3)
     end
+
+    def self.featured()
+        Track.order('play_count DESC').limit(8)
+    end
 end
