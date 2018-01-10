@@ -4,7 +4,8 @@ import { incrementPlayCount } from '../../actions/track_actions';
 
 const mapStateToProps = (state) => ({
   track: state.ui.player.track,
-  artists: state.entities.artists
+  artists: state.entities.artists,
+  paused: state.ui.player.paused
 });
 
 const mapDispatchToProps = (dispatch) => ({

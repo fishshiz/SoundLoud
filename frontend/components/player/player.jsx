@@ -11,6 +11,7 @@ export default class Player extends React.Component {
         };
         this.grabArtistName = this.grabArtistName.bind(this);
         this.updatePlayCount = this.updatePlayCount.bind(this);
+        this.handleKeyDown = this.handleKeyDown.bind(this);
     }
     
     componentDidMount(track) {    
@@ -33,6 +34,47 @@ export default class Player extends React.Component {
         } else {
             return false;
         }
+    }
+
+    togglePlayPause() {
+        const { audioEl } = this.rap;
+        if(audioEl.paused) {
+            audioEl.play();
+        } else {
+            audioEl.pause();
+        }
+    }
+
+    handleKeyDown(e) {
+    if (
+        e.keyCode === 32 &&
+        e.target === e.currentTarget &&
+        this.state.track.audioUrl
+    ) {
+        this.togglePlayPause();
+    }
+    }
+
+    componentDidMount () {
+        this.rap.audioEl.setAttribute('controlsList', 'nodownload');
+        const body = document.getElementById('body');
+        body.addEventListener('keydown', this.handleKeyDown);
+    }
+
+    componentWillReceiveProps({ track, paused }) {
+        const { audioEl } = this.rap;
+        if (paused && !audioEl.paused) {
+            audioEl.pause();
+        } else if (!paused && audioEl.paused) {
+            audioEl.play();
+        }
+
+        this.setState({ track });
+    }
+
+    componentWillUnmount() {
+        const body = document.getElementById('body');
+        body.removeEventListener('keydown', this.handleKeyDown);
     }
 
     grabArtistName() {
@@ -66,6 +108,7 @@ export default class Player extends React.Component {
             className="player"
             src={track.audio_url}
             style={{'display': 'flex', 'alignItems': 'center', 'backgroundColor': 'orange', 'color': 'orange' }}
+            ref={element => { this.rap = element; }}
             autoPlay
             controls
             onPlay={this.updatePlayCount}

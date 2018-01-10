@@ -241,7 +241,7 @@ form {
     outline: none;
     width: 581px;
     min-height: auto;
-    position: relative;
+    position: absolute;
     // top: 46px;
     // left: 210px;
     background-color: #333;
@@ -272,7 +272,7 @@ form {
 .search-results-li {
     display: flex;
     justify-content: space-around;
-    z-index: 10000;
+    z-index: 100;
 }
 
 .name-search {

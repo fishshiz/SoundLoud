@@ -16,6 +16,7 @@ const playerReducer = (state = _nullPlayer, action) => {
         return action.payload;
         case PAUSE_TRACK:
         newState = merge({}, state);
+        newState.paused = true;
         return newState;
         case FETCH_CURRENT_TRACK:
         if (action.trackId === state.trackId) {
