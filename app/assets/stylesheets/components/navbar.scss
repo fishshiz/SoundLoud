@@ -245,6 +245,7 @@ form {
     // top: 46px;
     // left: 210px;
     background-color: #333;
+    // z-index: -1;
 }
 
 .search-img {
@@ -271,7 +272,7 @@ form {
 .search-results-li {
     display: flex;
     justify-content: space-around;
-
+    z-index: 10000;
 }
 
 .name-search {
