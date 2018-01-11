@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchArtist, updateArtist } from '../../actions/artist_actions';
+import { fetchArtist, updateArtist, clearArtists } from '../../actions/artist_actions';
 import ArtistPage from './artist_show';
 import { withRouter } from 'react-router';
 
@@ -16,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchArtist: id => dispatch(fetchArtist(id)),
-  updateArtist: artist => dispatch(updateArtist(artist))
+  updateArtist: artist => dispatch(updateArtist(artist)),
+  clearArtists: () => dispatch(clearArtists())
 });
 
 export default withRouter(connect(

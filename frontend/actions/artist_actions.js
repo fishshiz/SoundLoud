@@ -3,6 +3,7 @@ export const RECEIVE_ARTIST = 'RECEIVE_ARTIST';
 export const RECEIVE_ARTISTS = 'RECEIVE_ARTISTS';
 export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 export const UPDATE_ARTIST = 'UPDATE_ARTIST';
+export const CLEAR_ARTISTS = 'CLEAR_ARTISTS';
 
 export const fetchArtist = id => dispatch => (
   ArtistAPIUtil.fetchArtist(id).
@@ -23,11 +24,6 @@ export const deleteArtist = id => dispatch => (
   ArtistAPIUtil.deleteArtist(id).then(artist => dispatch(receiveArtist(null)))
 );
 
-const receiveSearchResults = searchResults => ({
-  type: RECEIVE_SEARCH_RESULTS,
-  searchResults
-});
-
 const receiveArtist = ({artist, tracks}) => ({
   type: RECEIVE_ARTIST,
   artist,
@@ -43,3 +39,7 @@ const receiveArtistUpdate = artist => ({
     type: UPDATE_ARTIST,
     artist
   });
+
+export const clearArtists = () => ({
+  type: CLEAR_ARTISTS
+});

@@ -3,14 +3,19 @@ import { Link } from 'react-router-dom';
 import TogglePlayContainer from '../player/toggle_play_container';
 import DeleteTrackContainer from './delete_track_container';
 
-const FeaturedTrackItem = ({ track, artist }) => {
+export default class FeaturedTrackItem extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+ render() {
     return (
       <div className="userStreamItem">
         <div className="sound streamContext owned">
           <div className="sound__body">
             <div className="sound__artwork">
               <div className="sound__coverArt">
-                  <img src={ track.image_url }/>
+                  <img src={ this.props.track.image_url }/>
               </div>
             </div>
             <div className="sound__content">
@@ -20,20 +25,20 @@ const FeaturedTrackItem = ({ track, artist }) => {
                   <div className="soundTitle__titleContainer">
                   
                   <div className="soundTitle__playButton">
-                  <TogglePlayContainer track={ track } />
+                  <TogglePlayContainer track={ this.props.track } />
                   </div>
                     <div className="soundTitle__usernameTitleContainer">
                       <div className="sc-type-light soundTitle__secondary ">
-                        <Link to={`/artists/${track.artist_id}`} className="soundTitle__username sc-link-light" >
-                          {artist.name}
+                        <Link to={`/artists/${this.props.track.artist_id}`} className="soundTitle__username sc-link-light" >
+                          {/* {this.props.artist.name} */}
                         </Link>
                       </div>
                       <div className="soundTitle__title sc-link-dark">
-                        {track.title}
+                        {this.props.track.title}
                       </div>
                     </div>
                   </div>
-                  {track.description}
+                  {this.props.track.description}
                 </div>
               </div>
               
@@ -43,6 +48,5 @@ const FeaturedTrackItem = ({ track, artist }) => {
         </div>
       </div>
     );
-  };
-
-export default FeaturedTrackItem;
+  }
+}

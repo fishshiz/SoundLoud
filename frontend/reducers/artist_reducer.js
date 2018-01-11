@@ -1,6 +1,7 @@
 import { RECEIVE_ARTIST,
   RECEIVE_ARTISTS,
-  UPDATE_ARTIST } from '../actions/artist_actions';
+  UPDATE_ARTIST,
+  CLEAR_ARTISTS } from '../actions/artist_actions';
 import merge from 'lodash/merge';
 
 const artistReducer = (state = {}, action) => {
@@ -18,6 +19,9 @@ const artistReducer = (state = {}, action) => {
       newState = merge({}, state);
       newState[action.artist.id] = action.artist;
       return newState;
+    case CLEAR_ARTISTS:
+    newState = {};
+    return newState;
     default:
       return state;
   }

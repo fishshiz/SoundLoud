@@ -22,6 +22,10 @@ class artistPage extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearArtists();
+  }
+
   trackList() {
     const tracks = this.props.tracks;
     if (tracks.length !== 0) {
