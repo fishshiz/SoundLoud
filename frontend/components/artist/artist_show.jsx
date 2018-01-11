@@ -7,7 +7,6 @@ import TrackIndexItem from '../track/track_index_item';
 class artistPage extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.conditionalEditButton = this.conditionalEditButton.bind(this);
     this.trackList = this.trackList.bind(this);
   }
@@ -25,7 +24,6 @@ class artistPage extends React.Component {
 
   trackList() {
     const tracks = this.props.tracks;
-    console.log(this.props);
     if (tracks.length !== 0) {
       return (
         <div className="track-list">

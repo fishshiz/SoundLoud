@@ -5,7 +5,6 @@ class Edit extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.currentArtist;
-    console.log(this.state)
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);

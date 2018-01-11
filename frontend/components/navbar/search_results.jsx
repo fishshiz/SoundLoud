@@ -26,7 +26,6 @@ export default class SearchResults extends React.Component {
     // Add blur on component did mount.
 
     render() {
-        console.log(this.props.results);
         return (
         <ul className="dropdownMenu g-z-index-header-menu">
           {this.props.results.map((result, key) => (

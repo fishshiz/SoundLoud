@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 export default class Player extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             track: { id: '', title: '', imageUrl: '', audio_url: '' }
         };
@@ -24,11 +23,9 @@ export default class Player extends React.Component {
     
     componentWillReceiveProps(nextProps) {
         this.setState({ track: nextProps.track});
-        console.log(nextProps);
     }
     
     shouldComponentUpdate(nextProps) {
-        console.log(nextProps);
         if(this.props.track !== nextProps.track) {
             return true;
         } else {
@@ -78,7 +75,6 @@ export default class Player extends React.Component {
     }
 
     grabArtistName() {
-        console.log(this.state.track.id)
         if(this.state.track.id !== '') {
             const artist = this.props.artists[this.state.track.artist_id];
             return (
@@ -99,7 +95,6 @@ export default class Player extends React.Component {
             image = null;
         }
         
-        console.log(track);
         return (
             <div className="playControls g-z-index-header m-visible">
             <div className="playControls__inner">

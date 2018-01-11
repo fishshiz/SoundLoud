@@ -3,7 +3,6 @@ import React from 'react';
 export default class TogglePlay extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.handleClick = this.handleClick.bind(this);
     }
 

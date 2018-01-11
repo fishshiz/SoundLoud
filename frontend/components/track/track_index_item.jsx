@@ -4,9 +4,6 @@ import TogglePlayContainer from '../player/toggle_play_container';
 import DeleteTrackContainer from './delete_track_container';
 
 const TrackIndexItem = ({ currentArtist, track, artist }) => {
-  console.log("TEATSTSETSETSETDFSDF");
-  console.log(artist);
-  console.log(track);
     return (
       <div className="userStreamItem">
         <div className="sound streamContext owned">

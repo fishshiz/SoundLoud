@@ -33,7 +33,6 @@ class Artist < ApplicationRecord
     end
 
     def self.top_three(query)
-        # debugger
         param = '%' + query.downcase + '%'
         Artist.where('lower(name) LIKE ?', param).limit(3)
     end

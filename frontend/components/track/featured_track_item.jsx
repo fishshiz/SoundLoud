@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import TogglePlayContainer from '../player/toggle_play_container';
 import DeleteTrackContainer from './delete_track_container';
 
-const FeaturedTrackItem = ({ track }) => {
+const FeaturedTrackItem = ({ track, artist }) => {
     return (
       <div className="userStreamItem">
         <div className="sound streamContext owned">
@@ -23,17 +23,17 @@ const FeaturedTrackItem = ({ track }) => {
                   <TogglePlayContainer track={ track } />
                   </div>
                     <div className="soundTitle__usernameTitleContainer">
-                      {/* <div className="sc-type-light soundTitle__secondary ">
+                      <div className="sc-type-light soundTitle__secondary ">
                         <Link to={`/artists/${track.artist_id}`} className="soundTitle__username sc-link-light" >
                           {artist.name}
                         </Link>
-                      </div> */}
+                      </div>
                       <div className="soundTitle__title sc-link-dark">
                         {track.title}
                       </div>
                     </div>
                   </div>
-                  {/* {track.description} */}
+                  {track.description}
                 </div>
               </div>
               

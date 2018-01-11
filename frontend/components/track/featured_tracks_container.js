@@ -5,7 +5,8 @@ import { featuredTracks } from '../../reducers/selector';
 
 const mapStateToProps = (state) => ({
   currentArtist: state.session.currentArtist,
-  featuredTracks: featuredTracks(state)
+  featuredTracks: featuredTracks(state),
+  artists: state.entities.artists
 });
 
 const mapDispatchToProps = (dispatch) => ({
