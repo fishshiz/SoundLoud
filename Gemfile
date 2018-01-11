@@ -34,6 +34,7 @@ gem "paperclip", '~> 5.0.0'
 gem 'figaro'
 gem 'aws-sdk', '< 3.0'
 gem 'faker', '~> 1.4', '>= 1.4.3'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -54,7 +55,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
-  gem 'jquery-rails', '~> 4.3.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
