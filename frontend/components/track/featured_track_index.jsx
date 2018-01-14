@@ -20,6 +20,17 @@ export default class FeaturedTrackIndex extends React.Component {
     render() {
 
                 return (
+                    <div className="l-container l-content">
+                    <div>
+                        <div className="l-fluid-fixed">
+                        <div className="featured__title">
+                    <h2>Featured Tracks</h2>
+                    </div>
+                    <div className="stream__header g-flex-row-centered-spread">
+                    <h1 className="stream__title sc-type-light sc-type-large">
+    Hear Soundloud's most popular tracks:
+  </h1>
+                    </div>
             <ul className="featured-track-index">
                 {
                     this.props.featuredTracks[0].map((track, key) => {
@@ -29,6 +40,9 @@ export default class FeaturedTrackIndex extends React.Component {
                     })  
                 }
             </ul>
+            </div>
+            </div>
+            </div>
         );
     }
 }

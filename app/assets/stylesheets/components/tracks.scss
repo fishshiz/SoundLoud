@@ -197,16 +197,14 @@
 }
 
 .featured-track-index {
-    background-color: #e6846e;
     margin: auto;
-    padding: 30px 0;
     width: 90%;
     display: flex;
     justify-content: center;
 }
 
 .feature__grid {
-    margin: 30px;
+    margin: 40px;
 }
 
 .feature__coverart  {
@@ -228,4 +226,40 @@
 .feature__coverart:hover~.hidden {
     display: block;
     position: absolute;
+}
+
+.featured__title {
+    padding: 36px 0 0;
+    font-size: 24px;
+    line-height: 1.6;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.featured__pc {
+    color: $grey;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.featured__base {
+    display: flex;
+    justify-content: space-between;
+}
+
+.l-fluid-fixed {
+    position: relative;
+    padding: 30px 30px 0 0;
+}
+
+.stream__header {
+    margin-bottom: 30px;
+}
+
+.sc-type-light {
+    font-weight: 100;
+    color: #999;
+}
+
+.sc-type-large {
+    font-size: 18px;
 }
