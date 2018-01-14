@@ -16,10 +16,10 @@ export default class FeaturedTrackItem extends React.Component {
             <div className="sound__artwork">
               <div className="sound__coverArt feature__coverart">
                   <img src={ this.props.track.image_url }/>
+              </div>
                   <div className="soundTitle__playButton hidden">
                   <TogglePlayContainer track={ this.props.track } />
                   </div>
-              </div>
             </div>
           </div>
         </div>

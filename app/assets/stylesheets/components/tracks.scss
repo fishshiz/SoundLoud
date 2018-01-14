@@ -214,10 +214,18 @@
 }
 
 .hidden {
-    float: left;
-    
+    display: none;
+    z-index: 100;
+    top: 0;
+    margin: 62px;
 }
 
 .hidden:hover {
     display: block;
+    position: absolute;
+}
+
+.feature__coverart:hover~.hidden {
+    display: block;
+    position: absolute;
 }
