@@ -30,7 +30,7 @@ export default class FeaturedTrackItem extends React.Component {
                     <div className="soundTitle__usernameTitleContainer">
                       <div className="sc-type-light soundTitle__secondary ">
                         <Link to={`/artists/${this.props.track.artist_id}`} className="soundTitle__username sc-link-light" >
-                          {/* {this.props.artist.name} */}
+                          {this.props.artist.name}
                         </Link>
                       </div>
                       <div className="soundTitle__title sc-link-dark">
@@ -38,11 +38,8 @@ export default class FeaturedTrackItem extends React.Component {
                       </div>
                     </div>
                   </div>
-                  {this.props.track.description}
                 </div>
               </div>
-              
-              
             </div>
           </div>
         </div>

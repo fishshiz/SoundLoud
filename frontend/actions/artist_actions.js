@@ -10,8 +10,8 @@ export const fetchArtist = id => dispatch => (
   then(payload => dispatch(receiveArtist(payload)))
 );
 
-export const fetchArtists = () => dispatch => (
-  ArtistAPIUtil.fetchArtists().
+export const fetchArtists = (ids) => dispatch => (
+  ArtistAPIUtil.fetchArtists(ids).
   then(artists => (dispatch(receiveArtists(artists))))
 );
 
@@ -30,7 +30,7 @@ const receiveArtist = ({artist, tracks}) => ({
   tracks
 });
 
-const receiveArtists = artists => ({
+export const receiveArtists = artists => ({
   type: RECEIVE_ARTISTS,
   artists
 });

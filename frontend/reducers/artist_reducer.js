@@ -3,6 +3,7 @@ import { RECEIVE_ARTIST,
   UPDATE_ARTIST,
   CLEAR_ARTISTS } from '../actions/artist_actions';
 import merge from 'lodash/merge';
+import { RECEIVE_FEATURED_TRACKS } from '../actions/feature_actions';
 
 const artistReducer = (state = {}, action) => {
   Object.freeze(state);

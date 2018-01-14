@@ -15,6 +15,6 @@ class Track < ApplicationRecord
     end
 
     def self.featured()
-        Track.order('play_count DESC').limit(8)
+        Track.includes(:artist).order('play_count DESC').limit(8)
     end
 end

@@ -9,5 +9,5 @@ export const searchResults = state => (
 );
 
 export const featuredTracks = state => (
-  values(state.entities.featured)
+  [values(state.entities.featured.tracks), state.entities.featured.artists]
 );

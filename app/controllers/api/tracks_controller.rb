@@ -20,7 +20,7 @@ class Api::TracksController < ApplicationController
     end
 
     def index
-        @tracks = Track.select { |track| track.artist_id == params[:artist_id] }
+        @tracks = Track.includes(:artist)
         render :index
     end
 

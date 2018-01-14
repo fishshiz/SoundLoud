@@ -4,22 +4,31 @@ import FeaturedTrackItem from './featured_track_item';
 export default class FeaturedTrackIndex extends React.Component {
     constructor(props) {
         super(props);
+
     }
-
-    componentWillMount() {
-        this.setState({
-            featuredTracks: this.props.requestFeaturedTracks()
-        });
+    
+    componentDidMount() {
+        this.props.requestFeaturedTracks();
     }
+    
+    componentWillUnmount() {
+        this.props.removeFeaturedTracks();
+    }
+    
+   
+    
+    render() {
 
-
-      render() {
-          return (
+                return (
             <ul className="featured-track-index">
-          {this.props.featuredTracks.map((track, key) => (
-            <FeaturedTrackItem track={track} artist={this.props.artists[track.artist_id]} key={`featured-${key}`} />
-          ))}
+                {
+                    this.props.featuredTracks[0].map((track, key) => {
+                        return (
+                            <FeaturedTrackItem key={`featured-${key}`} track={track} artist={this.props.featuredTracks[1][track.artist_id]}/>
+                        );
+                    })  
+                }
             </ul>
-          );
-      }
+        );
+    }
 }
