@@ -201,4 +201,23 @@
     margin: auto;
     padding: 30px 0;
     width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.feature__grid {
+    margin: 30px;
+}
+
+.feature__coverart  {
+    box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
+}
+
+.hidden {
+    float: left;
+    
+}
+
+.hidden:hover {
+    display: block;
 }

@@ -10,38 +10,26 @@ export default class FeaturedTrackItem extends React.Component {
   }
  render() {
     return (
-      <div className="userStreamItem">
+      <div className="userStreamItem feature__grid">
         <div className="sound streamContext owned">
           <div className="sound__body">
             <div className="sound__artwork">
-              <div className="sound__coverArt">
+              <div className="sound__coverArt feature__coverart">
                   <img src={ this.props.track.image_url }/>
-              </div>
-            </div>
-            <div className="sound__content">
-            
-              <div className="sound__header">
-                <div className="soundTitle sc-clearfix sc-hyphenate sc-type-h2 streamContext">
-                  <div className="soundTitle__titleContainer">
-                  
-                  <div className="soundTitle__playButton">
+                  <div className="soundTitle__playButton hidden">
                   <TogglePlayContainer track={ this.props.track } />
                   </div>
-                    <div className="soundTitle__usernameTitleContainer">
-                      <div className="sc-type-light soundTitle__secondary ">
-                        <Link to={`/artists/${this.props.track.artist_id}`} className="soundTitle__username sc-link-light" >
-                          {this.props.artist.name}
-                        </Link>
-                      </div>
-                      <div className="soundTitle__title sc-link-dark">
-                        {this.props.track.title}
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="feature__artist">
+          <Link to={`/artists/${this.props.artist.id}`}> 
+            {this.props.artist.name}
+          </Link>
+        </div>
+        <div className="feature__track__title">
+          {this.props.track.title}
         </div>
       </div>
     );

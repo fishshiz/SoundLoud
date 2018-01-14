@@ -14,6 +14,8 @@ const artistReducer = (state = {}, action) => {
     newState = merge({}, state);
       newState = {[action.artist.id]: action.artist};
       return merge({}, state, newState);
+      case RECEIVE_FEATURED_TRACKS:
+      return action.payload.artists;
     case RECEIVE_ARTISTS:
       return action.artists;
     case UPDATE_ARTIST:
