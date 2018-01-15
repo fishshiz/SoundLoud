@@ -8,8 +8,19 @@ export const fetchComments = (trackId) => dispatch => (
     then(comments => (dispatch(receiveComments(comments))))
 );
 
+export const postComment = (comment, trackId) => dispatch => (
+  CommentAPIUtil.createComment(comment, trackId).
+  then(comment => (dispatch(receiveComment(comment))))
+);
+
   export const receiveComments = ({comments, authors}) => ({
       type: RECEIVE_COMMENTS,
     comments,
     authors
   });
+
+  export const receiveComment = ({comment, author}) => ({
+    type: RECEIVE_COMMENT,
+  comment,
+  author
+});

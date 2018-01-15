@@ -57,3 +57,53 @@
     height: 40px;
     opacity: 1;
 }
+
+.listenEngagement__commentForm, .listenEngagement__commentFormDisabled {
+    margin-bottom: 10px;
+}
+
+.listenEngagement__commentForm {
+    margin-top: -7px;
+}
+
+.commentForm.m-large {
+    margin-top: 7px;
+    opacity: 1;
+}
+
+.commentForm__wrapper {
+    height: 0;
+    padding: 5px;
+    background: #f2f2f2;
+    border: 1px solid #e5e5e5;
+    overflow: hidden;
+}
+
+.commentForm.visible .commentForm__wrapper {
+    overflow: visible;
+}
+
+.commentForm.m-large .commentForm__wrapper {
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.commentForm__avatar {
+    margin-right: 0;
+    position: relative;
+    float: left;
+}
+
+.commentForm.m-large .commentForm__avatar {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    left: -6px;
+    top: -6px;
+}
+
+.commentForm.m-large .commentForm__input {
+    border-radius: 4px;
+    height: 27px;
+    font-size: 14px;
+}

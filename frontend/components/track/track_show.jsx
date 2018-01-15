@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import TogglePlayContainer from '../player/toggle_play_container';
 import DeleteTrackContainer from './delete_track_container';
 import CommentIndexContainer from '../comment/comment_index_container';
+import CommentFormContainer from '../comment/comment_form_container';
 
 export default class TrackShow extends React.Component {
     constructor(props) {
@@ -90,6 +91,7 @@ export default class TrackShow extends React.Component {
               </li>
               <CommentIndexContainer trackId={this.props.track.id} />
             </ul>
+            <CommentFormContainer />
             </div>
           );
       } else {
