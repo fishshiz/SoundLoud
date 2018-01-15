@@ -1,0 +1,59 @@
+@import '../base/colors.scss';
+
+.g-box-full {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.sc-type-light {
+    font-weight: 100;
+    color: #999;
+}
+
+.sc-border-light-bottom {
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.commentsList__title {
+    padding-bottom: 7px;
+}
+
+.commentsList__icon {
+    vertical-align: bottom;
+    height: 21px;
+    width: 21px;
+    margin-right: -1px;
+}
+
+.commentItem__read {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.commentItem {
+    position: relative;
+    padding: 10px 10px 10px 0;
+}
+
+.commentItem__avatar {
+    color: #999;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    margin-right: 10px;
+}
+
+.image__rounded.m-loaded.sc-artwork {
+    background: 0 0;
+    height: 40px;
+    width: 40px;
+}
+
+.comment_av {
+    width: 40px;
+    height: 40px;
+    opacity: 1;
+}

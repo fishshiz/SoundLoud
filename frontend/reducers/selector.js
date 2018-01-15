@@ -11,3 +11,7 @@ export const searchResults = state => (
 export const featuredTracks = state => (
   [values(state.entities.featured.tracks), state.entities.featured.artists]
 );
+
+export const commentsArray = state => {
+  return values(state.entities.comments);
+};

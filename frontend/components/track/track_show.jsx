@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TogglePlayContainer from '../player/toggle_play_container';
 import DeleteTrackContainer from './delete_track_container';
-import CommentIndex from '../comment/comment_index';
+import CommentIndexContainer from '../comment/comment_index_container';
 
 export default class TrackShow extends React.Component {
     constructor(props) {
@@ -88,7 +88,7 @@ export default class TrackShow extends React.Component {
                 </div>
               </div>
               </li>
-              <CommentIndex />
+              <CommentIndexContainer trackId={this.props.track.id} />
             </ul>
             </div>
           );
