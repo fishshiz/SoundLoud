@@ -6,8 +6,18 @@ import DeleteTrackContainer from './delete_track_container';
 export default class FeaturedTrackItem extends React.Component {
   constructor(props) {
     super(props);
-
+    this.parseString = this.parseString.bind(this);
   }
+
+  parseString(string) {
+    if (string.length < 20) {
+      return string;
+    } else {
+      let shortened = string.substr(0, 17) + "...";
+      return shortened;
+    }
+  }
+
  render() {
     return (
       <div className="userStreamItem feature__grid">
@@ -27,11 +37,11 @@ export default class FeaturedTrackItem extends React.Component {
         <div className="featured__left">
         <div className="feature__artist">
           <Link to={`/artists/${this.props.artist.id}`}> 
-            {this.props.artist.name}
+            {this.parseString(this.props.artist.name)}
           </Link>
         </div>
         <div className="feature__track__title">
-          {this.props.track.title}
+          {this.parseString(this.props.track.title)}
         </div>
         </div>
         <div className="featured__pc">
