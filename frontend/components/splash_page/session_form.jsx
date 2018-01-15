@@ -13,6 +13,7 @@ export default class SessionForm extends React.Component {
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
     }
 
     handleSubmit(e) {
@@ -42,6 +43,15 @@ export default class SessionForm extends React.Component {
         }
       }
 
+      demoLogin(e) {
+        e.preventDefault();
+        const demoUser = {
+          email: 'demo',
+          password: 'password'
+        };
+        this.props.login(demoUser).then(() => this.props.closeModal());
+      }
+
     render() {
         let buttonType = this.props.formType === 'signup' ? 'Sign Up' : 'Log In';
         let nameField = this.props.formType === 'signup' ? 
@@ -58,6 +68,7 @@ export default class SessionForm extends React.Component {
             {nameField}
             <input type="password" className="session-input" value={this.state.password} placeholder="Password" onChange={this.handleInput('password')}/>
             <button type="submit" className="session-button">{buttonType}</button>
+            <button type="submit" onClick={this.demoLogin} className="session-button">Demo Session</button>
             {this.renderErrors()}
           </form>  
         );
