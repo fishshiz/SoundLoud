@@ -6,6 +6,7 @@ export default class SearchResults extends React.Component {
         super(props);
         this.nameOrTitle = this.nameOrTitle.bind(this);
         this.icon = this.icon.bind(this);
+        this.path = this.path.bind(this);
     }
 
     nameOrTitle(result) {
@@ -13,6 +14,14 @@ export default class SearchResults extends React.Component {
             return result.name;
         } else {
             return result.title;
+        }
+    }
+
+    path(result) {
+        if (result.name) {
+            return `/artists/${result.id}`;
+        } else {
+            return `/tracks/${result.id}`;
         }
     }
 
@@ -30,7 +39,7 @@ export default class SearchResults extends React.Component {
         <ul className="dropdownMenu g-z-index-header-menu">
           {this.props.results.map((result, key) => (
               <li id="search-results-li" key={key}>
-                <Link className="search-link" to={`/artists/${result.id}`}>
+                <Link className="search-link" to={this.path(result)}>
                     <div className="img-name-search">
                         <img className="search-img" src={result.image_url}/>
                         <div className="name-search">{this.nameOrTitle(result)}</div>

@@ -8,7 +8,8 @@ const FeaturesReducer = (oldState = {}, action) => {
     case RECEIVE_FEATURED_TRACKS:
       return action.payload;
     case REMOVE_FEATURED_TRACKS:
-      return {};
+    let nextState = {};
+    return nextState;
     default:
       return oldState;
   }

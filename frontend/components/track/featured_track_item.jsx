@@ -25,7 +25,9 @@ export default class FeaturedTrackItem extends React.Component {
           <div className="sound__body">
             <div className="sound__artwork">
               <div className="sound__coverArt feature__coverart">
+              <Link to={`/tracks/${this.props.track.id}`}> 
                   <img src={ this.props.track.image_url }/>
+                  </Link>
               </div>
                   <div className="soundTitle__playButton hidden">
                   <TogglePlayContainer track={ this.props.track } />
@@ -41,7 +43,9 @@ export default class FeaturedTrackItem extends React.Component {
           </Link>
         </div>
         <div className="feature__track__title">
+        <Link to={`/tracks/${this.props.track.id}`}> 
           {this.parseString(this.props.track.title)}
+          </Link>
         </div>
         </div>
         <div className="featured__pc">

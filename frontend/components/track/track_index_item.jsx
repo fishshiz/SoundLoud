@@ -10,7 +10,9 @@ const TrackIndexItem = ({ currentArtist, track, artist }) => {
           <div className="sound__body">
             <div className="sound__artwork">
               <div className="sound__coverArt">
+              <Link to={`/tracks/${track.id}`} className="soundTitle__username sc-link-light">
                   <img src={ track.image_url }/>
+                  </Link>
               </div>
             </div>
             <div className="sound__content">
@@ -29,7 +31,9 @@ const TrackIndexItem = ({ currentArtist, track, artist }) => {
                         </Link>
                       </div>
                       <div className="soundTitle__title sc-link-dark">
+                      <Link to={`/tracks/${track.id}`} className="soundTitle__username sc-link-light">
                         {track.title}
+                        </Link>
                       </div>
                     </div>
                   </div>

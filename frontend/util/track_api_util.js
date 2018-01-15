@@ -9,12 +9,12 @@ export const createTrack = track => {
   });
 };
 
-export const fetchTrack = id => {
+export const fetchTrack = (trackId) => (
   $.ajax({
-    url: `api/tracks/${id}`,
+    url: `api/tracks/${trackId}`,
     method: 'GET'
-  });
-};
+  })
+);
 
 export const fetchArtistTracks = id => {
   $.ajax({

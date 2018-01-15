@@ -15,7 +15,7 @@ class Api::TracksController < ApplicationController
         if @track
             render :show
         else
-            render json: ['Track not found'], status: 422
+            render json: ["Track not found"], status: 404
         end
     end
 
