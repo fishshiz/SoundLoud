@@ -1,11 +1,11 @@
 import React from 'react';
 import CommentIndexItem from './comment_index_item';
 
-const CommentIndex = ({currentArtist, tracks, artists, destroyTrack}) => {
+const CommentIndex = ({currentArtist, comments, artists, destroyTrack}) => {
     return (
         <ul className="soundList sc-list-nostyle">
             {
-                tracks.map(track => (
+                comments.map(track => (
                     <li className="soundList__item" 
                     key={track.id}>
                     <CommentIndexItem

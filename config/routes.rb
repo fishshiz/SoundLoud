@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       post "payload_request", on: :collection
     end
     resources :tracks, only: [:create, :index, :show, :update, :destroy] do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :index]
     end
     resources :comments, only: [:destroy]
     resources :search, only: [:index] do
