@@ -14,7 +14,7 @@ edan = Artist.create!(
     email: 'edan@lewisarts.com',
     bio: 'Hey there, my name is Edan. I\'m an engineer and musician and I <3 music.',
     image: 'http://s3-us-west-1.amazonaws.com/soundloud-dev/artists/images/000/000/001/original/15327809_1460202317342934_2101598170_n.jpg?1515611712'
-)
+) 
 
 demo = Artist.create!(
     name: 'demo',
