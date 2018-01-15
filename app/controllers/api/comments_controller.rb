@@ -18,8 +18,14 @@ class Api::CommentsController < ApplicationController
     end
 
     def index
-        @comments = Comment.includes(:track)]
-        render :index
+        track_id = params[:track_id].to_i
+        @track = Track.find(track_id)
+        if @track
+            @comments = @track.comments.includes(:author).order("created_at DESC")
+            render :index
+        else
+            render json: ["Track not found"], status: 404
+        end
     end
 
     private

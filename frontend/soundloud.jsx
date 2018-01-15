@@ -2,7 +2,7 @@ import Root from './components/root';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import React from 'react';
-import {fetchTrack} from './util/track_api_util';
+import {fetchTrackComments} from './util/comment_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.currentArtist) {
     preloadedState = { session: { currentArtist: window.currentArtist }};
   } 
-  window.fetchTrack = fetchTrack;
+  window.fetchTrackComments = fetchTrackComments;
   const store = configureStore(preloadedState); 
   window.getState = store.getState;
   window.dispatch = store.dispatch;

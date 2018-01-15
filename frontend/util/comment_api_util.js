@@ -6,12 +6,12 @@ export const createComment = (comment, trackId) => (
     })
   );
   
-export const fetchTrackComments = trackId => {
+  export const fetchTrackComments = trackId => (
     $.ajax({
-      url: `api/tracks/${trackId}/comments`,
-      method: 'GET'
-    });
-  };
+      method: "get",
+      url: `api/tracks/${trackId}/comments`
+    })
+  );
   
 export const destroyComment = (commentId) => (
     $.ajax({
