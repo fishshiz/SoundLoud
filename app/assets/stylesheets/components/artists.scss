@@ -20,6 +20,12 @@
     padding-left: 30px;
 }
 
+.edit__link {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
 .show__bio {
     padding-left: 8px;
 }
@@ -90,13 +96,18 @@
 }
 
 .image__button {
-    border-radius: 10px;
     background-color: transparent;
-    width: 86px;
+    width: 30px;
+    height: 30px;
+    color: #666;
+    border: none;
+    border-bottom: 1px solid #666;
 }
 
-.fa-pencil {
-    padding-right: 13px;
+.image__button:hover {
+    color: $black;
+    font-size: 12px;
+    border-bottom: 3px solid $black;
 }
 
 .edit__link {

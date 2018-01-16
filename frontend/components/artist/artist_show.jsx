@@ -50,7 +50,7 @@ class artistPage extends React.Component {
     if(this.props.currentArtist.id === this.props.artistId) {
         return (<Link className="edit__link" to="/edit">
             <button className="image__button" >
-                <i className="fa fa-pencil" aria-hidden="true"/>Edit
+                <i className="fa fa-pencil" aria-hidden="true"/>
             </button>
             </Link>
         );
@@ -69,8 +69,7 @@ class artistPage extends React.Component {
         <div className="l-container l-content">
         <div className="l-user-hero">
           <div className="profileHeader">
-            <div className="profileHeader__edit" />
-              {this.conditionalEditButton()}
+            
               <div className="profileHeader__info">
                 <div className="profileHeaderInfo sc-media">
                   <div className="profileHeaderInfo__avatar sc-media-image">
@@ -83,6 +82,9 @@ class artistPage extends React.Component {
                       { this.props.artist.name }
                     </h3>
                     <h3 className="show__bio"> {this.props.artist.bio } </h3>
+                    <div className="profileHeader__edit">
+              {this.conditionalEditButton()}
+              </div>
                   </div>
                 </div>
               </div>
