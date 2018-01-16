@@ -89,9 +89,9 @@ export default class TrackShow extends React.Component {
                 </div>
               </div>
               </li>
+              <CommentFormContainer />
               <CommentIndexContainer trackId={this.props.track.id} />
             </ul>
-            <CommentFormContainer />
             </div>
           );
       } else {

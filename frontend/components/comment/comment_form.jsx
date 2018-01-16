@@ -37,9 +37,9 @@ export default class SessionForm extends React.Component {
           </div>
           <div className="commentForm__inputWrapper sc-border-box">
             <input type="text" className="commentForm__input sc-border-box" value={this.state.body} placeholder="Write a comment" onChange={this.handleInput('body')}/>
+            <button className="comment__post" type="submit"><i class="fa fa-comment" aria-hidden="true"></i></button>
           </div>
             </div>
-            <button type="submit">Post Comment</button>
             </div>
           </form>  
         );

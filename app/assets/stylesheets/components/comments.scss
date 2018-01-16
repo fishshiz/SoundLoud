@@ -21,6 +21,17 @@
     line-height: 28px;
 }
 
+.comment__post {
+    width: 15px;
+    height: 15px;
+    border: 0;
+    padding: 0;
+    position: absolute;
+    right: 70px;
+    top: 308px;
+    color: #999;
+}
+
 .commentsList__icon {
     vertical-align: bottom;
     height: 21px;
@@ -74,8 +85,9 @@
 }
 
 .commentForm.m-large {
-    margin-top: 7px;
+    margin-top: 0px;
     opacity: 1;
+    margin-bottom: 30px;
 }
 
 .commentForm__wrapper {
@@ -101,6 +113,10 @@
     float: left;
 }
 
+.commentForm__input:focus {
+    outline: none;
+}
+
 .commentForm.m-large .commentForm__avatar {
     position: relative;
     width: 40px;
@@ -113,6 +129,8 @@
     border-radius: 4px;
     height: 27px;
     font-size: 14px;
+    width: 96%;
+    border: none;
 }
 
 .commentItem__username {
