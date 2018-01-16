@@ -92,7 +92,7 @@ export default class Player extends React.Component {
         if (track.image_url) {
             image = <img className="playbackSoundBadge__avatar sc-media-image" src={track.image_url} />;
         } else {
-            image = null;
+            image = <div className="playbackSoundBadge__avatar sc-media-image"/>;
         }
         
         return (

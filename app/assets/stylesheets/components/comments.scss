@@ -18,6 +18,7 @@
 
 .commentsList__title {
     padding-bottom: 7px;
+    line-height: 28px;
 }
 
 .commentsList__icon {
@@ -25,6 +26,11 @@
     height: 21px;
     width: 21px;
     margin-right: -1px;
+}
+
+.commentItem__content {
+    padding-top: 20px;
+    padding-left: 8px;
 }
 
 .commentItem__read {
