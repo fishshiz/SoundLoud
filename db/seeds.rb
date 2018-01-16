@@ -28,7 +28,7 @@ remo_drive = Artist.create!(
     password: 'rem0drive',
     email: 'remo@mail.com',
     bio: 'We\'re just a small group with a big sound.',
-    image: URI.parse('https://s3-us-west-1.amazonaws.com/soundloud-dev/artists/images/000/000/036/original/a0734144769_10.jpg)'
+    image: URI.parse('https://s3-us-west-1.amazonaws.com/soundloud-dev/artists/images/000/000/036/original/a0734144769_10.jpg')
 )
 
 wilco = Artist.create!(
@@ -36,7 +36,7 @@ wilco = Artist.create!(
     password: 'wearewilc0',
     email: 'wilco@wilco.com',
     bio: 'From Chicago',
-    image: URI.parse('https://s3-us-west-1.amazonaws.com/soundloud-dev/artists/images/000/000/037/original/Wilco_MassMoca_AustinNelson.png)'
+    image: URI.parse('https://s3-us-west-1.amazonaws.com/soundloud-dev/artists/images/000/000/037/original/Wilco_MassMoca_AustinNelson.png')
 )
 
 angel_olsen = Artist.create!(
@@ -44,7 +44,7 @@ angel_olsen = Artist.create!(
     password: 'angelOls3n',
     email: 'angel@gmail.com',
     bio: 'My voice is flawless.',
-    image: URI.parse('https://s3-us-west-1.amazonaws.com/soundloud-dev/artists/images/000/000/030/original/angel_olsen_by_alicia_j._rose-4_wide-dea4f4edb7703d039fae6f1bb5990fa232c18d43.jpg)'
+    image: URI.parse('https://s3-us-west-1.amazonaws.com/soundloud-dev/artists/images/000/000/030/original/angel_olsen_by_alicia_j._rose-4_wide-dea4f4edb7703d039fae6f1bb5990fa232c18d43.jpg')
 )
 
 sufjan = Artist.create!(
@@ -52,7 +52,7 @@ sufjan = Artist.create!(
     password: 'carrie&lowell',
     email: 'sufjan@gmail.com',
     bio: 'My name is Sufjan. Right now, I\'m sipping tea, petting a kitten, and typing this sentence.',
-    image: URI.parse('https://s3-us-west-1.amazonaws.com/soundloud-dev/artists/images/000/000/031/original/img_8841-1-_wide-dc1a22792a0f57e400aae94e94ec54541b9158e6.jpg)'
+    image: URI.parse('https://s3-us-west-1.amazonaws.com/soundloud-dev/artists/images/000/000/031/original/img_8841-1-_wide-dc1a22792a0f57e400aae94e94ec54541b9158e6.jpg')
 )
 
 big_thief = Artist.create!(
@@ -60,7 +60,7 @@ big_thief = Artist.create!(
     password: 'lilcr00k',
     email: 'bigthief@gmail.com',
     bio: 'A hip new folk rock band out of Brooklyn.',
-    image: URI.parse('https://s3-us-west-1.amazonaws.com/soundloud-dev/artists/images/000/000/032/original/3_(9).jpeg)'
+    image: URI.parse('https://s3-us-west-1.amazonaws.com/soundloud-dev/artists/images/000/000/032/original/3_(9).jpeg')
 )
 
 sisyphus = Artist.create!(
@@ -68,7 +68,7 @@ sisyphus = Artist.create!(
     password: 'sisyphus',
     email: 'isyphus@gmail.com',
     bio: 'Check out our hot new single, Calm It Down!',
-    image: URI.parse('https://s3-us-west-1.amazonaws.com/soundloud-dev/artists/images/000/000/049/original/Sisyphus-Band-Picture.jpg)'
+    image: URI.parse('https://s3-us-west-1.amazonaws.com/soundloud-dev/artists/images/000/000/049/original/Sisyphus-Band-Picture.jpg')
 )
 
 Track.delete_all
