@@ -9,6 +9,7 @@ class Track < ApplicationRecord
 
     belongs_to :artist
     has_many :comments
+    has_one :comment_count
 
     def self.top_three(query)
         param = '%' + query.downcase + '%'
@@ -19,7 +20,4 @@ class Track < ApplicationRecord
         Track.includes(:artist).order('play_count DESC').limit(8)
     end
 
-    def self.most_discussed()
-        Track.includes(:comments).order(comments.count).limit(8)
-    end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180115053102) do
+ActiveRecord::Schema.define(version: 20180116050048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 20180115053102) do
     t.datetime "image_updated_at"
     t.index ["email"], name: "index_artists_on_email", unique: true
     t.index ["session_token"], name: "index_artists_on_session_token"
+  end
+
+  create_table "comment_counts", force: :cascade do |t|
+    t.integer "track_id", null: false
+    t.integer "comment_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_count"], name: "index_comment_counts_on_comment_count"
+    t.index ["track_id"], name: "index_comment_counts_on_track_id"
   end
 
   create_table "comments", force: :cascade do |t|
