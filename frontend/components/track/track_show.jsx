@@ -34,7 +34,7 @@ export default class TrackShow extends React.Component {
           <li className="soundList__item">
             <div className="userStreamItem">
               <div className="sound streamContext owned">
-                <div className="sound__body">
+                <div className="sound__body track__show">
                   <div className="sound__artwork">
                     <div className="sound__coverArt">
                         <img src={ this.props.track[0].image_url }/>

@@ -78,11 +78,11 @@ class artistPage extends React.Component {
                       <img src={this.props.artist.image_url} className="show_avatar sc-artwork sc-artwork-placeholder-1 image__rounded image__full g-opacity-transition" />
                     </div>
                   </div>
-                  <div className="profileHeaderInfo__content sc-media-content" >
+                  <div className="artist__show__name profileHeaderInfo__content sc-media-content" >
                     <h3 className="profileHeaderInfo__userName g-type-shrinkwrap-block g-type-shrinkwrap-large-primary">
                       { this.props.artist.name }
                     </h3>
-                    <h3> {this.props.artist.bio } </h3>
+                    <h3 className="show__bio"> {this.props.artist.bio } </h3>
                   </div>
                 </div>
               </div>

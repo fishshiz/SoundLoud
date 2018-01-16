@@ -37,7 +37,9 @@ const TrackIndexItem = ({ currentArtist, track, artist }) => {
                       </div>
                     </div>
                   </div>
+                  <div className="track__description">
                   {track.description}
+                  </div>
                 </div>
                 {
                 currentArtist.id === artist.id ? (

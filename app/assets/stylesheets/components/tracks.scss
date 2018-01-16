@@ -12,6 +12,7 @@
     clear: both;
     margin-bottom: 36px;
     position: relative;
+    padding-top: 30px;
 }
 
 .sound {
@@ -27,6 +28,10 @@
     flex: 1;
     position: relative;
     height: 100%;
+}
+
+.track__show {
+    padding-top: 30px;
 }
 
 .sound__artwork {
@@ -158,6 +163,11 @@
     float: left;
 }
 
+.sc-ministats-item {
+    padding-top: 58px;
+
+}
+
 .sc-ministats-group .sc-ministats-small {
     margin-right: 5px;
     padding-right: 4px;
@@ -221,6 +231,19 @@
 .hidden:hover {
     display: block;
     position: absolute;
+}
+
+.userStreamItem {
+    padding-bottom: 30px;
+}
+
+.track__description {
+    padding-left: 50px;
+    padding-top: 8px;
+}
+
+.soundTitle__usernameTitleContainer {
+    padding-left: 8px;
 }
 
 .feature__coverart:hover~.hidden {
