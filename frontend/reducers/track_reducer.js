@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 import { RECEIVE_TRACK, RECEIVE_TRACK_SHOW, RECEIVE_TRACKS, REMOVE_TRACK, CLEAR_TRACKS } from '../actions/track_actions';
-import { RECEIVE_ARTIST } from '../actions/artist_actions';
+import { RECEIVE_ARTIST, CLEAR_ARTISTS } from '../actions/artist_actions';
 import { RECEIVE_FEATURED_TRACKS, REMOVE_FEATURED_TRACKS } from '../actions/feature_actions';
 
 const tracks = (state = {}, action) => {
@@ -19,6 +19,7 @@ const tracks = (state = {}, action) => {
         delete nextState[action.track.id];
         return nextState;
     case CLEAR_TRACKS:
+    case CLEAR_ARTISTS:
     case REMOVE_FEATURED_TRACKS:
         nextState = {};
         return nextState;

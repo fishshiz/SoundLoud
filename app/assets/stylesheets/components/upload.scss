@@ -22,7 +22,37 @@
 }
 
 .uploadMain__title {
-    padding: 36px 0 0;
+    padding-bottom: 36px;
+    padding-top: 36px;
     font-size: 24px;
     line-height: 1;
 }
+
+.track-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-side {
+    flex-direction: column;
+    justify-content: space-around;
+    padding-right: 15px;
+    display: flex;
+}
+
+.upload-cont {
+    padding-bottom: 15px;
+    padding-left: 15px;
+}
+
+// .upload-label {
+//     position: absolute;
+//     left: 0px;
+//     width: 100%;
+//     padding-left: 10px;
+// }
+
+// .upload-input {
+//     position: absolute;
+//     width: 100%;
+// }

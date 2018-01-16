@@ -72,9 +72,10 @@ class Upload extends React.Component {
             <div className="uploadMain__title"><h2>Upload to SoundLoud</h2></div>
           <form className="track-form"
             onSubmit={this.handleSubmit}>
-              <div className="form-side">
-                
-                
+            <div className="upload-cont">
+              <img className="upload-display" src={this.state.imageUrl} />
+            </div>
+              <div className="form-side"> 
                 <label>
                   Upload Photo:
                   <input type="file" onChange={this.updateFile}/>
@@ -83,24 +84,24 @@ class Upload extends React.Component {
                     Upload Audio:
                     <input type="file" onChange={this.updateAudioFile} />
                 </label>
-                <label>
+                <label className="upload-label">
+                  Title
+                  <input
+                    className="upload-input"
+                    value={this.state.title}
+                    onChange={this.update('title')} />
+                </label> 
+                <label className="upload-label">
                   Description
                   <textarea
+                    className="upload-input"
                     value={this.state.description}
                     onChange={this.update('description')} />
                 </label>
-                <label>
-                  Title
-                  <input
-                    value={this.state.title}
-                    onChange={this.update('title')} />
-                </label>
-                
+                  
                 <button onClick={this.handleSubmit}>Submit</button>
               </div>
-            <div className="upload-cont">
-              <img className="upload-display" src={this.state.imageUrl} />
-            </div>
+            
           </form>
           </div>
           </div>

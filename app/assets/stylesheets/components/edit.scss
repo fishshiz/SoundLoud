@@ -38,6 +38,7 @@
     height: 260px;
     opacity: 1;
     box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
+    background-image: linear-gradient(135deg,#e6846e,#8e8485);
 }
 
 .profileSettings__cell.m-fullWidth {
@@ -54,8 +55,13 @@
     margin-bottom: 6px;
 }
 
+.profileSettings__description {
+    padding-top: 30px;
+}
+
 .profileSettings__description textarea {
     height: 66px;
+    width: 90%;
     resize: vertical;
 }
 
