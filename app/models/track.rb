@@ -18,4 +18,8 @@ class Track < ApplicationRecord
     def self.featured()
         Track.includes(:artist).order('play_count DESC').limit(8)
     end
+
+    def self.most_discussed()
+        Track.includes(:comments).order(comments.count).limit(8)
+    end
 end

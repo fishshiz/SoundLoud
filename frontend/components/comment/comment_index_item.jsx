@@ -10,8 +10,12 @@ const CommentIndexItem = ({ comment, author }) => {
       <img src={author.image_url} className="comment_av sc-artwork sc-artwork-placeholder-2 image__rounded image__full g-opacity-transition"/>
       </div>
       </Link> 
-      <Link to={`/artists/${author.id}`}>{author.name}</Link>
+      <div className="commentItem__content">
+      <Link className="commentItem__username sc-text-light" to={`/artists/${author.id}`}>{author.name}</Link>
+      <div className="commentItem__body sc-hyphenate">
       <p>{comment.body}</p>
+      </div>
+      </div>
       </div>
       </div>
     );
