@@ -9,9 +9,13 @@ export const searchResults = state => (
 );
 
 export const featuredTracks = state => (
-  [values(state.entities.featured.tracks), state.entities.featured.artists]
+  [values(state.entities.tracks), state.entities.artists]
 );
 
 export const commentsArray = state => {
   return values(state.entities.comments);
+};
+
+export const artistArray = state => {
+  return values(state.entities.artists);
 };

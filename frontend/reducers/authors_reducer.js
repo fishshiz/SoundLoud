@@ -1,4 +1,4 @@
-import { RECEIVE_COMMENTS } from '../actions/comment_actions';
+import { RECEIVE_COMMENTS, CLEAR_COMMENTS } from '../actions/comment_actions';
   import merge from 'lodash/merge';
   
   const commentsReducer = (state = {}, action) => {
@@ -8,6 +8,8 @@ import { RECEIVE_COMMENTS } from '../actions/comment_actions';
     switch (action.type) {
       case RECEIVE_COMMENTS:
         return action.authors;
+      case CLEAR_COMMENTS:
+        return {};
       default:
         return state;
     }

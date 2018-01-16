@@ -8,7 +8,6 @@ class artistPage extends React.Component {
   constructor(props) {
     super(props);
     this.conditionalEditButton = this.conditionalEditButton.bind(this);
-    this.trackList = this.trackList.bind(this);
   }
 
   componentDidMount() {
@@ -24,26 +23,6 @@ class artistPage extends React.Component {
 
   componentWillUnmount() {
     this.props.clearArtists();
-  }
-
-  trackList() {
-    const tracks = this.props.tracks;
-    if (tracks.length !== 0) {
-      return (
-        <div className="track-list">
-          {Object.values(tracks).map((track, idx) => <TrackIndexItem
-            className="track"
-            track={track}
-            key={idx} />)}
-          </div>
-        );
-    } else {
-      return (
-        <div className="empty-track-list">
-          <h3>This artist does not have any tracks... yet.</h3>
-        </div>
-      );
-    }
   }
 
   conditionalEditButton() {

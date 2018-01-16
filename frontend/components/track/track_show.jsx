@@ -7,12 +7,12 @@ import CommentFormContainer from '../comment/comment_form_container';
 
 export default class TrackShow extends React.Component {
     constructor(props) {
-        super(props);
+      super(props);
 
     }
 
     componentDidMount() {
-        this.props.requestTrack(this.props.trackId);
+      this.props.requestTrack(this.props.trackId);
     }
 
     componentWillReceiveProps(newProps) {
@@ -23,11 +23,12 @@ export default class TrackShow extends React.Component {
 
     componentWillUnmount() {
       this.props.clearTrack();
+      this.props.clearArtists();
     }
 
     render() {
       console.log('artist', this.props.artist);
-      if (this.props.track.length === 1) {
+      if (this.props.artist.length === 1) {
         return (
           <div className="l-container l-content">
           <ul className="soundList sc-list-nostyle">
@@ -52,7 +53,7 @@ export default class TrackShow extends React.Component {
                           <div className="soundTitle__usernameTitleContainer">
                             <div className="sc-type-light soundTitle__secondary ">
                               <Link to={`/artists/${this.props.track[0].artist_id}`} className="soundTitle__username sc-link-light" >
-                                {this.props.artist[this.props.track[0].artist_id].name}
+                                {this.props.artist[0].name}
                               </Link>
                             </div>
                             <div className="soundTitle__title sc-link-dark">

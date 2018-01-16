@@ -11,6 +11,10 @@ export default class CommentIndex extends React.Component {
         this.props.fetchComments(this.props.trackId);
     }
 
+    componentWillUnmount() {
+        this.props.clearComments();
+    }
+
     render() {
         console.log(this.props.authors);
         return (

@@ -24,3 +24,7 @@ export const postComment = (comment, trackId) => dispatch => (
   comment,
   author
 });
+
+export const clearComments = () => ({
+  type: CLEAR_COMMENTS
+});
