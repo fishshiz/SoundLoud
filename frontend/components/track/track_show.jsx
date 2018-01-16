@@ -16,17 +16,17 @@ export default class TrackShow extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-        if(this.props.trackId !== newProps.trackId) {
-          this.props.requestTrack(newProps.trackId);
-        }
+      if(this.props.trackId !== newProps.trackId) {
+        this.props.requestTrack(newProps.trackId);
       }
+    }
 
-      componentWillUnmount() {
-        this.props.clearTrack();
-      }
+    componentWillUnmount() {
+      this.props.clearTrack();
+    }
 
     render() {
-      console.log(this.props.artist);
+      console.log('artist', this.props.artist);
       if (this.props.track.length === 1) {
         return (
           <div className="l-container l-content">
@@ -52,7 +52,7 @@ export default class TrackShow extends React.Component {
                           <div className="soundTitle__usernameTitleContainer">
                             <div className="sc-type-light soundTitle__secondary ">
                               <Link to={`/artists/${this.props.track[0].artist_id}`} className="soundTitle__username sc-link-light" >
-                                {this.props.artist.name}
+                                {this.props.artist[this.props.track[0].artist_id].name}
                               </Link>
                             </div>
                             <div className="soundTitle__title sc-link-dark">
@@ -60,7 +60,9 @@ export default class TrackShow extends React.Component {
                             </div>
                           </div>
                         </div>
+                        <div className="track__description">
                         {this.props.track[0].description}
+                        </div>
                       </div>
                       </div>
                       {
