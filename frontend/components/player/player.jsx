@@ -90,7 +90,7 @@ export default class Player extends React.Component {
         const {track} = this.state;
         let image = null;
         if (track.image_url) {
-            image = <img className="playbackSoundBadge__avatar sc-media-image" src={track.image_url} />;
+            image = <Link to={`/tracks/${track.id}`}><img className="playbackSoundBadge__avatar sc-media-image" src={track.image_url} /></Link>;
         } else {
             image = <div className="playbackSoundBadge__avatar sc-media-image"/>;
         }
@@ -113,7 +113,7 @@ export default class Player extends React.Component {
             <div className="playbackSoundBadge__titleContextContainer">
             {this.grabArtistName()}
             <div className="playbackSoundBadge__title">
-            <div className="playbackSoundBadge__titleLink sc-truncate">{track.title}</div>
+            <div className="playbackSoundBadge__titleLink sc-truncate"><Link to={`/tracks/${track.id}`}>{track.title}</Link></div>
             </div>
             </div>
             </div>
