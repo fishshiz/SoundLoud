@@ -27,7 +27,6 @@ export default class TrackShow extends React.Component {
     }
 
     render() {
-      console.log('artist', this.props.artist);
       if (this.props.artist.length === 1) {
         return (
           <div className="l-container l-content">

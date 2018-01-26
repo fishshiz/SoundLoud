@@ -15,7 +15,6 @@ export default class CommentIndex extends React.Component {
     }
 
     render() {
-        console.log(this.props.authors);
         return (
             <div className="commentsList g-box-full lazyLoadingList">
             <div className="sc-clearfix sc-type-light sc-border-light-bottom">

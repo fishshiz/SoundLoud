@@ -20,7 +20,6 @@ export default class SessionForm extends React.Component {
     }
     
     handleInput(type) {
-        console.log(this.state);
         return (e) => {
             this.setState({ [type]: e.target.value });
         };

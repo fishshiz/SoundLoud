@@ -17,7 +17,6 @@ export default class SearchResults extends React.Component {
     componentDidMount() {
         const body = document.getElementById('body');
         body.addEventListener('keydown', this.handleKeyDown);
-        console.log(this.props.results);
     }
 
     handleKeyDown(e) {
@@ -55,7 +54,6 @@ export default class SearchResults extends React.Component {
                 liSelected.classList.add('selected-li');
             }
         } else if (e.keyCode === 13) {
-            console.log(this.props);
             this.props.history.push(`${this.path(this.props.results[this.state.selected])}`);
         }
         }
@@ -87,7 +85,6 @@ export default class SearchResults extends React.Component {
     // Add blur on component did mount.
 
     render() {
-        console.log(this.props.results);
         return (
         <ul className="dropdownMenu g-z-index-header-menu">
           {this.props.results.map((result, key) => (
