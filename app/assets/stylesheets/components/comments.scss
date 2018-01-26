@@ -21,14 +21,18 @@
     line-height: 28px;
 }
 
+.commentForm__inputWrapper {
+    position: relative
+}
+
 .comment__post {
     width: 15px;
     height: 15px;
     border: 0;
     padding: 0;
     position: absolute;
-    right: 70px;
-    top: 308px;
+    right: 14px;
+    top: 8px;
     color: #999;
 }
 

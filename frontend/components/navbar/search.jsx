@@ -36,7 +36,7 @@ export default class Search extends React.Component {
                 placeholder="Search"
                 value={this.state.input} onBlur={this.clearState} />
                 <button className="headerSearch__submit submit sc-ir" type="submit">Search</button>
-                <SearchResults value={this.state.input} results={this.props.searchResults}/>
+                <SearchResults value={this.state.input} history={this.props.history} results={this.props.searchResults}/>
             </form>
           );
       }

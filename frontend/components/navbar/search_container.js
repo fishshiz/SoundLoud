@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import Search from './search';
 import {searchDatabase, clearSearchResults} from '../../actions/search_actions';
 import { searchResults } from '../../reducers/selector';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => ({
   currentArtist: state.session.currentArtist,
@@ -13,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
   clearSearchResults: () => dispatch(clearSearchResults())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
