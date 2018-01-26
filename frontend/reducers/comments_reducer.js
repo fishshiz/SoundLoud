@@ -8,10 +8,12 @@ import { RECEIVE_COMMENTS, RECEIVE_COMMENT, CLEAR_COMMENTS } from '../actions/co
     switch (action.type) {
       case RECEIVE_COMMENTS:
         return action.comments;
-        case CLEAR_COMMENTS:
+      case CLEAR_COMMENTS:
         return {};
-    case RECEIVE_COMMENT:
-    return merge(state, action.comment);
+      case RECEIVE_COMMENT:
+        newState = merge({}, state);
+        newState[action.comment.id] = action.comment;
+        return newState;
       default:
         return state;
     }

@@ -4,23 +4,23 @@ export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 export const CLEAR_COMMENTS = 'CLEAR_COMMENTS';
   
 export const fetchComments = (trackId) => dispatch => (
-    CommentAPIUtil.fetchTrackComments(trackId).
-    then(comments => (dispatch(receiveComments(comments))))
+  CommentAPIUtil.fetchTrackComments(trackId).
+  then(comments => (dispatch(receiveComments(comments))))
 );
 
 export const postComment = (comment, trackId) => dispatch => (
   CommentAPIUtil.createComment(comment, trackId).
-  then(comment => (dispatch(receiveComment(comment))))
+  then((comment, author) => (dispatch(receiveComment(comment, author))))
 );
 
-  export const receiveComments = ({comments, authors}) => ({
-      type: RECEIVE_COMMENTS,
-    comments,
-    authors
-  });
+export const receiveComments = ({comments, authors}) => ({
+  type: RECEIVE_COMMENTS,
+  comments,
+  authors
+});
 
-  export const receiveComment = ({comment, author}) => ({
-    type: RECEIVE_COMMENT,
+export const receiveComment = ({comment, author}) => ({
+  type: RECEIVE_COMMENT,
   comment,
   author
 });

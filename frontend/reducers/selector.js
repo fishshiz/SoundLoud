@@ -16,6 +16,10 @@ export const commentsArray = state => {
   return values(state.entities.comments);
 };
 
+export const authorsArray = state => {
+  return values(state.entities.authors);
+};
+
 export const artistArray = state => {
   return values(state.entities.artists);
 };

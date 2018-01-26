@@ -29,7 +29,7 @@ export default class CommentIndex extends React.Component {
                         key={comment.id}>
                         <CommentIndexItem
                         comment={comment}
-                        author={this.props.authors[comment.author_id]}
+                        author={this.props.authors.filter(author => author.id === comment.author_id)[0]}
                          />
                         </li>
                     ))
