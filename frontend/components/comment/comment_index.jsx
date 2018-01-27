@@ -24,7 +24,7 @@ export default class CommentIndex extends React.Component {
             </h3>
             <ul className="lazyLoadingList__list sc-list-nostyle sc-clearfix">
                 {
-                    this.props.comments.map(comment => (
+                    this.props.comments.reverse().map(comment => (
                         <li className="commentsList__item" 
                         key={comment.id}>
                         <CommentIndexItem

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 
 const CommentIndexItem = ({ comment, author }) => {
+  console.log(comment);
     return (
       <div className="commentItem">
       <div className="commentItem__read">
@@ -14,6 +16,7 @@ const CommentIndexItem = ({ comment, author }) => {
       <Link className="commentItem__username sc-text-light" to={`/artists/${author.id}`}>{author.name}</Link>
       <div className="commentItem__body sc-hyphenate">
       <p>{comment.body}</p>
+      <Moment fromNow className="commentItem__TC">{comment.created_at}</Moment>
       </div>
       </div>
       </div>
