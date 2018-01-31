@@ -1,7 +1,7 @@
 import merge from 'lodash/merge';
 import { RECEIVE_TRACK, RECEIVE_TRACK_SHOW, RECEIVE_TRACKS, REMOVE_TRACK, CLEAR_TRACKS } from '../actions/track_actions';
 import { RECEIVE_ARTIST, CLEAR_ARTISTS } from '../actions/artist_actions';
-import { RECEIVE_FEATURED_TRACKS, REMOVE_FEATURED_TRACKS } from '../actions/feature_actions';
+import { RECEIVE_MAIN_TRACKS, REMOVE_MAIN_TRACKS } from '../actions/feature_actions';
 
 const tracks = (state = {}, action) => {
   Object.freeze(state);
@@ -12,7 +12,7 @@ const tracks = (state = {}, action) => {
         nextState = merge({}, state);
         nextState[action.track.id] = action.track;
         return nextState;
-    case RECEIVE_FEATURED_TRACKS:
+    case RECEIVE_MAIN_TRACKS:
         return action.payload.tracks;
     case REMOVE_TRACK:
         nextState = merge({}, state);
@@ -20,7 +20,7 @@ const tracks = (state = {}, action) => {
         return nextState;
     case CLEAR_TRACKS:
     case CLEAR_ARTISTS:
-    case REMOVE_FEATURED_TRACKS:
+    case REMOVE_MAIN_TRACKS:
         nextState = {};
         return nextState;
     case RECEIVE_ARTIST:

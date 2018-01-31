@@ -3,7 +3,7 @@ import { RECEIVE_ARTIST,
   UPDATE_ARTIST,
   CLEAR_ARTISTS } from '../actions/artist_actions';
 import merge from 'lodash/merge';
-import { RECEIVE_FEATURED_TRACKS, REMOVE_FEATURED_TRACKS} from '../actions/feature_actions';
+import { RECEIVE_MAIN_TRACKS, REMOVE_MAIN_TRACKS} from '../actions/feature_actions';
 import { RECEIVE_TRACK_SHOW } from '../actions/track_actions';
 
 const artistReducer = (state = {}, action) => {
@@ -19,7 +19,7 @@ const artistReducer = (state = {}, action) => {
     newState = merge({}, state);
       newState = {[action.artist.id]: action.artist};
       return merge({}, state, newState);
-      case RECEIVE_FEATURED_TRACKS:
+      case RECEIVE_MAIN_TRACKS:
       return action.payload.artists;
     case RECEIVE_ARTISTS:
       return action.artists;
@@ -27,7 +27,7 @@ const artistReducer = (state = {}, action) => {
       newState = merge({}, state);
       newState[action.artist.id] = action.artist;
       return newState;
-    case REMOVE_FEATURED_TRACKS:
+    case REMOVE_MAIN_TRACKS:
     case CLEAR_ARTISTS:
     newState = {};
     return newState;

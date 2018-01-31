@@ -53,6 +53,10 @@ export default class FeaturedTrackItem extends React.Component {
                         <span className="featured__pc sc-ministats sc-ministats-small sc-ministats-plays">
                           {this.props.track.play_count}
                         </span>
+                        <i className="featured__pc sc-ministats-small fa fa-comments" aria-hidden="true"></i>
+                        <span className="featured__pc sc-ministats sc-ministats-small sc-ministats-plays">
+                          {this.props.track.comment_count}
+                        </span>
                         </div>
                         </div>
       </div>

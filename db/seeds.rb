@@ -163,5 +163,3 @@ Comment.delete_all
     body: Faker::RickAndMorty.quote,
     )
 end
-
-

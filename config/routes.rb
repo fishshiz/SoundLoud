@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get "tracks_by_artist", on: :collection
     end
     resources :feature, only: [:index]
+    resources :discussed, only: [:index]
   end
 
   root "static_pages#root"

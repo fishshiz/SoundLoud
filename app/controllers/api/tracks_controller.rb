@@ -26,14 +26,19 @@ class Api::TracksController < ApplicationController
 
     def update
         @track = Track.find_by(id: params[:id])
-        if @track
+        
+        if @track && params[:play_count_inc]
             @track.play_count += 1
+            @track.save!
+            render :track
+        elsif @track && params[:comment_count_inc]
+            @track.comment_count += 1
             @track.save!
             render :track
         else
             render json: @track.errors.full_messages, status: 422
         end
-      end
+    end
 
     def destroy
         @track = current_artist.tracks.find(params[:id])

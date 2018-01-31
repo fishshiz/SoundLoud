@@ -34,6 +34,11 @@ export const incrementPlayCount = trackId => dispatch => (
     track => dispatch(receiveTrack(track)))
 );
 
+export const incrementCommentCount = trackId => dispatch => (
+  TrackAPIUtil.incrementCommentCount(trackId).then(
+    track => dispatch(receiveTrack(track)))
+);
+
 export const deleteTrack = track => dispatch => (
   TrackAPIUtil.destroyTrack(track).then(
     track => dispatch(removeTrack(track)))

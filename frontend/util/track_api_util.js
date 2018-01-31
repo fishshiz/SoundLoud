@@ -43,7 +43,16 @@ export const getTracksByArtist = (id) => {
 export const incrementPlayCount = (trackId) => (
   $.ajax({
     url: `api/tracks/${trackId}`,
-    method: 'PATCH'
+    method: 'PATCH',
+    data: { play_count_inc: true }
+  })
+);
+
+export const incrementCommentCount = (trackId) => (
+  $.ajax({
+    url: `api/tracks/${trackId}`,
+    method: 'PATCH',
+    data: { comment_count_inc: true }
   })
 );
 
