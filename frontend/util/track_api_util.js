@@ -48,14 +48,6 @@ export const incrementPlayCount = (trackId) => (
   })
 );
 
-export const incrementCommentCount = (trackId) => (
-  $.ajax({
-    url: `api/tracks/${trackId}`,
-    method: 'PATCH',
-    data: { comment_count_inc: true }
-  })
-);
-
 export const destroyTrack = (track) => (
   $.ajax({
     url: `api/tracks/${track.id}`,

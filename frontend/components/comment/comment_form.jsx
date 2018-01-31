@@ -18,7 +18,6 @@ export default class SessionForm extends React.Component {
         const comment = this.state;
         this.props.postComment(comment, this.props.trackId).
             then(this.setState({body: ''}));
-        this.props.incrementCommentCount(this.props.trackId);
     }
     
     handleInput(type) {

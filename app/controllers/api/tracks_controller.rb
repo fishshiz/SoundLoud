@@ -31,10 +31,6 @@ class Api::TracksController < ApplicationController
             @track.play_count += 1
             @track.save!
             render :track
-        elsif @track && params[:comment_count_inc]
-            @track.comment_count += 1
-            @track.save!
-            render :track
         else
             render json: @track.errors.full_messages, status: 422
         end

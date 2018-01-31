@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => ({
   requestFeaturedTracks: () => dispatch(requestFeaturedTracks()),
   removeMainTracks: () => dispatch(removeMainTracks()),
   fetchArtists: (ids) => dispatch(fetchArtists),
-  requestCommentedTracks: () => dispatch(requestCommentedTracks())
+  requestDiscussedTracks: () => dispatch(requestCommentedTracks())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeaturedTrackIndex);
