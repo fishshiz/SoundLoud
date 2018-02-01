@@ -256,6 +256,16 @@
     font-size: 24px;
     line-height: 1.6;
     border-bottom: 1px solid #f2f2f2;
+    display: flex;
+}
+
+.featured__title > h2 {
+    padding-right: 50px;
+}
+
+.selected {
+    color: gray;
+    pointer-events: none;
 }
 
 .featured__pc {
