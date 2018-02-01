@@ -37,13 +37,14 @@
 .sound__artwork {
     position: relative;
     margin-right: 15px;
+    box-shadow: 1px 3px 6px #888888;
 }
 
 .sound__coverArt {
     background: center center/contain no-repeat;
     display: block;
-    width: 160px;
-    height: 160px;
+    width: 185px;
+    height: 185px;
     z-index: 2;
 }
 
@@ -111,8 +112,8 @@
 }
 
 .sc-button-xlarge.sc-button-play, .sc-button-xlarge.sc-button-pause {
-    width: 36px;
-    height: 36px;
+    width: 50px;
+    height: 50px;
 }
 
 .sc-button-play, .sc-button-pause, .sc-button-prev, .sc-button-next, .sc-button.sc-button-blocked, .sc-button.sc-button-play:disabled, .sc-button.sc-button-play:disabled:hover, .sc-button.sc-button-play.sc-button-disabled:disabled {
@@ -132,7 +133,7 @@
     
     color: white;
     size: 12px 18px;
-    margin-top: -7px;
+    margin-top: -12px;
     margin-left: -9px;
 }
 
@@ -213,8 +214,12 @@
     justify-content: center;
 }
 
+.featured, .discussed {
+    cursor: pointer;
+}
+
 .feature__grid {
-    margin: 40px;
+    margin: 29px;
 }
 
 .feature__coverart  {
@@ -225,7 +230,7 @@
     display: none;
     z-index: 100;
     top: 0;
-    margin: 62px;
+    margin: 75px;
 }
 
 .hidden:hover {
@@ -252,7 +257,7 @@
 }
 
 .featured__title {
-    padding: 36px 0 0;
+    padding: 36px 0 9px;;
     font-size: 24px;
     line-height: 1.6;
     border-bottom: 1px solid #f2f2f2;
@@ -277,6 +282,7 @@
 .featured__base {
     display: flex;
     justify-content: space-between;
+    padding-top: 7px;
 }
 
 .l-fluid-fixed {

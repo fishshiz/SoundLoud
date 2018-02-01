@@ -13,7 +13,7 @@ export default ({ currentArtist, logout }) => {
                 </div>
                 <nav className="left header__navWrapper" role="navigation">
                     <ul className="header__navMenu header__mainMenu left sc-list-nostyle">
-                        <li><Link className="header__mainMenu-loggedInHome header__mainMenu-stream selected" to="/">Home</Link></li>
+                        <li><Link className="header__mainMenu-loggedInHome header__mainMenu-stream" to="/">Home</Link></li>
                     </ul>
                 </nav>
             </div>
