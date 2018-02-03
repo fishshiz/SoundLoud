@@ -157,9 +157,9 @@ calm_it_down = Track.create!(
 Comment.delete_all
 
 50.times do 
-    Comment.create!(
-    author_id: Artist.order("RANDOM()").first.id,
-    track_id: Track.order("RANDOM()").first.id,
-    body: Faker::RickAndMorty.quote,
-    )
+  Comment.create!(
+  author_id: Artist.order("RANDOM()").first.id,
+  track_id: Track.order("RANDOM()").first.id,
+  body: Faker::RickAndMorty.quote,
+  )
 end

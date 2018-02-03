@@ -1,4 +1,4 @@
-artists = {};
+artists = {}
 
 json.tracks do
   @discussed_tracks.each do |track|

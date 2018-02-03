@@ -1,23 +1,20 @@
-
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { login, signup } from '../../actions/session_actions';
-import { closeModal } from '../../actions/modal_actions';
-import SessionForm from './session_form';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { login, signup } from "../../actions/session_actions";
+import { closeModal } from "../../actions/modal_actions";
+import SessionForm from "./session_form";
 
 const mapStateToProps = ({ session, errors }, { formType }) => {
-
   return {
     loggedIn: Boolean(session.currentArtist),
     errors: errors.session,
     formType: formType
   };
 };
-  
-const mapDispatchToProps = (dispatch, { formType }) => {
 
+const mapDispatchToProps = (dispatch, { formType }) => {
   let processForm = artist => dispatch(login(artist));
-  if (formType === 'signup') {
+  if (formType === "signup") {
     processForm = artist => dispatch(signup(artist));
   }
   return {
@@ -28,8 +25,5 @@ const mapDispatchToProps = (dispatch, { formType }) => {
 };
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(SessionForm)
+  connect(mapStateToProps, mapDispatchToProps)(SessionForm)
 );

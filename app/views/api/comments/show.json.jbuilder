@@ -1,7 +1,7 @@
 json.comment do 
-    json.partial! 'api/comments/comment', comment: @comment
+  json.partial! 'api/comments/comment', comment: @comment
 end
 
 json.author do
-    json.partial! 'api/artists/artist', artist: current_artist
+  json.partial! 'api/artists/artist', artist: current_artist
 end

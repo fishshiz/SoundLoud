@@ -1,5 +1,8 @@
-import merge from 'lodash/merge';
-import { RECEIVE_SEARCH_RESULTS, CLEAR_SEARCH_RESULTS } from '../actions/search_actions';
+import merge from "lodash/merge";
+import {
+  RECEIVE_SEARCH_RESULTS,
+  CLEAR_SEARCH_RESULTS
+} from "../actions/search_actions";
 
 const SearchesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);

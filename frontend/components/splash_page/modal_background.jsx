@@ -1,7 +1,6 @@
-import React from 'react';
+import React from "react";
 
 export default class ModalBackground extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -24,11 +23,11 @@ export default class ModalBackground extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', this.handleKeyDown);
+    document.addEventListener("keydown", this.handleKeyDown);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyDown);
+    document.removeEventListener("keydown", this.handleKeyDown);
   }
 
   render() {

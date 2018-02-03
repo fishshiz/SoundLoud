@@ -1,5 +1,5 @@
 json.artist do
-    json.partial! "api/artists/artist", artist: @artist
+  json.partial! "api/artists/artist", artist: @artist
 end
 json.tracks({})
 json.tracks do

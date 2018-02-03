@@ -1,12 +1,12 @@
-import React from 'react';
-import LoginModalContainer from '../modal/login_modal_container';
+import React from "react";
+import LoginModalContainer from "../modal/login_modal_container";
 
 export default class SplashPage extends React.Component {
-render() {
+  render() {
     return (
-        <div>
-            <LoginModalContainer />
-        </div>
+      <div>
+        <LoginModalContainer />
+      </div>
     );
-}
+  }
 }

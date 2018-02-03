@@ -1,4 +1,8 @@
-import { RECEIVE_ERRORS, CLEAR_ERRORS, RECEIVE_CURRENT_ARTIST } from '../actions/session_actions';
+import {
+  RECEIVE_ERRORS,
+  CLEAR_ERRORS,
+  RECEIVE_CURRENT_ARTIST
+} from "../actions/session_actions";
 
 export default (state = [], action) => {
   Object.freeze(state);
@@ -8,7 +12,7 @@ export default (state = [], action) => {
     case CLEAR_ERRORS:
       return [];
     case RECEIVE_CURRENT_ARTIST:
-        return [];
+      return [];
     default:
       return state;
   }

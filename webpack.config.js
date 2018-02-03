@@ -5,7 +5,7 @@ module.exports = {
   context: __dirname,
   entry: "./frontend/soundloud.jsx",
   output: {
-    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+    path: path.resolve(__dirname, "app", "assets", "javascripts"),
     filename: "bundle.js"
   },
   module: {
@@ -13,14 +13,14 @@ module.exports = {
       {
         test: [/\.jsx?$/, /\.js?$/],
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
         query: {
-          presets: ['es2015', 'react']
+          presets: ["es2015", "react"]
         }
       }
     ]
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   resolve: {
     extensions: [".js", ".jsx", "*"]
   }

@@ -1,4 +1,4 @@
-artists = {};
+artists = {}
 
 json.tracks do
   @tracks.each do |track|

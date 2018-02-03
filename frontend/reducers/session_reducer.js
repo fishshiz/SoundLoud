@@ -1,5 +1,8 @@
-import merge from 'lodash/merge';
-import { RECEIVE_CURRENT_ARTIST, LOGOUT_CURRENT_ARTIST } from '../actions/session_actions';
+import merge from "lodash/merge";
+import {
+  RECEIVE_CURRENT_ARTIST,
+  LOGOUT_CURRENT_ARTIST
+} from "../actions/session_actions";
 
 const _nullArtist = {
   currentArtist: null
@@ -16,6 +19,5 @@ const sessionReducer = (state = _nullArtist, action) => {
       return state;
   }
 };
-
 
 export default sessionReducer;

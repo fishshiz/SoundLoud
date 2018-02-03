@@ -1,4 +1,4 @@
-authors = {};
+authors = {}
 
 json.comments do
   @comments.each do |comment|

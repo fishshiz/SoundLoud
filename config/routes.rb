@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api, defaults: { format: :json } do
-    resources :artists, only: [:create, :index, :show, :update, :destroy] do
-      resources :tracks, only: [:index, :show]
+    resources :artists, only: %i[create index show update destroy] do
+      resources :tracks, only: %i[index show]
     end
-    resource :session, only: [:create, :destroy]
+    resource :session, only: %i[create destroy]
     resources :upload, only: [:create] do
       post "payload_request", on: :collection
     end
-    resources :tracks, only: [:create, :index, :show, :update, :destroy] do
-      resources :comments, only: [:create, :index]
+    resources :tracks, only: %i[create index show update destroy] do
+      resources :comments, only: %i[create index]
     end
     resources :comments, only: [:destroy]
     resources :search, only: [:index] do

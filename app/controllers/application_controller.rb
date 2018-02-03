@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_artist
 
   private
+
   def login!(artist)
     @current_artist = artist
     session[:session_token] = artist.reset_token!
