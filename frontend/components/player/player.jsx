@@ -53,10 +53,10 @@ export default class Player extends React.Component {
 
     if (audio.paused) {
       audio.play();
-      toggle.textContent = "❚ ❚";
+      toggle.textContent = '<i className="fa fa-pause fa-2x" aria-hidden="true" />';
     } else {
       audio.pause();
-      toggle.textContent = "►";
+      toggle.textContent = '<i className="fa fa-play fa-2x" aria-hidden="true" />';
     }
   }
 
@@ -143,48 +143,42 @@ export default class Player extends React.Component {
       image = <div className="playbackSoundBadge__avatar sc-media-image" />;
     }
 
-    return (
-      <div className="player">
+    return <div className="player">
         <audio className="html__player" src={track.audio_url} />
         <div className="player__controls">
           <div className="progress" onClick={this.scrub.bind(this)}>
             <div className="progress__filled" />
           </div>
-          <button
-            className="player__button toggle"
-            title="Toggle Play"
-            onClick={this.togglePlayPause}
-          >
-            ►
-          </button>
-          <input
-            type="range"
-            name="volume"
-            className="player__slider"
-            min="0"
-            max="1"
-            step="0.05"
-            onChange={this.changeVolume}
-          />
+
           <button data-skip="-10" className="player__button">
-            «
+            <i className="fa fa-fast-backward fa-2x" aria-hidden="true" />
+          </button>
+          <button className="player__button toggle" title="Toggle Play" onClick={this.togglePlayPause}>
+            <i className="fa fa-play fa-2x" aria-hidden="true" />
           </button>
           <button data-skip="25" className="player__button">
-            »
+            <i className="fa fa-fast-forward fa-2x" aria-hidden="true" />
           </button>
+        </div>
+        <div className="volume_section">
+          <i className="fa fa-volume-up fa-2x" aria-hidden="true" />
+          <input type="range" name="volume" className="player__slider" min="0" max="1" step="0.05" onChange={this.changeVolume} />
+        </div>
+        <div className="player__track__info">
           <div className="playbackSoundBadge">
             {image}
             <div className="playbackSoundBadge__titleContextContainer">
-              {artist}
+              <p className="artist__player">{artist}</p>
               <div className="playbackSoundBadge__title">
                 <div className="playbackSoundBadge__titleLink sc-truncate">
-                  <Link to={`/tracks/${track.id}`}>{track.title}</Link>
+                  <Link className="artist__player" to={`/tracks/${track.id}`}>
+                    {track.title}
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
