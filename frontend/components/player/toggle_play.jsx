@@ -27,7 +27,7 @@ export default class TogglePlay extends React.Component {
           className="sc-button-play playButton sc-button sc-button-xlarge"
           onClick={this.handleClick}
         >
-          <i className="fa fa-pause" aria-hidden="true" />
+          <i className="fa fa-pause fa-2x" aria-hidden="true" />
         </button>
       );
     } else {

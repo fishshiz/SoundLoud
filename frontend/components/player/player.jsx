@@ -7,34 +7,75 @@ export default class Player extends React.Component {
     super(props);
     this.state = {
       track: { id: "", title: "", imageUrl: "", audio_url: "" },
-      volume: 1
+      volume: 1,
+      paused: this.props.paused
     };
 
     this.grabArtistName = this.grabArtistName.bind(this);
     this.updatePlayCount = this.updatePlayCount.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.changeVolume = this.changeVolume.bind(this);
+    this.togglePlayPause = this.togglePlayPause.bind(this);
+    this.rewind = this.rewind.bind(this);
+    this.skip = this.skip.bind(this);
     // this.scrub = this.scrub.bind(this);
   }
 
-  componentDidMount(track) {
-    this.setState({ track });
+  componentDidMount(track, paused) {
+    console.log("STATE", this.state);
+    this.setState({ track, paused });
+    const body = document.getElementById("body");
+    body.addEventListener("keydown", this.handleKeyDown);
+    const player = document.querySelector(".player");
+    const audio = player.querySelector(".html__player");
+    audio.addEventListener("timeupdate", this.handleProgress.bind(this));
+  }
+
+  componentWillUnmount() {
+    const body = document.getElementById("body");
+    body.removeEventListener("keydown", this.handleKeyDown);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log("entered");
+    const player = document.querySelector(".player");
+    const audio = player.querySelector(".html__player");
+    this.setState({ track: nextProps.track, paused: nextProps.paused });
+    // this.togglePlayPause();
+    if (!this.state.paused && nextProps.paused) {
+      audio.pause();
+    } else if (this.state.paused && !nextProps.paused) {
+      audio.play();
+      console.log("PLAYING");
+    }
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if (
+      this.props.track !== nextProps.track ||
+      this.props.paused !== nextProps.paused
+    ) {
+      console.log("nextProps -->", nextProps);
+      return true;
+    } else {
+      return false;
+    }
   }
 
   updatePlayCount() {
     this.props.incrementPlayCount(this.state.track.id);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ track: nextProps.track });
+  rewind() {
+    const player = document.querySelector(".player");
+    const audio = player.querySelector(".html__player");
+    audio.currentTime = 0;
   }
 
-  shouldComponentUpdate(nextProps) {
-    if (this.props.track !== nextProps.track) {
-      return true;
-    } else {
-      return false;
-    }
+  skip() {
+    const player = document.querySelector(".player");
+    const audio = player.querySelector(".html__player");
+    audio.currentTime = audio.duration;
   }
 
   changeVolume() {
@@ -51,12 +92,16 @@ export default class Player extends React.Component {
     const toggle = player.querySelector(".toggle");
     const volume = player.querySelector(".player__slider");
 
-    if (audio.paused) {
+    if (this.state.paused) {
       audio.play();
-      toggle.textContent = '<i className="fa fa-pause fa-2x" aria-hidden="true" />';
+      this.props.play(this.state.track);
+      this.setState({ paused: false });
+      // toggle.innerHTML = '<i className="fa fa-pause fa-2x" aria-hidden="true" />';
     } else {
       audio.pause();
-      toggle.textContent = '<i className="fa fa-play fa-2x" aria-hidden="true" />';
+      this.props.pause(this.state.track);
+      this.setState({ paused: true });
+      // toggle.innerHTML = '<i className="fa fa-play fa-2x" aria-hidden="true" />';
     }
   }
 
@@ -70,14 +115,10 @@ export default class Player extends React.Component {
     }
   }
 
-  componentDidMount() {
-    // this.rap.audioEl.setAttribute("controlsList", "nodownload");
-    const body = document.getElementById("body");
-    body.addEventListener("keydown", this.handleKeyDown);
-    const player = document.querySelector(".player");
-    const audio = player.querySelector(".html__player"); 
-    audio.addEventListener('timeupdate', this.handleProgress.bind(this));
-  }
+  // componentDidMount() {
+  //   // this.rap.audioEl.setAttribute("controlsList", "nodownload");
+
+  // }
 
   scrub(e) {
     e.preventDefault();
@@ -89,21 +130,16 @@ export default class Player extends React.Component {
     audio.currentTime = scrubTime;
   }
 
-  componentWillReceiveProps({ track, paused }) {
-    // const { audioEl } = this.rap;
-    // if (paused && !audioEl.paused) {
-    //   audioEl.pause();
-    // } else if (!paused && audioEl.paused) {
-    //   audioEl.play();
-    // }
+  // componentWillReceiveProps({ track, paused }) {
+  //   // const { audioEl } = this.rap;
+  //   // if (paused && !audioEl.paused) {
+  //   //   audioEl.pause();
+  //   // } else if (!paused && audioEl.paused) {
+  //   //   audioEl.play();
+  //   // }
 
-    this.setState({ track });
-  }
-
-  componentWillUnmount() {
-    const body = document.getElementById("body");
-    body.removeEventListener("keydown", this.handleKeyDown);
-  }
+  //   this.setState({ track });
+  // }
 
   grabArtistName() {
     if (this.state.track.id !== "") {
@@ -119,15 +155,22 @@ export default class Player extends React.Component {
     const audio = player.querySelector(".html__player");
     const progressBar = player.querySelector(".progress__filled");
 
-  const percent = (audio.currentTime / audio.duration) * 100;
-  progressBar.style.flexBasis = `${percent}%`;
-}
+    const percent = audio.currentTime / audio.duration * 100;
+    progressBar.style.flexBasis = `${percent}%`;
+  }
 
   render() {
     const { track } = this.state;
+    let playPause = this.state.paused ? (
+      <i class="fa fa-play fa-2x" />
+    ) : (
+      <i className="fa fa-pause fa-2x" aria-hidden="true" />
+    );
+    console.log(this.state.paused);
     let image = null;
     let title = null;
     let artist = null;
+
     if (track.image_url) {
       image = (
         <Link to={`/tracks/${track.id}`}>
@@ -138,31 +181,54 @@ export default class Player extends React.Component {
         </Link>
       );
       artist = this.props.artists[this.state.track.artist_id].name;
-
     } else {
       image = <div className="playbackSoundBadge__avatar sc-media-image" />;
     }
 
-    return <div className="player">
+    return (
+      <div className="player">
         <audio className="html__player" src={track.audio_url} />
         <div className="player__controls">
           <div className="progress" onClick={this.scrub.bind(this)}>
             <div className="progress__filled" />
           </div>
-
-          <button data-skip="-10" className="player__button">
-            <i className="fa fa-fast-backward fa-2x" aria-hidden="true" />
-          </button>
-          <button className="player__button toggle" title="Toggle Play" onClick={this.togglePlayPause}>
-            <i className="fa fa-play fa-2x" aria-hidden="true" />
-          </button>
-          <button data-skip="25" className="player__button">
-            <i className="fa fa-fast-forward fa-2x" aria-hidden="true" />
-          </button>
+          <div className="player__btns">
+            <button
+              data-skip="-10"
+              className="player__button bwd"
+              onClick={this.rewind}
+            >
+              <i className="fa fa-fast-backward fa-2x" aria-hidden="true" />
+            </button>
+            <button
+              className="player__button toggle"
+              title="Toggle Play"
+              onClick={this.togglePlayPause}
+            >
+              {playPause}
+            </button>
+            <button
+              data-skip="25"
+              className="player__button fwd"
+              onClick={this.skip}
+            >
+              <i className="fa fa-fast-forward fa-2x" aria-hidden="true" />
+            </button>
+          </div>
         </div>
         <div className="volume_section">
-          <i className="fa fa-volume-up fa-2x" aria-hidden="true" />
-          <input type="range" name="volume" className="player__slider" min="0" max="1" step="0.05" onChange={this.changeVolume} />
+          <button className="volume_icon">
+            <i className="fa fa-volume-up fa-2x volume_icon" />
+          </button>
+          <input
+            type="range"
+            name="volume"
+            className="player__slider"
+            min="0"
+            max="1"
+            step="0.05"
+            onChange={this.changeVolume}
+          />;
         </div>
         <div className="player__track__info">
           <div className="playbackSoundBadge">
@@ -179,6 +245,7 @@ export default class Player extends React.Component {
             </div>
           </div>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
