@@ -170,7 +170,7 @@ export default class Player extends React.Component {
     const time = (audio.duration - audio.currentTime);
     let formatted = moment.duration(time, "seconds");
     momentDurationFormatSetup(moment);
-    timer.innerHTML = formatted.format("mm:ss");
+    timer.innerHTML = formatted.format("mm:ss", { trim: false });
   }
 
   render() {
