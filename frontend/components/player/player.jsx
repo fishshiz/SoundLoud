@@ -43,23 +43,19 @@ export default class Player extends React.Component {
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     this.setState({ track: nextProps.track, paused: nextProps.paused });
-    if (this.state.track && nextProps.paused) {
+
+    if (!nextProps.track) {
+      return;
+    } else if (this.state.track && nextProps.paused) {
       audio.pause();
-    } else if (this.state.paused && !nextProps.paused) {
-      let promise = audio.play();
-      console.log(promise);
-      if (promise !== undefined) {
-        promise
-          .then(function() {
-            audio.play();
-            console.log("it worked?");
-            // Automatic playback started!
-          })
-          .catch(function(error) {
-            console.log('it did\'nt work?');
-            // Automatic playback failed.
-            // Show a UI element to let the user manually start playback.
-          });
+    } else if (!nextProps.paused) {
+      if (!this.state.track || this.state.track.id !== nextProps.track.id) {
+        audio.addEventListener("loadeddata", function() {
+          let promise = audio.play();
+        });
+        audio.load();
+      } else {
+        audio.play();
       }
     }
   }
@@ -116,7 +112,6 @@ export default class Player extends React.Component {
 
     if (this.state.paused) {
       // this.updatePlayCount();
-      console.log(audio.play());
       audio.play();
       this.props.play(this.state.track);
       this.setState({ paused: false });
@@ -152,7 +147,6 @@ export default class Player extends React.Component {
   }
 
   handleKeyDown(e) {
-    console.log(e);
     if (e.keyCode === 32 && this.state.track) {
       this.togglePlayPause();
       return;
@@ -218,7 +212,6 @@ export default class Player extends React.Component {
     let audioSrc = this.state.track ? track.audio_url : undefined;
 
     if (audioSrc) {
-      console.log("audioSrc defined");
       image = (
         <Link to={`/tracks/${track.id}`}>
           <img
@@ -241,7 +234,6 @@ export default class Player extends React.Component {
         </Link>
       );
     } else {
-      console.log("audioSrc not defined");
       image = <div className="playbackSoundBadge__avatar sc-media-image" />;
     }
 
