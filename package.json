@@ -15,19 +15,16 @@
     "babel-preset-react": "^6.24.1",
     "moment": "^2.20.1",
     "react": "^16.2.0",
-    "react-audio-player": "^0.6.4",
     "react-dom": "^16.2.0",
     "react-moment": "^0.7.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "webpack": "^3.10.0"
   },
   "devDependencies": {
-    "babel-loader": "^7.1.2",
-    "webpack": "^3.10.0"
+    "redux-logger": "^3.0.6"
   },
   "engines": {
     "node": "v6.10.1",
@@ -43,7 +40,7 @@
     "url": "git+https://github.com/fishshiz/SoundLoud.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Edan Lewis",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/fishshiz/SoundLoud/issues"

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Moment from "react-moment";
 
 const CommentIndexItem = ({ comment, author }) => {
-  console.log(comment);
   return (
     <div className="commentItem">
       <div className="commentItem__read">
