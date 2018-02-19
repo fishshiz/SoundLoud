@@ -1,6 +1,7 @@
 import React from "react";
-import ReactAudioPlayer from "react-audio-player";
 import { Link } from "react-router-dom";
+import moment from "moment";
+import momentDurationFormatSetup from "moment-duration-format";
 
 export default class Player extends React.Component {
   constructor(props) {
@@ -29,6 +30,7 @@ export default class Player extends React.Component {
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     audio.addEventListener("timeupdate", this.handleProgress.bind(this));
+    audio.addEventListener("timeupdate", this.updateTime.bind(this));
   }
 
   componentWillUnmount() {
@@ -160,6 +162,16 @@ export default class Player extends React.Component {
     progressBar.style.flexBasis = `${percent}%`;
   }
 
+  updateTime() {
+    const player = document.querySelector(".player");
+    const audio = player.querySelector(".html__player");
+    const timer = player.querySelector(".timer");
+    const time = (audio.duration - audio.currentTime);
+    let formatted = moment.duration(time, "seconds");
+    momentDurationFormatSetup(moment);
+    timer.innerHTML = formatted.format("mm:ss");
+  }
+
   render() {
     const { track } = this.state;
     let playPause = this.state.paused ? (
@@ -190,34 +202,44 @@ export default class Player extends React.Component {
       image = <div className="playbackSoundBadge__avatar sc-media-image" />;
     }
 
-    return (
-      <div className="player">
+    return <div className="player">
         <audio className="html__player" src={track.audio_url} />
+        <div className="player__track__info">
+          <div className="playbackSoundBadge">{image}</div>
+        </div>
         <div className="player__controls">
-          <div className="progress" onClick={this.scrub.bind(this)}>
-            <div className="progress__filled" />
-          </div>
-          <div className="player__btns">
-            <button
-              data-skip="-10"
-              className="player__button bwd"
-              onClick={this.rewind}
-            >
-              <i className="fa fa-fast-backward fa-2x" aria-hidden="true" />
-            </button>
-            <button
-              className="player__button toggle"
-              title="Toggle Play"
-              onClick={this.togglePlayPause}
-            >
+          <div className="play__circle">
+            <button className="player__button toggle" title="Toggle Play" onClick={this.togglePlayPause}>
               {playPause}
             </button>
-            <button
-              data-skip="25"
-              className="player__button fwd"
-              onClick={this.skip}
-            >
-              <i className="fa fa-fast-forward fa-2x" aria-hidden="true" />
+          </div>
+
+          <div className="progress__container">
+            <div className="playbackSoundBadge__title">
+              <div className="playbackSoundBadge__titleLink sc-truncate">
+                <Link className="artist__player" to={`/tracks/${track.id}`}>
+                  {track.title}
+                </Link>
+              </div>
+            </div>
+            
+              <span className="timer"></span>
+            
+            <div className="progress" onClick={this.scrub.bind(this)}>
+              <div className="progress__filled" />
+            </div>
+            <div className="player__track__info">
+              <div className="playbackSoundBadge">
+                <div className="playbackSoundBadge__titleContextContainer">
+                  <p className="artist__player">{artist}</p>
+                </div>
+              </div>
+            </div>
+            <button data-skip="-10" className="player__button bwd" onClick={this.rewind}>
+              <i className="fa fa-fast-backward" aria-hidden="true" />
+            </button>
+            <button data-skip="25" className="player__button fwd" onClick={this.skip}>
+              <i className="fa fa-fast-forward" aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -225,32 +247,8 @@ export default class Player extends React.Component {
           <button className="volume_icon" onClick={this.toggleMute}>
             {volume}
           </button>
-          <input
-            type="range"
-            name="volume"
-            className="player__slider"
-            min="0"
-            max="1"
-            step="0.05"
-            onChange={this.changeVolume}
-          />;
+          <input type="range" name="volume" className="player__slider" min="0" max="1" step="0.05" onChange={this.changeVolume} />;
         </div>
-        <div className="player__track__info">
-          <div className="playbackSoundBadge">
-            {image}
-            <div className="playbackSoundBadge__titleContextContainer">
-              <p className="artist__player">{artist}</p>
-              <div className="playbackSoundBadge__title">
-                <div className="playbackSoundBadge__titleLink sc-truncate">
-                  <Link className="artist__player" to={`/tracks/${track.id}`}>
-                    {track.title}
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+      </div>;
   }
 }

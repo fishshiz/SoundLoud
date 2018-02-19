@@ -11,18 +11,18 @@
 }
 
 .player {
-    background-color: #333;
-    height: 80px;
-    display: grid;
-    grid-template-columns: 5fr 1fr 4fr;
-    border: 5px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    font-size: 0;
-    overflow: hidden;
-    bottom: 0;
-    width: 100%;
-    z-index: 100;
+  background-color: #333;
+  height: 80px;
+  display: flex;
+  border: 5px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  font-size: 0;
+  overflow: hidden;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 4px 0 0 15px;
 }
 
 .html__player {
@@ -42,6 +42,7 @@
 
 .playbackSoundBadge__title {
   line-height: 12px;
+  grid-row: 1;
 }
 
 .playbackSoundBadge__avatar {
@@ -93,15 +94,11 @@
   border-color: $orange;
 }
 
-
-
 .player__controls {
   display: flex;
   bottom: 0;
-  width: 100%;
   height: 100%;
-
-  // background: rgba(0, 0, 0, 0.1);
+  align-items: center;
 }
 
 .progress {
@@ -114,7 +111,7 @@
   background: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   border-radius: 3px;
-  margin: 30px 30px 0px 30px;
+  grid-row: 2;
 }
 
 .progress__filled {
@@ -127,73 +124,28 @@
 
 /* unholy css to style input type="range" */
 
-input[type="range"] {
-  -webkit-appearance: slider-vertical;
-  background: transparent;
-  margin: 0px 0px 5px 10px;
-}
-input[type="range"]:focus {
-  outline: none;
-}
-input[type="range"]::-webkit-slider-runnable-track {
-  height: 100%;
-  height: 8.4px;
-  cursor: pointer;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
-  background: $borderOrange;
-  border-radius: 1.3px;
-    border: 0.2px solid rgba(1, 1, 1, 0);
-}
-input[type="range"]::-webkit-slider-thumb {
-  height: 15px;
-  width: 15px;
-  border-radius: 50px;
-  background: $orange;
-  cursor: pointer;
-    -webkit-appearance: slider-vertical;
-  margin-top: -3.5px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-}
-
-input[type="range"]::-moz-range-track {
-  height: 100%;
-  width: 8.4px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
-  background: #2ae049;
-  border-radius: 1.3px;
-  border: 0.2px solid rgba(1, 1, 1, 0);
-}
-input[type="range"]::-moz-range-thumb {
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
-  height: 15px;
-  width: 15px;
-  border-radius: 50px;
-  background: #ffc600;
-  cursor: pointer;
-}
-
 .fwd {
-  grid-row: 2;
-  grid-column: 3;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .bwd {
-  grid-row: 2;
-  grid-column: 1;
+  position: absolute;
+  bottom: 0;
+  right: 20px;
 }
 
 .toggle {
-  grid-row: 2;
-  grid-column: 2;
 }
 
 .player__btns {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 100px;
+  width: 175px;
   margin-right: 30px;
+  margin-left: 30px;
+  height: 50px;
 }
 
 .playbackSoundBadge {
@@ -201,24 +153,41 @@ input[type="range"]::-moz-range-thumb {
   display: flex;
 }
 
-// .fa.fa-volume-up {
-//   font-size: 1000px;
-//   color: red;
-// }
-
 .volume_section {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   align-items: center;
-
+  margin-left: 15px;
 }
 
-
 .player__slider {
-  width: 10px;
-  height: 50px;
-  border-radius: 4px;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: $grey;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
 
+.player__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: $orange;
+  cursor: pointer;
+}
+
+.player__slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: $orange;
+  cursor: pointer;
 }
 
 .volume_icon {
@@ -226,4 +195,42 @@ input[type="range"]::-moz-range-thumb {
   color: $grey;
   border: none;
   width: 40px;
+}
+
+.play__circle {
+  border: 2px solid white;
+  border-radius: 25px;
+  grid-row: 2;
+  grid-column: 2;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  margin: 0 10px 0 10px;
+  width: 35px;
+  height: 35px;
+}
+
+.progress__container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  position: relative;
+  width: 500px;
+  height: 50px;
+}
+.player__track__info {
+  grid-row: 3;
+}
+
+.playbackSoundBadge__titleLink {
+  font-weight: bold;
+}
+
+.timer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 14px;
+  width: 20px;
+  font-size: 8px;
+  color: white;
 }

@@ -2,7 +2,7 @@ var path = require("path");
 var webpack = require("webpack");
 
 let plugins = [];
-letdevPlugins = [];
+let devPlugins = [];
 
 var prodPlugins = [
   new webpack.DefinePlugin({

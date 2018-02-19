@@ -1,8 +1,7 @@
 {
   "name": "soundloud",
   "version": "1.0.0",
-  "description":
-    "This README would normally document whatever steps are necessary to get the application up and running.",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -14,6 +13,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "moment": "^2.20.1",
+    "moment-duration-format": "^2.2.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-moment": "^0.7.0",
