@@ -8,7 +8,8 @@ export default class Player extends React.Component {
     this.state = {
       track: { id: "", title: "", imageUrl: "", audio_url: "" },
       volume: 1,
-      paused: this.props.paused
+      paused: this.props.paused,
+      mute: false
     };
 
     this.grabArtistName = this.grabArtistName.bind(this);
@@ -18,11 +19,11 @@ export default class Player extends React.Component {
     this.togglePlayPause = this.togglePlayPause.bind(this);
     this.rewind = this.rewind.bind(this);
     this.skip = this.skip.bind(this);
+    this.toggleMute = this.toggleMute.bind(this);
     // this.scrub = this.scrub.bind(this);
   }
 
   componentDidMount(track, paused) {
-    console.log("STATE", this.state);
     this.setState({ track, paused });
     const body = document.getElementById("body");
     body.addEventListener("keydown", this.handleKeyDown);
@@ -36,8 +37,7 @@ export default class Player extends React.Component {
     body.removeEventListener("keydown", this.handleKeyDown);
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log("entered");
+  componentWillReceiveProps(nextProps, nextState) {
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     this.setState({ track: nextProps.track, paused: nextProps.paused });
@@ -46,16 +46,15 @@ export default class Player extends React.Component {
       audio.pause();
     } else if (this.state.paused && !nextProps.paused) {
       audio.play();
-      console.log("PLAYING");
     }
   }
 
-  shouldComponentUpdate(nextProps) {
+  shouldComponentUpdate(nextProps, nextState) {
     if (
       this.props.track !== nextProps.track ||
-      this.props.paused !== nextProps.paused
+      this.props.paused !== nextProps.paused ||
+      this.state.mute !== nextState.mute
     ) {
-      console.log("nextProps -->", nextProps);
       return true;
     } else {
       return false;
@@ -84,6 +83,7 @@ export default class Player extends React.Component {
     const toggle = player.querySelector(".toggle");
     const volumee = player.querySelector(".player__slider");
     audio.volume = volumee.value;
+    this.setState({ volume: volumee.value });
   }
 
   togglePlayPause() {
@@ -96,12 +96,30 @@ export default class Player extends React.Component {
       audio.play();
       this.props.play(this.state.track);
       this.setState({ paused: false });
-      // toggle.innerHTML = '<i className="fa fa-pause fa-2x" aria-hidden="true" />';
     } else {
       audio.pause();
       this.props.pause(this.state.track);
       this.setState({ paused: true });
-      // toggle.innerHTML = '<i className="fa fa-play fa-2x" aria-hidden="true" />';
+    }
+  }
+
+  toggleMute() {
+    const player = document.querySelector(".player");
+    const audio = player.querySelector(".html__player");
+    const toggle = player.querySelector(".toggle");
+    const volume = player.querySelector(".player__slider");
+    console.log('ENTERED');
+
+    if (!this.state.mute) {
+      audio.volume = 0;
+      volume.value = 0;
+      this.setState({
+        mute: true
+      });
+    } else {
+      audio.volume = this.state.volume;
+      volume.value = this.state.volume;
+      this.setState({ mute: false });
     }
   }
 
@@ -115,11 +133,6 @@ export default class Player extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   // this.rap.audioEl.setAttribute("controlsList", "nodownload");
-
-  // }
-
   scrub(e) {
     e.preventDefault();
     const player = document.querySelector(".player");
@@ -129,17 +142,6 @@ export default class Player extends React.Component {
       e.nativeEvent.offsetX / progress.offsetWidth * audio.duration;
     audio.currentTime = scrubTime;
   }
-
-  // componentWillReceiveProps({ track, paused }) {
-  //   // const { audioEl } = this.rap;
-  //   // if (paused && !audioEl.paused) {
-  //   //   audioEl.pause();
-  //   // } else if (!paused && audioEl.paused) {
-  //   //   audioEl.play();
-  //   // }
-
-  //   this.setState({ track });
-  // }
 
   grabArtistName() {
     if (this.state.track.id !== "") {
@@ -162,11 +164,16 @@ export default class Player extends React.Component {
   render() {
     const { track } = this.state;
     let playPause = this.state.paused ? (
-      <i class="fa fa-play fa-2x" />
+      <i className="fa fa-play fa-2x" />
     ) : (
       <i className="fa fa-pause fa-2x" aria-hidden="true" />
     );
-    console.log(this.state.paused);
+    let volume = this.state.mute ? (
+      <i className="fa fa-volume-off fa-2x volume_icon" />
+    ) : (
+      <i className="fa fa-volume-up fa-2x volume_icon" />
+    );
+    console.log(this.state.mute);
     let image = null;
     let title = null;
     let artist = null;
@@ -217,8 +224,8 @@ export default class Player extends React.Component {
           </div>
         </div>
         <div className="volume_section">
-          <button className="volume_icon">
-            <i className="fa fa-volume-up fa-2x volume_icon" />
+          <button className="volume_icon" onClick={this.toggleMute}>
+            {volume}
           </button>
           <input
             type="range"
