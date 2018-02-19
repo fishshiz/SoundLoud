@@ -20,7 +20,6 @@ export default class Player extends React.Component {
     this.rewind = this.rewind.bind(this);
     this.skip = this.skip.bind(this);
     this.toggleMute = this.toggleMute.bind(this);
-    // this.scrub = this.scrub.bind(this);
   }
 
   componentDidMount(track, paused) {
@@ -41,7 +40,6 @@ export default class Player extends React.Component {
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     this.setState({ track: nextProps.track, paused: nextProps.paused });
-    // this.togglePlayPause();
     if (!this.state.paused && nextProps.paused) {
       audio.pause();
     } else if (this.state.paused && !nextProps.paused) {
@@ -108,7 +106,6 @@ export default class Player extends React.Component {
     const audio = player.querySelector(".html__player");
     const toggle = player.querySelector(".toggle");
     const volume = player.querySelector(".player__slider");
-    console.log('ENTERED');
 
     if (!this.state.mute) {
       audio.volume = 0;
@@ -119,7 +116,9 @@ export default class Player extends React.Component {
     } else {
       audio.volume = this.state.volume;
       volume.value = this.state.volume;
-      this.setState({ mute: false });
+      this.setState({ 
+        mute: false
+      });
     }
   }
 
@@ -173,7 +172,6 @@ export default class Player extends React.Component {
     ) : (
       <i className="fa fa-volume-up fa-2x volume_icon" />
     );
-    console.log(this.state.mute);
     let image = null;
     let title = null;
     let artist = null;
