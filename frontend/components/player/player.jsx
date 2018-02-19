@@ -94,6 +94,7 @@ export default class Player extends React.Component {
 
     if (this.state.paused) {
       audio.play();
+      this.incrementPlayCount();
       this.props.play(this.state.track);
       this.setState({ paused: false });
     } else {
