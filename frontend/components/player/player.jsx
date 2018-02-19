@@ -25,10 +25,9 @@ export default class Player extends React.Component {
 
   componentDidMount(track, paused) {
     this.setState({ track, paused });
-    const body = document.getElementById("body");
-    body.addEventListener("keydown", this.handleKeyDown);
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
+    audio.addEventListener("keydown", this.handleKeyDown);
     audio.addEventListener("timeupdate", this.handleProgress.bind(this));
     audio.addEventListener("timeupdate", this.updateTime.bind(this));
   }
@@ -94,7 +93,7 @@ export default class Player extends React.Component {
 
     if (this.state.paused) {
       audio.play();
-      this.incrementPlayCount();
+      this.updatePlayCount();
       this.props.play(this.state.track);
       this.setState({ paused: false });
     } else {
@@ -126,12 +125,13 @@ export default class Player extends React.Component {
   }
 
   handleKeyDown(e) {
+    console.log(e);
     if (
       e.keyCode === 32 &&
-      e.target === e.currentTarget &&
-      this.state.track.audioUrl
+      this.state.track
     ) {
       this.togglePlayPause();
+      return;
     }
   }
 

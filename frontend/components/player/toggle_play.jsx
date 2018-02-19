@@ -14,6 +14,7 @@ export default class TogglePlay extends React.Component {
       this.props.pause(this.props.track);
     } else {
       this.props.play(this.props.track);
+      this.props.incrementPlayCount(this.props.track.id);
     }
   }
 
