@@ -12,9 +12,14 @@ export default class TogglePlay extends React.Component {
       this.props.trackId === this.props.track.id
     ) {
       this.props.pause(this.props.track);
-    } else {
+    } else if (this.props.trackId === this.props.track.id) {
       this.props.play(this.props.track);
-      this.props.incrementPlayCount(this.props.track.id);
+    }
+    else {
+      this.props.incrementPlayCount(this.props.track.id).then((track) => {
+        this.props.play(this.props.track);
+      }
+      );
     }
   }
 

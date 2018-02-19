@@ -6,11 +6,13 @@ import momentDurationFormatSetup from "moment-duration-format";
 export default class Player extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       track: { id: "", title: "", imageUrl: "", audio_url: "" },
       volume: 1,
       paused: this.props.paused,
-      mute: false
+      mute: false,
+      mid: false
     };
 
     this.grabArtistName = this.grabArtistName.bind(this);
@@ -41,10 +43,24 @@ export default class Player extends React.Component {
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     this.setState({ track: nextProps.track, paused: nextProps.paused });
-    if (!this.state.paused && nextProps.paused) {
+    if (this.state.track && nextProps.paused) {
       audio.pause();
     } else if (this.state.paused && !nextProps.paused) {
-      audio.play();
+      let promise = audio.play();
+      console.log(promise);
+      if (promise !== undefined) {
+        promise
+          .then(function() {
+            audio.play();
+            console.log("it worked?");
+            // Automatic playback started!
+          })
+          .catch(function(error) {
+            console.log('it did\'nt work?');
+            // Automatic playback failed.
+            // Show a UI element to let the user manually start playback.
+          });
+      }
     }
   }
 
@@ -52,7 +68,8 @@ export default class Player extends React.Component {
     if (
       this.props.track !== nextProps.track ||
       this.props.paused !== nextProps.paused ||
-      this.state.mute !== nextState.mute
+      this.state.mute !== nextState.mute ||
+      this.state.mid !== nextState.mid
     ) {
       return true;
     } else {
@@ -82,7 +99,13 @@ export default class Player extends React.Component {
     const toggle = player.querySelector(".toggle");
     const volumee = player.querySelector(".player__slider");
     audio.volume = volumee.value;
-    this.setState({ volume: volumee.value });
+    if (volumee.value == 0) {
+      this.setState({ mute: true, mid: false, volume: volumee.value });
+    } else if (volumee.value > 0 && volumee.value < 0.7) {
+      this.setState({ mute: false, mid: true, volume: volumee.value });
+    } else {
+      this.setState({ mute: false, mid: false, volume: volumee.value });
+    }
   }
 
   togglePlayPause() {
@@ -92,8 +115,9 @@ export default class Player extends React.Component {
     const volume = player.querySelector(".player__slider");
 
     if (this.state.paused) {
+      // this.updatePlayCount();
+      console.log(audio.play());
       audio.play();
-      this.updatePlayCount();
       this.props.play(this.state.track);
       this.setState({ paused: false });
     } else {
@@ -116,20 +140,20 @@ export default class Player extends React.Component {
         mute: true
       });
     } else {
-      audio.volume = this.state.volume;
-      volume.value = this.state.volume;
-      this.setState({ 
-        mute: false
-      });
+      if (this.state.volume == 0) {
+        audio.volume = 1;
+        volume.value = 1;
+      } else {
+        audio.volume = this.state.volume;
+        volume.value = this.state.volume;
+      }
+      this.setState({ mute: false });
     }
   }
 
   handleKeyDown(e) {
     console.log(e);
-    if (
-      e.keyCode === 32 &&
-      this.state.track
-    ) {
+    if (e.keyCode === 32 && this.state.track) {
       this.togglePlayPause();
       return;
     }
@@ -167,7 +191,7 @@ export default class Player extends React.Component {
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     const timer = player.querySelector(".timer");
-    const time = (audio.duration - audio.currentTime);
+    const time = audio.duration - audio.currentTime;
     let formatted = moment.duration(time, "seconds");
     momentDurationFormatSetup(moment);
     timer.innerHTML = formatted.format("mm:ss", { trim: false });
@@ -180,16 +204,21 @@ export default class Player extends React.Component {
     ) : (
       <i className="fa fa-pause fa-2x" aria-hidden="true" />
     );
-    let volume = this.state.mute ? (
-      <i className="fa fa-volume-off fa-2x volume_icon" />
-    ) : (
-      <i className="fa fa-volume-up fa-2x volume_icon" />
-    );
+    let volume;
+    if (this.state.mute) {
+      volume = <i className="fa fa-volume-off fa-2x volume_icon" />;
+    } else if (this.state.mid) {
+      volume = <i className="fa fa-volume-down fa-2x volume_icon" />;
+    } else {
+      volume = <i className="fa fa-volume-up fa-2x volume_icon" />;
+    }
     let image = null;
     let title = null;
     let artist = null;
+    let audioSrc = this.state.track ? track.audio_url : undefined;
 
-    if (track.image_url) {
+    if (audioSrc) {
+      console.log("audioSrc defined");
       image = (
         <Link to={`/tracks/${track.id}`}>
           <img
@@ -198,19 +227,37 @@ export default class Player extends React.Component {
           />
         </Link>
       );
-      artist = this.props.artists[this.state.track.artist_id].name;
+      title = (
+        <Link className="artist__player" to={`/tracks/${track.id}`}>
+          {track.title}
+        </Link>
+      );
+      artist = (
+        <Link
+          className="artist__player"
+          to={`/artists/${this.state.track.artist_id}`}
+        >
+          {this.props.artists[this.state.track.artist_id].name}
+        </Link>
+      );
     } else {
+      console.log("audioSrc not defined");
       image = <div className="playbackSoundBadge__avatar sc-media-image" />;
     }
 
-    return <div className="player">
-        <audio className="html__player" src={track.audio_url} />
+    return (
+      <div className="player">
+        <audio className="html__player" src={audioSrc} />
         <div className="player__track__info">
           <div className="playbackSoundBadge">{image}</div>
         </div>
         <div className="player__controls">
           <div className="play__circle">
-            <button className="player__button toggle" title="Toggle Play" onClick={this.togglePlayPause}>
+            <button
+              className="player__button toggle"
+              title="Toggle Play"
+              onClick={this.togglePlayPause}
+            >
               {playPause}
             </button>
           </div>
@@ -218,14 +265,12 @@ export default class Player extends React.Component {
           <div className="progress__container">
             <div className="playbackSoundBadge__title">
               <div className="playbackSoundBadge__titleLink sc-truncate">
-                <Link className="artist__player" to={`/tracks/${track.id}`}>
-                  {track.title}
-                </Link>
+                {title}
               </div>
             </div>
-            
-              <span className="timer"></span>
-            
+
+            <span className="timer" />
+
             <div className="progress" onClick={this.scrub.bind(this)}>
               <div className="progress__filled" />
             </div>
@@ -236,10 +281,18 @@ export default class Player extends React.Component {
                 </div>
               </div>
             </div>
-            <button data-skip="-10" className="player__button bwd" onClick={this.rewind}>
+            <button
+              data-skip="-10"
+              className="player__button bwd"
+              onClick={this.rewind}
+            >
               <i className="fa fa-fast-backward" aria-hidden="true" />
             </button>
-            <button data-skip="25" className="player__button fwd" onClick={this.skip}>
+            <button
+              data-skip="25"
+              className="player__button fwd"
+              onClick={this.skip}
+            >
               <i className="fa fa-fast-forward" aria-hidden="true" />
             </button>
           </div>
@@ -248,8 +301,17 @@ export default class Player extends React.Component {
           <button className="volume_icon" onClick={this.toggleMute}>
             {volume}
           </button>
-          <input type="range" name="volume" className="player__slider" min="0" max="1" step="0.05" onChange={this.changeVolume} />;
+          <input
+            type="range"
+            name="volume"
+            className="player__slider"
+            min="0"
+            max="1"
+            step="0.05"
+            onChange={this.changeVolume}
+          />;
         </div>
-      </div>;
+      </div>
+    );
   }
 }

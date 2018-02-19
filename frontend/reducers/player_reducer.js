@@ -3,6 +3,7 @@ import {
   PAUSE_TRACK,
   FETCH_CURRENT_TRACK
 } from "../actions/player_actions";
+import { RECEIVE_TRACK } from "../actions/track_actions";
 import merge from "lodash/merge";
 
 const _nullPlayer = {
@@ -22,6 +23,8 @@ const playerReducer = (state = _nullPlayer, action) => {
       newState = merge({}, state);
       newState.paused = true;
       return newState;
+    case RECEIVE_TRACK:
+      return action.track;
     case FETCH_CURRENT_TRACK:
       if (action.trackId === state.trackId) {
         newState = merge({}, state);
