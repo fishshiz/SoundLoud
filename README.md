@@ -8,7 +8,7 @@ You can check out the live version [here.](https://soundloud.herokuapp.com/#/)
 
 ## Technology Overview
 
-I built Soundloud in just under two weeks; it was my first ever attempt at a full stack web application, and I learned a lot from the experience. I used used PostgreSQL, ActiveRecord and Ruby on Rails to manage the backend, and Jbuilder to transform my backend data into JSON. In order to manage state and the frontend, I used React/Redux, as well as SASS for frontend styling. Finally, for image and audio hosting, I used the AWS S3 service and the Paperclip gem from ThoughtBot.
+I built Soundloud in just under two weeks; it was my first ever attempt at a full stack web application, and I learned a lot from the experience. I used PostgreSQL, ActiveRecord and Ruby on Rails to manage the backend, and Jbuilder to transform my backend data into JSON. In order to manage state and the frontend, I used React/Redux, as well as SASS for frontend styling. Finally, for image and audio hosting, I used the AWS S3 service and the Paperclip gem from ThoughtBot.
 
 ## Hand-rolled Audio Player
 
