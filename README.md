@@ -16,6 +16,8 @@ I decided to take a stab at handrolling my own customized audio player for this 
 
 ### Dynamic Progression Bar
 
+![Player Demo](https://media.giphy.com/media/fo2bcN75NGgpaRm8Kx/giphy.gif)
+
 The main part of any audio player is the progress bar. Ideally, I wanted the user to be able to click on different regions of the bar to jump to different sections of the current track. This was handled by over-laying two rectangular divs on top of on another, and playing with the flexBasis CSS property of the growing div. On componentDidMount() of the player's react lifecycle, I added event listeners timeupdates on the embedded audio track. This then triggered my handleProgress() method, where I adjust the flexBasis of my progress bar.
 
 ```
@@ -27,8 +29,43 @@ handleProgress() {
     const percent = audio.currentTime / audio.duration * 100;
     progressBar.style.flexBasis = `${percent}%`;
   }
-  ```
+```
   
-![Player Demo](https://media.giphy.com/media/fo2bcN75NGgpaRm8Kx/giphy.gif)
+I added a onClick listener to my underlying div to handle scrubbing. Because all track navigation is handled through just the player component, I was able to keep all information about current track location in local state.
+
+```
+scrub(e) {
+    e.preventDefault();
+    const player = document.querySelector(".player");
+    const audio = player.querySelector(".html__player");
+    const progress = player.querySelector(".progress");
+    const scrubTime =
+        e.nativeEvent.offsetX / progress.offsetWidth * audio.duration;
+    audio.currentTime = scrubTime;
+}
+```
+
+### Responsive Volume Control
+
+![Volume Demo](https://media.giphy.com/media/cIS2Ljr9t8y1SVyTka/giphy.gif)
+
+With my volume control, I wanted to display different sound level icons depending on the current volume of the track. I additionally wanted the icon to serve as a mute button. I achieved this by storing mute and mid Boolean values in my player's local state, and then storing a volume number value in state. By storing both a mute boolean and a volume integer value in local state, the audio player can remember the last volume level that it was playing at if it is ever switched to mute, thus it can toggle back to the previous volume when unmuted. The mid boolean value is stored in order to render a 'mid-level' volume icon.
+
+```
+changeVolume() {
+    const player = document.querySelector(".player");
+    const audio = player.querySelector(".html__player");
+    const toggle = player.querySelector(".toggle");
+    const volumee = player.querySelector(".player__slider");
+    audio.volume = volumee.value;
+    if (volumee.value == 0) {
+        this.setState({ mute: true, mid: false, volume: volumee.value });
+    } else if (volumee.value > 0 && volumee.value < 0.7) {
+        this.setState({ mute: false, mid: true, volume: volumee.value });
+    } else {
+        this.setState({ mute: false, mid: false, volume: volumee.value });
+    }
+}
+```
 
   
