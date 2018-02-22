@@ -1,24 +1,9 @@
-# README
+![](app/assets/images/soundloud-sq@2x.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Soundloud
 
-Things you may want to cover:
+Soundloud is a music showcasing site, inspired by Soundcloud, which allows users to share their music with the world. On Soundloud, everyone has the oppurtunity to upload albums, leave comments and stream each other's work.
 
-* Ruby version
+You can check out the live version [here.](https://soundloud.herokuapp.com/#/)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Technology Overview
