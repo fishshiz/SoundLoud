@@ -18,7 +18,8 @@ I decided to take a stab at handrolling my own customized audio player for this 
 
 The main part of any audio player is the progress bar. Ideally, I wanted the user to be able to click on different regions of the bar to jump to different sections of the current track. This was handled by over-laying two rectangular divs on top of on another, and playing with the flexBasis CSS property of the growing div. On componentDidMount() of the player's react lifecycle, I added event listeners timeupdates on the embedded audio track. This then triggered my handleProgress() method, where I adjust the flexBasis of my progress bar.
 
-```  handleProgress() {
+```
+handleProgress() {
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     const progressBar = player.querySelector(".progress__filled");
@@ -28,5 +29,5 @@ The main part of any audio player is the progress bar. Ideally, I wanted the use
   }
   ```
   
-![](http://www.giphy.com/gifs/fo2bcN75NGgpaRm8Kx)
+![Player Demo](http://www.giphy.com/gifs/fo2bcN75NGgpaRm8Kx.gif)
   
