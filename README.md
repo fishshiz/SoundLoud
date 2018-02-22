@@ -68,4 +68,51 @@ changeVolume() {
 }
 ```
 
-  
+## Search Bar
+
+![Search Demo](https://media.giphy.com/media/1oLeDpwimRgA9MLjXY/giphy.gif)
+
+The search bar triggers an ActiveRecord query upon every new keystroke, returning the top three artist and track instances most closely matching the input string. These search methods are stored directly in my artist and track models, and called by a separate search controller. 
+
+```
+// artist.rb
+def self.top_three(query)
+    param = '%' + query.downcase + '%'
+    Artist.where('lower(name) LIKE ?', param).limit(3)
+end
+
+// track.rb
+def self.top_three(query)
+    param = '%' + query.downcase + '%'
+    Track.where('lower(title) LIKE ?', param).limit(3)
+end
+
+// search_controller.rb
+def index
+    @artists = Artist.top_three(search_params[:query])
+    @tracks = Track.top_three(search_params[:query])
+    render :index
+end
+```
+
+I added arrow-key functionality to my search results by storing a currently selected index in local state, appending a "selected" class onto that list item, and updating that index appropriately depending on keyCode values.
+
+## Track Ranking by Play-count and Comment-count
+
+![Ranking Demo](https://media.giphy.com/media/67PrfMDnVHhT1ZTz7P/giphy.gif)
+
+The main page promotes the top eight tracks from the database with the highest play counts and comment counts. For the play count, I added a playcount column to my track model which simply increments via a PATCH request on every play. Because comments were already a model in my schema with a belongs-to association with tracks, I was able to use a Rails counter cache to keep track of comment counts among tracks. Upon the mounting of the featured page component, the component makes a AJAX request for either the most played or most discussed tracks. The request is directed to one of two different routes and hits either a "featured" controller or a "most-discussed" controller. The track model has two more query methods attached to it "In addition to the searchbar query method", and depending on the controller, a specific ActiveRecord query is inacted.
+
+```
+  def self.featured
+    Track.includes(:artist).order('play_count DESC').limit(8)
+  end
+
+  def self.most_discussed
+    Track.includes(:artist).order('comment_count DESC').limit(8)
+  end
+```
+
+## Future Implementations
+
+I continue to work on this project off and on, and am looking forward to continue implementing new features. Potential future implementations include customizeable playlists, track likes, and artist follows.
