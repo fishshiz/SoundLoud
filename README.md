@@ -29,5 +29,6 @@ handleProgress() {
   }
   ```
   
-![Player Demo](http://www.giphy.com/gifs/fo2bcN75NGgpaRm8Kx.gif)
+![Player Demo](https://media.giphy.com/media/fo2bcN75NGgpaRm8Kx/giphy.gif)
+
   
