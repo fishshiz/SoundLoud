@@ -12,13 +12,13 @@ I built Soundloud in just under two weeks; it was my first ever attempt at a ful
 
 ## Hand-rolled Audio Player
 
-I decided to take a stab at handrolling my own customized audio player for this project. It ended up being a fun and interesting JavaScript and React challenge. I still use a HTML5 audio tag in my skeleton, after hiding it with CSS, I started work on my custom player.
+I decided to take a stab at handrolling my own customized audio player for this project. It ended up being a fun and interesting JavaScript and React challenge. I still used a HTML5 audio tag in my skeleton, and after hiding it with CSS, I started work on my custom player.
 
 ### Dynamic Progression Bar
 
 ![Player Demo](https://media.giphy.com/media/fo2bcN75NGgpaRm8Kx/giphy.gif)
 
-The main part of any audio player is the progress bar. Ideally, I wanted the user to be able to click on different regions of the bar to jump to different sections of the current track. This was handled by over-laying two rectangular divs on top of on another, and playing with the flexBasis CSS property of the growing div. On componentDidMount() of the player's react lifecycle, I added event listeners timeupdates on the embedded audio track. This then triggered my handleProgress() method, where I adjust the flexBasis of my progress bar.
+The main part of any audio player is the progress bar. Ideally, I wanted the user to be able to click on different regions of the bar to jump to different sections of the current track. This was handled by over-laying two rectangular divs on top of on another, and playing with the flexBasis CSS property of the growing div. On componentDidMount() of the player's react lifecycle, I added event listeners for timeupdates on the embedded audio track. This then triggered my handleProgress() method, where I adjust the flexBasis of my progress bar.
 
 ```
 handleProgress() {
