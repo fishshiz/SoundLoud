@@ -4,10 +4,16 @@ export const RECEIVE_ARTISTS = "RECEIVE_ARTISTS";
 export const RECEIVE_SEARCH_RESULTS = "RECEIVE_SEARCH_RESULTS";
 export const UPDATE_ARTIST = "UPDATE_ARTIST";
 export const CLEAR_ARTISTS = "CLEAR_ARTISTS";
+export const RECEIVE_PLAYING_ARTIST = "RECEIVE_PLAYING_ARTIST";
 
 export const fetchArtist = id => dispatch =>
   ArtistAPIUtil.fetchArtist(id).then(payload =>
     dispatch(receiveArtist(payload))
+  );
+
+export const fetchPlayingArtist = id => dispatch =>
+  ArtistAPIUtil.fetchArtist(id).then(payload =>
+    dispatch(receivePlayingArtist(payload))
   );
 
 export const fetchArtists = ids => dispatch =>
@@ -41,4 +47,9 @@ const receiveArtistUpdate = artist => ({
 
 export const clearArtists = () => ({
   type: CLEAR_ARTISTS
+});
+
+export const receivePlayingArtist = artist => ({
+  type: RECEIVE_PLAYING_ARTIST,
+  artist
 });

@@ -16,10 +16,11 @@ export default class TogglePlay extends React.Component {
       this.props.play(this.props.track);
     }
     else {
+      this.props.fetchPlayerArtist(this.props.track.id);
       this.props.incrementPlayCount(this.props.track.id).then((track) => {
         this.props.play(this.props.track);
       }
-      );
+    );
     }
   }
 

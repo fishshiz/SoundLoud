@@ -12,10 +12,10 @@ export default class Player extends React.Component {
       volume: 1,
       paused: this.props.paused,
       mute: false,
-      mid: false
+      mid: false,
+      artist: { id: "", name: "" }
     };
 
-    this.grabArtistName = this.grabArtistName.bind(this);
     this.updatePlayCount = this.updatePlayCount.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.changeVolume = this.changeVolume.bind(this);
@@ -25,8 +25,8 @@ export default class Player extends React.Component {
     this.toggleMute = this.toggleMute.bind(this);
   }
 
-  componentDidMount(track, paused) {
-    this.setState({ track, paused });
+  componentDidMount(track, paused, artist) {
+    this.setState({ track, paused, artist });
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     audio.addEventListener("keydown", this.handleKeyDown);
@@ -42,7 +42,7 @@ export default class Player extends React.Component {
   componentWillReceiveProps(nextProps, nextState) {
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
-    this.setState({ track: nextProps.track, paused: nextProps.paused });
+    this.setState({ track: nextProps.track, paused: nextProps.paused, artist: nextProps.artist });
 
     if (!nextProps.track) {
       return;
@@ -163,15 +163,6 @@ export default class Player extends React.Component {
     audio.currentTime = scrubTime;
   }
 
-  grabArtistName() {
-    if (this.state.track.id !== "") {
-      const artist = this.props.artists[this.state.track.artist_id];
-      return <Link to={`/artists/${artist.id}`}>{artist.name}</Link>;
-    } else {
-      return null;
-    }
-  }
-
   handleProgress() {
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
@@ -192,7 +183,7 @@ export default class Player extends React.Component {
   }
 
   render() {
-    const { track } = this.state;
+    const { track, artist } = this.state;
     let playPause = this.state.paused ? (
       <i className="fa fa-play fa-2x" />
     ) : (
@@ -208,7 +199,7 @@ export default class Player extends React.Component {
     }
     let image = null;
     let title = null;
-    let artist = null;
+    let artistTitle;
     let audioSrc = this.state.track ? track.audio_url : undefined;
 
     if (audioSrc) {
@@ -225,12 +216,12 @@ export default class Player extends React.Component {
           {track.title}
         </Link>
       );
-      artist = (
+      artistTitle = (
         <Link
           className="artist__player"
-          to={`/artists/${this.state.track.artist_id}`}
+          to={`/artists/${artist.id}`}
         >
-          {this.props.artists[this.state.track.artist_id].name}
+          {artist.name}
         </Link>
       );
     } else {
@@ -269,7 +260,7 @@ export default class Player extends React.Component {
             <div className="player__track__info">
               <div className="playbackSoundBadge">
                 <div className="playbackSoundBadge__titleContextContainer">
-                  <p className="artist__player">{artist}</p>
+                  <p className="artist__player">{artistTitle}</p>
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import TogglePlay from "./toggle_play";
 import { getPlay, getPause } from "../../actions/player_actions";
 import { incrementPlayCount } from "../../actions/track_actions";
+import { fetchPlayingArtist } from "../../actions/artist_actions";
 
 const mapStateToProps = ({ ui }) => ({
   trackId: ui.player.trackId,
@@ -11,7 +12,8 @@ const mapStateToProps = ({ ui }) => ({
 const mapDispatchToProps = dispatch => ({
   play: track => dispatch(getPlay(track)),
   pause: track => dispatch(getPause(track)),
-  incrementPlayCount: trackId => dispatch(incrementPlayCount(trackId))
+  incrementPlayCount: trackId => dispatch(incrementPlayCount(trackId)),
+  fetchPlayerArtist: trackId => dispatch(fetchPlayingArtist(trackId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TogglePlay);
