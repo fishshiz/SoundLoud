@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => ({
   play: track => dispatch(getPlay(track)),
   pause: track => dispatch(getPause(track)),
   incrementPlayCount: trackId => dispatch(incrementPlayCount(trackId)),
-  fetchPlayerArtist: trackId => dispatch(fetchPlayingArtist(trackId))
+  fetchPlayerArtist: artistId => dispatch(fetchPlayingArtist(artistId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TogglePlay);
