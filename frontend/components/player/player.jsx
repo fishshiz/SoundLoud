@@ -111,7 +111,6 @@ export default class Player extends React.Component {
     const volume = player.querySelector(".player__slider");
 
     if (this.state.paused) {
-      // this.updatePlayCount();
       audio.play();
       this.props.play(this.state.track);
       this.setState({ paused: false });
