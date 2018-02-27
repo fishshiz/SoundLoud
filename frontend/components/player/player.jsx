@@ -13,7 +13,8 @@ export default class Player extends React.Component {
       paused: this.props.paused,
       mute: false,
       mid: false,
-      artist: { id: "", name: "" }
+      artist: { id: "", name: "" },
+      trackList: []
     };
 
     this.updatePlayCount = this.updatePlayCount.bind(this);
@@ -25,13 +26,14 @@ export default class Player extends React.Component {
     this.toggleMute = this.toggleMute.bind(this);
   }
 
-  componentDidMount(track, paused, artist) {
-    this.setState({ track, paused, artist });
+  componentDidMount(track, paused, artist, trackList) {
+    this.setState({ track, paused, artist, trackList });
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     audio.addEventListener("keydown", this.handleKeyDown);
     audio.addEventListener("timeupdate", this.handleProgress.bind(this));
     audio.addEventListener("timeupdate", this.updateTime.bind(this));
+    audio.addEventListener("ended", this.getNextTrack.bind(this));
   }
 
   componentWillUnmount() {
@@ -42,7 +44,7 @@ export default class Player extends React.Component {
   componentWillReceiveProps(nextProps, nextState) {
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
-    this.setState({ track: nextProps.track, paused: nextProps.paused, artist: nextProps.artist });
+    this.setState({ track: nextProps.track, paused: nextProps.paused, artist: nextProps.artist, trackList: nextProps.trackList});
 
     if (!nextProps.track) {
       return;
@@ -75,6 +77,11 @@ export default class Player extends React.Component {
 
   updatePlayCount() {
     this.props.incrementPlayCount(this.state.track.id);
+  }
+
+  getNextTrack() {
+    let next = this.state.trackList[0];
+    this.props.play(next);
   }
 
   rewind() {

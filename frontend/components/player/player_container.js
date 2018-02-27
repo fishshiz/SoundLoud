@@ -6,7 +6,8 @@ import { getPlay, getPause } from "../../actions/player_actions";
 const mapStateToProps = state => ({
   track: state.ui.player.track,
   artist: state.ui.player.artist,
-  paused: state.ui.player.paused
+  paused: state.ui.player.paused,
+  trackList: state.ui.player.trackList
 });
 
 const mapDispatchToProps = dispatch => ({
