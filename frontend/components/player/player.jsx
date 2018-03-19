@@ -91,6 +91,7 @@ export default class Player extends React.Component {
   }
 
   skip() {
+    // currently just fetches another track by artist
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     audio.currentTime = audio.duration;
