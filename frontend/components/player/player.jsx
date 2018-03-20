@@ -98,6 +98,7 @@ export default class Player extends React.Component {
   }
 
   changeVolume() {
+    // Keeps last volume in state for mute/unmute
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     const toggle = player.querySelector(".toggle");
