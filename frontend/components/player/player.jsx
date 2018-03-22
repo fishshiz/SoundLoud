@@ -44,7 +44,12 @@ export default class Player extends React.Component {
   componentWillReceiveProps(nextProps, nextState) {
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
-    this.setState({ track: nextProps.track, paused: nextProps.paused, artist: nextProps.artist, trackList: nextProps.trackList});
+    this.setState({
+      track: nextProps.track,
+      paused: nextProps.paused,
+      artist: nextProps.artist,
+      trackList: nextProps.trackList
+    });
 
     if (!nextProps.track) {
       return;
@@ -136,12 +141,12 @@ export default class Player extends React.Component {
     const toggle = player.querySelector(".toggle");
     const volume = player.querySelector(".player__slider");
 
+    // Keeps last volume in state for mute/unmute
+
     if (!this.state.mute) {
       audio.volume = 0;
       volume.value = 0;
-      this.setState({
-        mute: true
-      });
+      this.setState({ mute: true });
     } else {
       if (this.state.volume == 0) {
         audio.volume = 1;
@@ -225,10 +230,7 @@ export default class Player extends React.Component {
         </Link>
       );
       artistTitle = (
-        <Link
-          className="artist__player"
-          to={`/artists/${artist.id}`}
-        >
+        <Link className="artist__player" to={`/artists/${artist.id}`}>
           {artist.name}
         </Link>
       );
