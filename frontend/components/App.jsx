@@ -21,6 +21,7 @@ const App = () => (
       <ModalContainer />
     </header>
     <ProtectedRoute exact path="/stream" component={StreamContainer} />
+    <AuthRoute exact path="/" component={StreamContainer} />
     <ProtectedRoute
       exact
       path="/artists/:artistId"

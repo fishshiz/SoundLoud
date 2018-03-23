@@ -57,9 +57,6 @@ export default class Player extends React.Component {
       audio.pause();
     } else if (!nextProps.paused) {
       if (!this.state.track || this.state.track.id !== nextProps.track.id) {
-        audio.addEventListener("loadeddata", function() {
-          let promise = audio.play();
-        });
         audio.load();
       } else {
         audio.play();
