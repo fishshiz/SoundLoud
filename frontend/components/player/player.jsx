@@ -58,6 +58,7 @@ export default class Player extends React.Component {
       audio.pause();
     } else if (!nextProps.paused) {
       if (!this.state.track || this.state.track.id !== nextProps.track.id) {
+        audio.autoplay = true;
         audio.load();
       } else {
         audio.play();
@@ -83,16 +84,33 @@ export default class Player extends React.Component {
   }
 
   getNextTrack() {
-    let next = this.state.trackList[0];
+    let el = this.state.trackList.filter(el => el.id == this.state.track.id);
+    let idx = this.state.trackList.indexOf(...el);
+    if (idx === this.state.trackList.length - 1) {
+      idx = -1;
+    }
+
+    let next = this.state.trackList[idx + 1];
     this.props.play(next);
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
-    this.rewind();
+    audio.currentTime = 0;
     audio.play();
   }
 
   getLastTrack() {
+    let el = this.state.trackList.filter(el => el.id == this.state.track.id);
+    let idx = this.state.trackList.indexOf(...el);
+    if (idx === 0) {
+      idx = this.state.trackList.length;
+    }
 
+    let last = this.state.trackList[idx - 1];
+    this.props.play(last);
+    const player = document.querySelector(".player");
+    const audio = player.querySelector(".html__player");
+    audio.currentTime = 0;
+    audio.load();
   }
 
   rewind() {

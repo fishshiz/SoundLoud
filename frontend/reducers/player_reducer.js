@@ -26,11 +26,6 @@ const playerReducer = (state = _nullPlayer, action) => {
       if (action.payload.track) {
         newState.track = action.payload.track;
         newState.trackId = action.payload.trackId;
-        if (newState.trackList.length > 1) {
-          let idx = newState.trackList.findIndex(track => track.id == newState.track.id);
-          newState.trackList.splice(idx, 1);
-          newState.trackList = newState.trackList;
-        }
       }
       return newState;
     case PAUSE_TRACK:
