@@ -24,6 +24,7 @@ export default class Player extends React.Component {
     this.rewind = this.rewind.bind(this);
     this.skip = this.skip.bind(this);
     this.toggleMute = this.toggleMute.bind(this);
+    this.getLastTrack = this.getLastTrack.bind(this);
   }
 
   componentDidMount(track, paused, artist, trackList) {
@@ -84,11 +85,22 @@ export default class Player extends React.Component {
   getNextTrack() {
     let next = this.state.trackList[0];
     this.props.play(next);
+    const player = document.querySelector(".player");
+    const audio = player.querySelector(".html__player");
+    this.rewind();
+    audio.play();
+  }
+
+  getLastTrack() {
+
   }
 
   rewind() {
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
+    if (audio.currentTime < 2) {
+      this.getLastTrack();
+    }
     audio.currentTime = 0;
   }
 
