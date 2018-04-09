@@ -10,6 +10,7 @@ import EditContainer from "./artist/edit_container";
 import UploadContainer from "./track/upload_container";
 import PlayerContainer from "./player/player_container";
 import TrackShowContainer from "./track/track_show_container";
+import PlaylistShowContainer from "./playlist/playlist_show_container";
 
 const App = () => (
   <div>
@@ -33,6 +34,7 @@ const App = () => (
       path="/tracks/:trackId"
       component={TrackShowContainer}
     />
+    <ProtectedRoute exact path="/artists/playlists/:playlistId" component={PlaylistShowContainer} />
     <ProtectedRoute exact path="/edit" component={EditContainer} />
     <footer>
       <PlayerContainer />

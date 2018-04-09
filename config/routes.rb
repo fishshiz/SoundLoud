@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :artists, only: %i[create index show update destroy] do
       resources :tracks, only: %i[index show]
+      resources :playlists, only: %i[index show]
     end
     resource :session, only: %i[create destroy]
     resources :upload, only: [:create] do
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
     end
     resources :feature, only: [:index]
     resources :discussed, only: [:index]
+    resources :playlists, only: %i[create index show update destroy]
+
   end
 
   root "static_pages#root"
