@@ -2,16 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "../base/colors.scss";
+@import "../base/breakpoints";
 
 .profileHeader {
-  position: relative;
-  margin-left: -60px;
-  margin-right: -60px;
-  margin-top: -30px;
-  padding: 30px;
-  box-sizing: border-box;
-  overflow: hidden;
-  height: auto;
+    width: 1181px;
+    margin-left: -28px;
+    padding-bottom: 30px;
 }
 
 .artist__show__name {
@@ -47,6 +43,12 @@
 
 .profileHeaderInfo__avatar {
   margin-right: 30px;
+}
+
+.profileHeaderInfo {
+  display: flex;
+    flex-direction: row;
+    padding-bottom: 35px;
 }
 
 .g-type-shrinkwrap-primary,
@@ -128,3 +130,61 @@
 }
 
 
+@media only screen and (min-width: $phone) {
+.profileHeader {
+    width: 310px;
+    margin-left: -8px;
+}
+.profileHeaderInfo {
+    flex-direction: column;
+}
+.sc-media-image {
+      align-self: center;
+}
+}
+
+@media only screen and (min-width: $tablet) {
+.profileHeader {
+width: 581px;
+    margin-left: -15px;
+}
+.profileHeaderInfo {
+    flex-direction: row;
+    padding-bottom: 0px;
+}
+}
+
+@media only screen and (min-width: $tablet-large) {
+.profileHeader {
+    width: 776px;
+    margin-left: -20px;
+}
+}
+
+@media only screen and (min-width: $laptop-small) {
+.profileHeader {
+    width: 874px;
+    margin-left: -22px;
+}
+}
+
+@media only screen and (min-width: $laptop-med) {
+.profileHeader {
+  width: 970px;
+  margin-left: -25px;
+}
+}
+
+@media only screen  and (min-width: $laptop) {
+.profileHeader {
+  width: 1181px;
+  margin-left: -28px;
+}
+}
+
+@media only screen  and (min-width: $large-monitor) {
+.profileHeader {
+    width: 1768px;
+    margin-left: -45px;
+}
+}

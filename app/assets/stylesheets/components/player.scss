@@ -272,11 +272,17 @@
 .progress__container {
     width: 200px;
   }
+  .volume_section {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: $tablet) {
 .progress__container {
     width: 250px;
+  }
+  .volume_section {
+    display: flex;
   }
 }
 

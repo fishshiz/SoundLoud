@@ -307,6 +307,19 @@
         margin-right: 0px;
             align-self: center;
     }
+    .featured__title {
+    font-size: 15px;
+}
+.sc-type-large {
+    font-size: 13px;
+}
+.sound__body {
+    display: flex;
+    flex-direction: column;
+}
+.featured__base {
+    text-align: center;
+}
 }
 
 @media only screen and (min-width: $tablet) {
@@ -319,13 +332,22 @@
     .sound__artwork {
         margin-right: 15px;
     }
-
+    .sc-type-large {
+    font-size: 18px;
+}
+.sound__body {
+    flex-direction: row;
+}
+.featured__base {
+    text-align: -webkit-auto;
+}
 }
 
 @media only screen and (min-width: $tablet-large) {
 .featured__title {
     font-size: 24px;
 }
+
 }
 
 @media only screen and (min-width: $laptop-small) {
