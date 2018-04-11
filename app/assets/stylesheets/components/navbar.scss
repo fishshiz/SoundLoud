@@ -318,7 +318,9 @@ form {
     right: -197px;
     top: -31px;
   }
-
+  .dropdownMenu {
+    margin-top: -20px;
+  }
 }
 
 @media only screen and (min-width: $tablet-large) {
@@ -334,6 +336,9 @@ form {
   }
    .userNav__username {
       display: unset;
+  }
+  .dropdownMenu {
+    margin-top: 0px;
   }
 }
 
