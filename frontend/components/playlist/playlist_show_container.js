@@ -23,4 +23,4 @@ const mapDispatchToProps = dispatch => ({
   clearArtists: () => dispatch(clearArtists())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);
+// export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);

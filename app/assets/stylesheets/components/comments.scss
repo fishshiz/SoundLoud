@@ -1,4 +1,5 @@
 @import '../base/colors.scss';
+@import '../base/breakpoints.scss';
 
 .g-box-full {
     display: block;
@@ -152,4 +153,48 @@
 .commentItem__TC {
     font-size: 10px;
     color: #9e9999c7;
+}
+
+
+@media only screen and (min-width: $phone) {
+.commentForm.m-large .commentForm__input {
+    width: 85%;
+}
+}
+
+@media only screen and (min-width: $tablet) {
+.commentForm.m-large .commentForm__input {
+    width: 92%;
+}
+
+}
+
+@media only screen and (min-width: $tablet-large) {
+.commentForm.m-large .commentForm__input {
+    width: 93%;
+}
+}
+
+@media only screen and (min-width: $laptop-small) {
+.commentForm.m-large .commentForm__input {
+    width: 94%;
+}
+}
+
+@media only screen and (min-width: $laptop-med) {
+.commentForm.m-large .commentForm__input {
+    width: 95%;
+}
+}
+
+@media only screen and (min-width: $laptop) {
+.commentForm.m-large .commentForm__input {
+    width: 96%;
+}
+}
+
+@media only screen and (min-width: $large-monitor) {
+.commentForm.m-large .commentForm__input {
+    width: 97%;
+}
 }

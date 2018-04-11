@@ -1,5 +1,6 @@
 
 @import '../base/colors.scss';
+@import '../base/breakpoints.scss';
 
 .frontHero {
     color: $white;
@@ -189,4 +190,82 @@ body {
     top: 0;
     background: rgba(242, 242, 242, 0.9);
     z-index: 100;
+}
+
+@media only screen and (min-width: $phone) {
+  .l-container {
+      width: 294px;
+      padding: 0 8px;
+  }
+  .l-inner-fullwidth {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+}
+
+@media only screen and (min-width: $tablet) {
+  .l-container {
+      width: 550px;
+      padding: 0 15px;
+  }
+  .l-inner-fullwidth {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+}
+
+@media only screen and (min-width: $tablet-large) {
+  .l-container {
+      width: 736px;
+    padding: 0 20px;
+  }
+  .l-inner-fullwidth {
+    margin-left: -20px;
+    margin-right: -20px;
+}
+}
+
+@media only screen and (min-width: $laptop-small) {
+  .l-container {
+      width: 830px;
+    padding: 0 22px;
+  }
+  .l-inner-fullwidth {
+    margin-left: -22px;
+    margin-right: -22px;
+}
+}
+
+@media only screen and (min-width: $laptop-med) {
+  .l-container {
+    width: 920px;
+    padding: 0 25px
+  }
+  .l-inner-fullwidth {
+    margin-left: -25px;
+    margin-right: -25px;
+}
+}
+
+@media only screen  and (min-width: $laptop) {
+  .l-container {
+    width: 1126px;
+    padding: 0 28px
+  }
+      .l-inner-fullwidth {
+    margin-left: -28px;
+    margin-right: -28px;
+}
+}
+
+@media only screen  and (min-width: $large-monitor) {
+  .l-container {
+    width: 1678px;
+    padding: 0 45px
+  }
+  .l-inner-fullwidth {
+    margin-left: -45px;
+    margin-right: -45px;
+}
 }

@@ -1,6 +1,5 @@
 @import '../base/colors.scss';
 
 .featured-track-index {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
 }
