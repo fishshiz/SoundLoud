@@ -35,6 +35,7 @@ gem 'figaro'
 gem 'aws-sdk', '< 3.0'
 gem 'faker', '~> 1.4', '>= 1.4.3'
 gem 'jquery-rails'
+gem 'ffi', '1.9.18'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -46,7 +47,6 @@ group :development, :test do
   gem "factory_bot_rails", "~> 4.0"
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
