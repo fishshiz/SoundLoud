@@ -5,9 +5,9 @@
 @import "../base/breakpoints";
 
 .profileHeader {
-    width: 1181px;
-    margin-left: -28px;
-    padding-bottom: 30px;
+  width: 1181px;
+  margin-left: -28px;
+  padding-bottom: 30px;
 }
 
 .artist__show__name {
@@ -47,8 +47,8 @@
 
 .profileHeaderInfo {
   display: flex;
-    flex-direction: row;
-    padding-bottom: 35px;
+  flex-direction: row;
+  padding-bottom: 35px;
 }
 
 .g-type-shrinkwrap-primary,
@@ -129,62 +129,65 @@
   padding-bottom: 19px;
 }
 
+#content {
+  padding-top: 0px;
+}
 
 @media only screen and (min-width: $phone) {
-.profileHeader {
+  .profileHeader {
     width: 310px;
     margin-left: -8px;
-}
-.profileHeaderInfo {
+  }
+  .profileHeaderInfo {
     flex-direction: column;
-}
-.sc-media-image {
-      align-self: center;
-}
+  }
+  .sc-media-image {
+    align-self: center;
+  }
 }
 
 @media only screen and (min-width: $tablet) {
-.profileHeader {
-width: 581px;
+  .profileHeader {
+    width: 581px;
     margin-left: -15px;
-}
-.profileHeaderInfo {
+  }
+  .profileHeaderInfo {
     flex-direction: row;
     padding-bottom: 0px;
-}
+  }
 }
 
 @media only screen and (min-width: $tablet-large) {
-.profileHeader {
+  .profileHeader {
     width: 776px;
     margin-left: -20px;
-}
+  }
 }
 
 @media only screen and (min-width: $laptop-small) {
-.profileHeader {
+  .profileHeader {
     width: 874px;
     margin-left: -22px;
-}
+  }
 }
 
 @media only screen and (min-width: $laptop-med) {
-.profileHeader {
-  width: 970px;
-  margin-left: -25px;
-}
-}
-
-@media only screen  and (min-width: $laptop) {
-.profileHeader {
-  width: 1181px;
-  margin-left: -28px;
-}
+  .profileHeader {
+    width: 970px;
+    margin-left: -25px;
+  }
 }
 
-@media only screen  and (min-width: $large-monitor) {
-.profileHeader {
+@media only screen and (min-width: $laptop) {
+  .profileHeader {
+    width: 1181px;
+    margin-left: -28px;
+  }
+}
+
+@media only screen and (min-width: $large-monitor) {
+  .profileHeader {
     width: 1768px;
     margin-left: -45px;
-}
+  }
 }
