@@ -1,43 +1,58 @@
 // Place all the styles related to the api/Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import '../base/colors.scss';
+@import "../base/colors.scss";
+@import "../base/breakpoints.scss";
 .session-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    background: $white;
-    padding: 10px;
-    height: 25%;
-    width: 30%;
-    margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: $white;
+  padding: 10px;
+  height: 25%;
+  width: 30%;
+  margin-top: 30px;
 }
 
 .session-input {
-    width: 80%;
-    padding: 12px 20px;
-    margin: 3px;
-    box-sizing: border-box;
-    border: 1px solid grey;
-    border-radius: 8px;
-  }
+  width: 80%;
+  padding: 12px 20px;
+  margin: 3px;
+  box-sizing: border-box;
+  border: 1px solid grey;
+  border-radius: 8px;
+}
 
-  .session-input:focus {
-    outline: none;
-  }
+.session-input:focus {
+  outline: none;
+}
 
-  .session-button {
-    width: 80%;
-    margin: 3px;
-    border-radius: 8px;
-    background-color: $orange;
-    border: 1px solid white;
-    color: white;
-    padding: 12px 32px;
-    text-align: center;
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 14px;
-    display: inline-block;
+.session-button {
+  width: 80%;
+  margin: 3px;
+  border-radius: 8px;
+  background-color: $orange;
+  border: 1px solid white;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+}
+
+@media only screen and (min-width: $phone) {
+  .session-form {
+    height: 40%;
+    width: 60%;
   }
+}
+
+@media only screen and (min-width: $tablet) {
+  .session-form {
+    height: 25%;
+    width: 30%;
+  }
+}

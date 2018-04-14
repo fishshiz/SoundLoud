@@ -49,7 +49,7 @@ body {
   position: absolute;
   top: 13px;
   left: 19px;
-  background: url(soundloud-logo@4x.png) no-repeat 12px 11px;
+  background: url(https://s3-us-west-1.amazonaws.com/soundloud-dev/util/soundloud-logo%404x.png) no-repeat 12px 11px;
   background-size: 48px 22px;
   display: block;
   width: 184px;
@@ -62,7 +62,7 @@ body {
   position: absolute;
   left: 66px;
   top: 11px;
-  background-image: url(soundloud-txt.png);
+  background-image: url(https://s3-us-west-1.amazonaws.com/soundloud-dev/util/soundloud-txt.png);
   background-repeat: no-repeat;
   content: "";
   height: 100%;
@@ -145,6 +145,7 @@ body {
   margin-bottom: 8px;
   font-size: 36px;
   font-weight: 100;
+  text-align: center;
 }
 
 .frontHero__tagline {
@@ -197,6 +198,9 @@ body {
     margin-left: -8px;
     margin-right: -8px;
   }
+  .frontHero__logo {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: $tablet) {
@@ -207,6 +211,9 @@ body {
   .l-inner-fullwidth {
     margin-left: -15px;
     margin-right: -15px;
+  }
+  .frontHero__logo {
+    display: block;
   }
 }
 
