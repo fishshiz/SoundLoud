@@ -33,7 +33,7 @@ export default class Search extends React.Component {
     return (
       <form className="headerSearch" onSubmit={this.clearState}>
         <input
-          className="headerSearch__input sc-input g-all-transitions-300"
+          className="headerSearch__input sc-input transition"
           onChange={this.handleChange}
           type="text"
           placeholder="Search"

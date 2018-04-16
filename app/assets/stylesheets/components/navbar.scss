@@ -64,6 +64,10 @@ li {
   float: left;
 }
 
+.transition {
+  transition: all 300ms ease-in-out;
+}
+
 .show .header__navWrapper,
 .show .header__search,
 .show {

@@ -71,7 +71,7 @@
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    overflow-x: hidden;
+    overflow-x: visible;
 }
 
 .sound__header {
@@ -142,7 +142,6 @@
 
 .sound__footer {
     position: relative;
-    margin-top: 10px;
     min-height: 30px;
     box-sizing: border-box;
 }
@@ -154,7 +153,7 @@
 .sound__footerRight {
     position: absolute;
     right: 0;
-    top: 0;
+    bottom: 0;
     z-index: 0;
 }
 
@@ -167,10 +166,6 @@
     float: left;
 }
 
-.sc-ministats-item {
-    padding-top: 58px;
-
-}
 
 .sc-ministats-group .sc-ministats-small {
     margin-right: 5px;
@@ -320,6 +315,21 @@
 .featured__base {
     text-align: center;
 }
+.sound__header {
+
+padding: 22px 50px 0px 50px;
+}
+.sound__content {
+
+    overflow-x: visible;
+}
+.sound__footerRight {
+    right: 40px;
+}
+.track__description {
+    padding-left: 0px;
+}
+
 }
 
 @media only screen and (min-width: $tablet) {
@@ -341,12 +351,35 @@
 .featured__base {
     text-align: -webkit-auto;
 }
+.sound__header {
+
+    height: 100%;
+padding: 0px 0px 0px 0px;
+}
+.sound__content {
+
+    overflow-x: visible;
+}
+.sound__footerRight {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+}
+.track__description {
+    padding-left: 50px;
+    padding-top: 8px;
+}
+.sound__footer {
+         margin-top: 0px;
+ }
 }
 
 @media screen and (min-width: $tablet-large) {
 .featured__title {
     font-size: 24px;
 }
+
 
 }
 
