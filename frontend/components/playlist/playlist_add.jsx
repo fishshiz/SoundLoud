@@ -4,7 +4,6 @@ import PlaylistToolTip from "./playlist_tooltip";
 export default class PlayListAdd extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       modal: false
     };
@@ -17,7 +16,6 @@ export default class PlayListAdd extends React.Component {
     } else {
       this.setState({ modal: true });
     }
-    console.log(this.props);
   }
   render() {
     const content = this.state.modal ? (

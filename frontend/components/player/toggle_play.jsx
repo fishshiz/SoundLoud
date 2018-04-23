@@ -7,7 +7,6 @@ export default class TogglePlay extends React.Component {
   }
 
   handleClick() {
-    // debugger;
     if (
       this.props.paused === false &&
       this.props.trackId === this.props.track.id

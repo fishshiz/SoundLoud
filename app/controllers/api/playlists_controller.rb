@@ -20,14 +20,12 @@ class Api::PlaylistsController < ApplicationController
     end
 
     def index
-        # debugger
         @playlists = Playlist.includes(:artist)
         p @playlists
         render :index
     end
 
     def update
-        # debugger
         @playlist = Playlist.find_by(id: params[:id])
       
         if params[:track]

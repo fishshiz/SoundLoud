@@ -9,7 +9,6 @@ import { clearArtists } from "../../actions/artist_actions";
 
 const mapStateToProps = (state, ownProps) => {
   const playlistId = parseInt(ownProps.match.params.playlistId);
-  console.log(state.entities.playlists[playlistId]);
   return {
     playlistId,
     artist: artistArray(state),

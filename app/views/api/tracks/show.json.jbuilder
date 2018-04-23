@@ -29,6 +29,5 @@ json.current_artist_playlists do
           end
         end
       end
-      # debugger
   end
 end

@@ -16,7 +16,6 @@ class artistPage extends React.Component {
 
   componentDidMount() {
     this.props.fetchArtist(this.props.artistId);
-    console.log(this.props.artistId);
   }
 
   componentWillReceiveProps(newProps) {

@@ -5,7 +5,6 @@ import PlaylistAddContainer from "../playlist/playlist_add_container";
 import Moment from "react-moment";
 
 const PlaylistTrackItem = ({ track, artist, num, playlistSong }) => {
-  // debugger;
   return (
     <div className="track-listing-row">
       <div className="playlist__number">{num}.</div>

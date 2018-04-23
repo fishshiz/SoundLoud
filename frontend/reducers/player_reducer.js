@@ -20,7 +20,6 @@ const _nullPlayer = {
 };
 
 const playerReducer = (state = _nullPlayer, action) => {
-  // debugger;
   Object.freeze(state);
   let newState;
 

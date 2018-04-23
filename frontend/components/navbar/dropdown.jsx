@@ -11,11 +11,10 @@ export default class Dropdown extends React.Component {
   }
 
   handleClick(e) {
-    console.log(e.target);
-    if(this.state.listVisible === true) {
-        this.hide();
+    if (this.state.listVisible === true) {
+      this.hide();
     } else {
-        this.show();
+      this.show();
     }
   }
 
@@ -24,10 +23,8 @@ export default class Dropdown extends React.Component {
   }
 
   hide() {
-      console.log('CLICKED');
-      document.querySelector(".menuWrapper");
+    document.querySelector(".menuWrapper");
     this.setState({ listVisible: false });
-
   }
 
   shouldComponentUpdate(nextSate) {
@@ -35,7 +32,8 @@ export default class Dropdown extends React.Component {
   }
 
   render() {
-    const contents = this.state.listVisible ? <div className="listContainer">
+    const contents = this.state.listVisible ? (
+      <div className="listContainer">
         <div className="dropdown-list menuWrapper">
           <Link to="/upload" className="uploadButton header__dropdown">
             <span className="uploadButton__title">Upload</span>
@@ -44,12 +42,16 @@ export default class Dropdown extends React.Component {
             <span className="uploadButton__title">Create Playlist</span>
           </Link>
         </div>{" "}
-      </div> : <div />;
+      </div>
+    ) : (
+      <div />
+    );
     return (
       <div
         className={
           "dropdown-container" + (this.state.listVisible ? " show" : "")
-        } onClick={this.handleClick}
+        }
+        onClick={this.handleClick}
       >
         <div
           className={"plus" + (this.state.listVisible ? " clicked" : "")}

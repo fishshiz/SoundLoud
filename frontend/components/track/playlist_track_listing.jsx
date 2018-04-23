@@ -6,7 +6,6 @@ export default class PlaylistTrackListing extends React.Component {
     super(props);
     this.handleHover = this.handleHover.bind(this);
     this.handleOut = this.handleOut.bind(this);
-    // debugger;
   }
 
   handleHover(e) {
@@ -22,10 +21,7 @@ export default class PlaylistTrackListing extends React.Component {
   
 
   render() {
-    console.log(this.props.artists);
-    // debugger;
     if (this.props.tracks.length > 0) {
-      // debugger;
       return (
         <ul className="lazyLoadingList__list sc-list-nostyle sc-clearfix playlist-shell">
           {this.props.tracks.map((track, idx) => (

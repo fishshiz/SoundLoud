@@ -1,4 +1,3 @@
-# debugger;
 json.artist do
   json.partial! "api/artists/artist", artist: @artist
 end
@@ -40,5 +39,4 @@ json.current_artist_playlist_songs do
         end
       end
     end
-      # debugger
   end

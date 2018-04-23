@@ -14,7 +14,6 @@ json.current_artist_playlists do
       end
     end
 end
-# debugger
 
 json.current_artist_playlist_songs do
     if ps != []
@@ -27,5 +26,4 @@ json.current_artist_playlist_songs do
           end
         end
       end
-      # debugger
   end

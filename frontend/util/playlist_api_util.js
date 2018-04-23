@@ -10,7 +10,6 @@ export const createPlaylist = playlist => {
 };
 
 export const fetchArtistPlaylists = id => {
-  console.log('isduyfd');
   return $.ajax({
     url: `api/playlists`,
     method: "GET",
@@ -19,7 +18,6 @@ export const fetchArtistPlaylists = id => {
 };
 
 export const fetchPlaylist = id => {
-  console.log(`id -> ${id}`);
   return $.ajax({
     url: `api/playlists/${id}`,
     method: "GET",

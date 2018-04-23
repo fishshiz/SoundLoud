@@ -12,7 +12,6 @@ export default class PlaylistTooltipItem extends React.Component {
       this.state = { full: false };
     }
     this.handleClick = this.handleClick.bind(this);
-    console.log(this.props);
   }
 
   shouldComponentUpdate(nextState) {

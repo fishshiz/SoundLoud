@@ -22,7 +22,6 @@ end
 end
 
 json.playlist_songs do
-  # debugger
   ps.each do |playlist_song|
     json.set! playlist_song.track_id do
       json.track_id playlist_song.track_id

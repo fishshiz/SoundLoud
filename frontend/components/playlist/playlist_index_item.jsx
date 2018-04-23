@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import DeletePlaylistContainer from "./delete_playlist_container";
 
 const PlaylistIndexItem = ({ currentArtist, playlist, artist }) => {
-  // debugger;
-  console.log(playlist);
   return <div className="userStreamItem feature__grid">
       <div className="sound streamContext owned">
         <div className="sound__body">

@@ -6,7 +6,6 @@ import {
   playlistRemoveTrack
 } from "../../actions/playlist_actions";
 
-// debugger;
 const mapStateToProps = (state, ownProps) => ({
   track: ownProps.track,
   currentArtist: state.session.currentArtist,

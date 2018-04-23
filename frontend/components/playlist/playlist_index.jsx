@@ -4,11 +4,9 @@ import PlaylistIndexItem from "./playlist_index_item";
 export default class PlaylistIndex extends React.Component {
   constructor(props) {
     super(props);
-    //    debugger;
   }
 
   render() {
-    // debugger;
     if (this.props.playlists === undefined && this.props.artist === undefined) {
       return (
         <div>
@@ -16,7 +14,6 @@ export default class PlaylistIndex extends React.Component {
         </div>
       );
     } else if (Object.values(this.props.playlists).length > 0) {
-      console.log(Object.values(this.props.playlists));
       return (
         <ul className="soundList sc-list-nostyle playlist-grid">
           {Object.values(this.props.playlists).map(playlist => (

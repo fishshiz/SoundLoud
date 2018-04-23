@@ -8,7 +8,6 @@ import {
 import { RECEIVE_ARTIST } from "../actions/artist_actions";
 
 const PlaylistsReducer = (state = {}, action) => {
-  // debugger;
   Object.freeze(state);
   let nextState;
   switch (action.type) {

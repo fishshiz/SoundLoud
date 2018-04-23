@@ -28,7 +28,6 @@ export default class Player extends React.Component {
   
   componentDidMount(track, paused, artist, trackList) {
     this.setState({ track, paused, artist, trackList });
-    // debugger;
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     audio.addEventListener("keydown", this.handleKeyDown);
@@ -43,7 +42,6 @@ export default class Player extends React.Component {
   }
 
   componentWillReceiveProps(nextProps, nextState) {
-    // debugger;
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     this.setState({
@@ -68,7 +66,6 @@ export default class Player extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    // debugger;
     return this.props.track !== nextProps.track || this.props.paused !== nextProps.paused || this.state.mute !== nextState.mute || this.state.mid !== nextState.mid ? true : false;
   }
 
@@ -235,7 +232,6 @@ export default class Player extends React.Component {
     let artistTitle;
     let audioSrc = this.state.track ? track.audio_url : undefined;
 
-    // debugger;
     if (audioSrc && artist) {
       image = (
         <Link to={`/tracks/${track.id}`}>
