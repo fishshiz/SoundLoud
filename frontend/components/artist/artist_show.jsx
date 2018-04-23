@@ -2,15 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import TrackIndexContainer from "../track/track_index_container";
 import TrackIndexItem from "../track/track_index_item";
+import PlaylistIndexContainer from "../playlist/playlist_index_container";
 
 class artistPage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      list: "playlists"
+    };
     this.conditionalEditButton = this.conditionalEditButton.bind(this);
+    this.toggleList = this.toggleList.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchArtist(this.props.artistId);
+    console.log(this.props.artistId);
   }
 
   componentWillReceiveProps(newProps) {
@@ -21,6 +27,26 @@ class artistPage extends React.Component {
 
   componentWillUnmount() {
     this.props.clearArtists();
+  }
+  toggleList(e) {
+    e.preventDefault();
+    let element = e.currentTarget;
+    let other = Array.from(element.classList).includes("tracks")
+      ? document.querySelector(".playlists")
+      : document.querySelector(".tracks");
+    other.classList.remove("selectedTab");
+    element.classList.add("selectedTab");
+    let list;
+    if (this.state.list === "tracks" && other.innerHTML == "Playlists") {
+      list = "playlists";
+    } else if (this.state.list === "playlists" && other.innerHTML == "Tracks") {
+      list = "tracks";
+    } else {
+      return null;
+    }
+    this.setState({
+      list
+    });
   }
 
   conditionalEditButton() {
@@ -43,6 +69,12 @@ class artistPage extends React.Component {
         </div>
       );
     } else {
+      let content =
+        this.state.list !== "tracks" ? (
+          <TrackIndexContainer artistId={this.props.artist.id} />
+        ) : (
+          <PlaylistIndexContainer artist={this.props.artist} />
+        );
       return (
         <div className="l-container l-content">
           <div className="l-user-hero">
@@ -65,13 +97,25 @@ class artistPage extends React.Component {
                     <div className="profileHeader__edit">
                       {this.conditionalEditButton()}
                     </div>
+                    <div className="artistTabs">
+                      <h2
+                        className="artistTab tracks"
+                        onClick={this.toggleList}
+                      >
+                        Playlists
+                      </h2>
+                      <h2
+                        className="artistTab playlists selectedTab"
+                        onClick={this.toggleList}
+                      >
+                        Tracks
+                      </h2>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="userStream__list">
-              <TrackIndexContainer artistId={this.props.artist.id} />
-            </div>
+            <div className="userStream__list">{content}</div>
           </div>
         </div>
       );

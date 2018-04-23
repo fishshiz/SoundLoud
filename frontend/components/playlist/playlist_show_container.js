@@ -4,16 +4,18 @@ import {
   deletePlaylist,
   requestPlaylist
 } from "../../actions/playlist_actions";
-import { playlistsArray, artistArray } from "../../reducers/selector";
+import { playlistArray, artistArray } from "../../reducers/selector";
 import { clearArtists } from "../../actions/artist_actions";
 
 const mapStateToProps = (state, ownProps) => {
   const playlistId = parseInt(ownProps.match.params.playlistId);
+  console.log(state.entities.playlists[playlistId]);
   return {
     playlistId,
     artist: artistArray(state),
     currentArtist: state.session.currentArtist,
-    playlist: playlistsArray(state)
+    playlist: state.entities.playlists,
+    playlistSongs: state.entities.playlist_songs
   };
 };
 
@@ -23,4 +25,4 @@ const mapDispatchToProps = dispatch => ({
   clearArtists: () => dispatch(clearArtists())
 });
 
-// export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);
+export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);

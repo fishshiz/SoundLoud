@@ -57,8 +57,15 @@ export const removeTrack = track => ({
   track
 });
 
-export const receiveTrackShow = ({ track, artist }) => ({
+export const receiveTrackShow = ({
+  track,
+  artist,
+  current_artist_playlists,
+  current_artist_playlist_songs
+}) => ({
   type: RECEIVE_TRACK_SHOW,
   track,
-  artist
+  artist,
+  current_artist_playlists,
+  current_artist_playlist_songs
 });

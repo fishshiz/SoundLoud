@@ -11,6 +11,8 @@ import UploadContainer from "./track/upload_container";
 import PlayerContainer from "./player/player_container";
 import TrackShowContainer from "./track/track_show_container";
 import PlaylistShowContainer from "./playlist/playlist_show_container";
+import PlaylistIndexContainer from "./playlist/playlist_index_container";
+import CreateContainer from "./playlist/playlist_create_container";
 
 const App = () => (
   <div>
@@ -34,8 +36,9 @@ const App = () => (
       path="/tracks/:trackId"
       component={TrackShowContainer}
     />
-    <ProtectedRoute exact path="/artists/playlists/:playlistId" component={PlaylistShowContainer} />
+    <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShowContainer} />
     <ProtectedRoute exact path="/edit" component={EditContainer} />
+    <ProtectedRoute exact path="/create" component={CreateContainer} />
     <footer>
       <PlayerContainer />
     </footer>

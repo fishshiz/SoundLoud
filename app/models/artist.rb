@@ -13,6 +13,7 @@ class Artist < ApplicationRecord
   after_initialize :ensure_token
 
   attr_reader :password
+  attr_accessor :current_artist_playlists
 
   def password=(password)
     @password = password

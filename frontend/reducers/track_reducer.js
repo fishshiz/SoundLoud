@@ -11,6 +11,7 @@ import {
   RECEIVE_MAIN_TRACKS,
   REMOVE_MAIN_TRACKS
 } from "../actions/feature_actions";
+import { RECEIVE_PLAYLIST_SHOW } from "../actions/playlist_actions";
 
 const tracks = (state = {}, action) => {
   Object.freeze(state);
@@ -34,6 +35,7 @@ const tracks = (state = {}, action) => {
       return nextState;
     case RECEIVE_ARTIST:
     case RECEIVE_TRACKS:
+    case RECEIVE_PLAYLIST_SHOW:
       return action.tracks;
     default:
       return state;

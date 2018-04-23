@@ -192,6 +192,10 @@ form {
   padding: 12px 10px 12px;
   float: left;
 }
+.header__dropdown {
+  padding: 5px 10px 4px;
+  float: left;
+}
 
 .header__userNav {
   float: left;
@@ -298,6 +302,23 @@ form {
   padding: 5px;
 }
 
+.listContainer {
+  height: 100px;
+  width: 100px;
+  top: 5px;
+  position: absolute;
+  z-index: 100;
+  right: -30px;
+}
+
+.dropdown-list {
+  outline: none;
+  min-height: auto;
+  position: absolute;
+  background-color: #333;
+  margin-top: 23px;
+}
+
 @media only screen and (min-width: $phone) {
   .l-container.l-fullwidth {
     width: 309px;
@@ -306,8 +327,8 @@ form {
   .header__middle {
     display: none;
   }
-    .userNav__username {
-      display: none;
+  .userNav__username {
+    display: none;
   }
 }
 
@@ -335,11 +356,11 @@ form {
     min-width: 160px;
   }
   .headerSearch__submit {
-      right: 24px;
-  top: -4px;
+    right: 24px;
+    top: -4px;
   }
-   .userNav__username {
-      display: unset;
+  .userNav__username {
+    display: unset;
   }
   .dropdownMenu {
     margin-top: 0px;

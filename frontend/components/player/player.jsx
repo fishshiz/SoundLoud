@@ -6,7 +6,6 @@ import momentDurationFormatSetup from "moment-duration-format";
 export default class Player extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       track: { id: "", title: "", imageUrl: "", audio_url: "" },
       volume: 1,
@@ -16,7 +15,7 @@ export default class Player extends React.Component {
       artist: { id: "", name: "" },
       trackList: []
     };
-
+    
     this.updatePlayCount = this.updatePlayCount.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.changeVolume = this.changeVolume.bind(this);
@@ -26,9 +25,10 @@ export default class Player extends React.Component {
     this.toggleMute = this.toggleMute.bind(this);
     this.getLastTrack = this.getLastTrack.bind(this);
   }
-
+  
   componentDidMount(track, paused, artist, trackList) {
     this.setState({ track, paused, artist, trackList });
+    // debugger;
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     audio.addEventListener("keydown", this.handleKeyDown);
@@ -43,6 +43,7 @@ export default class Player extends React.Component {
   }
 
   componentWillReceiveProps(nextProps, nextState) {
+    // debugger;
     const player = document.querySelector(".player");
     const audio = player.querySelector(".html__player");
     this.setState({
@@ -67,16 +68,8 @@ export default class Player extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (
-      this.props.track !== nextProps.track ||
-      this.props.paused !== nextProps.paused ||
-      this.state.mute !== nextState.mute ||
-      this.state.mid !== nextState.mid
-    ) {
-      return true;
-    } else {
-      return false;
-    }
+    // debugger;
+    return this.props.track !== nextProps.track || this.props.paused !== nextProps.paused || this.state.mute !== nextState.mute || this.state.mid !== nextState.mid ? true : false;
   }
 
   updatePlayCount() {
@@ -242,7 +235,8 @@ export default class Player extends React.Component {
     let artistTitle;
     let audioSrc = this.state.track ? track.audio_url : undefined;
 
-    if (audioSrc) {
+    // debugger;
+    if (audioSrc && artist) {
       image = (
         <Link to={`/tracks/${track.id}`}>
           <img
@@ -264,7 +258,6 @@ export default class Player extends React.Component {
     } else {
       image = <div className="playbackSoundBadge__avatar sc-media-image" />;
     }
-
     return (
       <div className="player">
         <audio className="html__player" src={audioSrc} />

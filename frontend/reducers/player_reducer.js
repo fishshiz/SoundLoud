@@ -1,11 +1,15 @@
 import {
   PLAY_TRACK,
   PAUSE_TRACK,
-  FETCH_CURRENT_TRACK
+  FETCH_CURRENT_TRACK,
+  RECEIVE_PLAYLIST_TRACKLIST
 } from "../actions/player_actions";
 import { RECEIVE_TRACK } from "../actions/track_actions";
 import merge from "lodash/merge";
-import { RECEIVE_PLAYING_ARTIST } from "../actions/artist_actions";
+import {
+  RECEIVE_PLAYING_ARTIST,
+  RECEIVE_PLAYING_PLAYLIST_ARTIST
+} from "../actions/artist_actions";
 
 const _nullPlayer = {
   track: null,
@@ -16,6 +20,7 @@ const _nullPlayer = {
 };
 
 const playerReducer = (state = _nullPlayer, action) => {
+  // debugger;
   Object.freeze(state);
   let newState;
 
@@ -44,6 +49,14 @@ const playerReducer = (state = _nullPlayer, action) => {
       } else {
         return state;
       }
+    case RECEIVE_PLAYLIST_TRACKLIST:
+      newState = merge({}, state);
+      newState.trackList = Object.values(action.tracks);
+      return newState;
+    case RECEIVE_PLAYING_PLAYLIST_ARTIST:
+      newState = merge({}, state);
+      newState.artist = action.artist.artist;
+      return newState;
     case RECEIVE_PLAYING_ARTIST:
       newState = merge({}, state);
       newState.artist = action.artist.artist;

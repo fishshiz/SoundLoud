@@ -11,10 +11,16 @@ class Api::ArtistsController < ApplicationController
 
   def index(ids)
     @artists = Artist.where('id LIKE ?', ids)
+    if @current_artist
+      @current_artist_playlists = current_artist.playlists
+    end
     render :index
   end
 
-  def show
+  def show    
+    if current_artist
+      @current_artist_playlists = current_artist.playlists
+    end
     @artist = Artist.find_by(id: params[:id])
     if @artist
       render :show

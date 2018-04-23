@@ -11,6 +11,7 @@ class Api::TracksController < ApplicationController
   end
 
   def show
+    @current_artist_playlists = current_artist.playlists
     @track = Track.find_by(id: params[:id])
     if @track
       render :show

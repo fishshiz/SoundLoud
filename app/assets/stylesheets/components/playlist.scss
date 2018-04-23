@@ -1,0 +1,138 @@
+@import "../base/colors.scss";
+@import "../base/breakpoints";
+
+.track-listing-img {
+  height: 40px;
+  width: 40px;
+}
+
+.track-listing-row {
+  color: #666;
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 1fr 1fr 0.5fr 1fr;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1pt solid #f2f2f2;
+}
+
+// .track-listing-row *:hover {
+//   color: black;
+// }
+
+#playlist-container {
+  background-color: #f2f2f2;
+}
+
+.playlist-shell {
+  background: #e5e5e9;
+}
+
+.hovery {
+  color: black;
+}
+
+.playlist__number {
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  //   color: #999999;
+  font-size: 17px;
+}
+
+.playlist__time {
+  display: flex;
+  //   color: #9e9999c7;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 14px;
+  padding-right: 21px;
+}
+
+#artistname {
+  color: unset;
+}
+
+.unavailable {
+  color: #f50;
+}
+
+.tooltip {
+  outline: none;
+  width: 100%;
+  min-height: auto;
+  position: absolute;
+  background-color: #f2f2f2;
+  color: #8a8a8a;
+  margin-top: 6px;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 0 1px inset;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.soundList__itemtooltip {
+  padding: 5px;
+  font-weight: 600;
+}
+
+.soundList__itemtooltip:hover {
+  color: #ff8801;
+}
+
+.PA-container {
+}
+
+.soundList__itemtooltip:not(:last-child) {
+  border-bottom: 1pt solid #d6bfbf;
+}
+
+.headerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.5fr 1fr;
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 8px;
+}
+
+.tooltip-container {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  z-index: 100;
+}
+.add__Container {
+  display: absolute;
+  width: 70px;
+}
+
+.trackNum {
+  font-weight: 600;
+  padding-right: 90px;
+}
+
+.add__wrapper {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.track-listing-title,
+.track-listing-artist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 19px;
+  //   color: #b5a9a9;
+  font-weight: 400;
+}
+.plus {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 14px;
+  font-size: 18px;
+  position: relative;
+  top: 0;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchContainer from "./search_container";
+import Dropdown from "./dropdown";
 
 export default ({ currentArtist, logout }) => {
   const artistPath = currentArtist ? currentArtist.id : "/";
@@ -40,9 +41,7 @@ export default ({ currentArtist, logout }) => {
         </div>
         <div className="header__right sc-clearfix">
           <div className="header__soundInput left">
-            <Link to="/upload" className="uploadButton header__link">
-              <span className="uploadButton__title">Upload</span>
-            </Link>
+            <Dropdown />
           </div>
           <div className="header__soundInput left">
             <button className="logoutButton__title" onClick={logout}>

@@ -4,6 +4,7 @@ import {
   updateArtist,
   clearArtists
 } from "../../actions/artist_actions";
+import { fetchArtistPlaylists } from '../../actions/playlist_actions';
 import ArtistPage from "./artist_show";
 import { withRouter } from "react-router";
 
@@ -19,7 +20,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchArtist: id => dispatch(fetchArtist(id)),
   updateArtist: artist => dispatch(updateArtist(artist)),
-  clearArtists: () => dispatch(clearArtists())
+  clearArtists: () => dispatch(clearArtists()),
+  requestPlaylists: (id) => dispatch(fetchArtistPlaylists(id))
 });
 
 export default withRouter(

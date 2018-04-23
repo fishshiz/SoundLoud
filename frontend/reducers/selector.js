@@ -22,3 +22,6 @@ export const authorsArray = state => {
 export const artistArray = state => {
   return values(state.entities.artists);
 };
+export const playlistArray = state => {
+  return values(state.entities.playlists);
+};

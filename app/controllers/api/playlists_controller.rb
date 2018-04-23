@@ -20,16 +20,23 @@ class Api::PlaylistsController < ApplicationController
     end
 
     def index
+        # debugger
         @playlists = Playlist.includes(:artist)
+        p @playlists
         render :index
     end
 
     def update
+        # debugger
         @playlist = Playlist.find_by(id: params[:id])
       
-        if @playlist.update_attributes(update_params)
-            render 'api/playlists/show'
-            render :playlist
+        if params[:track]
+            index = params[:track][:id].to_i
+            track = Track.find_by(id: index)
+            PlaylistSong.create(playlist: @playlist, track: track)
+        elsif params[:trackId]
+            ps = PlaylistSong.where(track_id: params[:trackId].to_i, playlist_id: @playlist.id)
+            ps.destroy_all
         else
             render json: @playlist.errors.full_messages, status: 422
         end

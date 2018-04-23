@@ -6,7 +6,7 @@ import { fetchPlayingArtist } from "../../actions/artist_actions";
 
 const mapStateToProps = ({ ui }) => ({
   trackId: ui.player.trackId,
-  paused: ui.player.paused
+  paused: ui.player.paused,
 });
 
 const mapDispatchToProps = dispatch => ({
