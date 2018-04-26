@@ -11,7 +11,8 @@ const CurrentArtistPlaylistsReducer = (state = {}, action) => {
     case RECEIVE_ARTISTS:
     case RECEIVE_ARTIST:
     case RECEIVE_TRACK_SHOW:
-      return action.current_artist_playlists;
+      if (action.current_artist_playlists) return action.current_artist_playlists;
+      return {};
     default:
       return state;
   }

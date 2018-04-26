@@ -161,10 +161,7 @@
   display: flex;
 }
 
-.userStream__list {
-  display: flex;
-  justify-content: center;
-}
+
 
 .playlist-grid {
   margin: auto;
@@ -190,6 +187,10 @@
   .artist__show__name {
     padding-bottom: 50px;
   }
+  .userStream__list {
+  display: flex;
+  justify-content: center;
+}
 }
 
 @media only screen and (min-width: $tablet) {
@@ -204,6 +205,9 @@
   .artist__show__name {
     padding-bottom: 0px;
   }
+  .userStream__list {
+  display: block;
+}
 }
 
 @media only screen and (min-width: $tablet-large) {

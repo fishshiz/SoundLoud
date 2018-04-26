@@ -284,6 +284,9 @@
   cursor: pointer;
   border: none;
   background: none;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .delete__button i {
@@ -437,8 +440,11 @@
     padding-top: 50px;
   }
   .userStreamItem {
-  padding-bottom: 0px;
-}
+    padding-bottom: 0px;
+  }
+  .delete__button {
+    position: relative;
+  }
 }
 
 @media only screen and (min-width: $tablet) {
@@ -484,8 +490,11 @@
     margin-top: 0px;
   }
   .userStreamItem {
-  padding-bottom: 30px;
-}
+    padding-bottom: 30px;
+  }
+  .delete__button {
+    position: absolute;
+  }
 }
 
 @media screen and (min-width: $tablet-large) {
