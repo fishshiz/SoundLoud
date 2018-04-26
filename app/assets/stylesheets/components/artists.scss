@@ -161,9 +161,19 @@
   display: flex;
 }
 
+.userStream__list {
+  display: flex;
+  justify-content: center;
+}
+
 .playlist-grid {
+  margin: auto;
+  width: 90%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  grid-template-rows: repeat(2, 300px);
+  justify-content: center;
 }
 
 @media only screen and (min-width: $phone) {
@@ -177,6 +187,9 @@
   .sc-media-image {
     align-self: center;
   }
+  .artist__show__name {
+    padding-bottom: 50px;
+  }
 }
 
 @media only screen and (min-width: $tablet) {
@@ -186,6 +199,9 @@
   }
   .profileHeaderInfo {
     flex-direction: row;
+    padding-bottom: 0px;
+  }
+  .artist__show__name {
     padding-bottom: 0px;
   }
 }

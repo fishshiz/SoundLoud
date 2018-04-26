@@ -379,6 +379,7 @@
   color: $grey;
   margin-right: 5px;
   margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .featured__base {
@@ -401,6 +402,9 @@
 @media only screen and (min-width: $phone) {
   .track__show {
     flex-direction: column;
+  }
+  .trackshowart {
+    align-self: center;
   }
   .sound__artwork {
     margin-right: 0px;
@@ -430,12 +434,19 @@
   }
   .track__description {
     padding-left: 0px;
+    padding-top: 50px;
   }
+  .userStreamItem {
+  padding-bottom: 0px;
+}
 }
 
 @media only screen and (min-width: $tablet) {
   .featured__title {
     font-size: 22px;
+  }
+  .trackshowart {
+    align-self: unset;
   }
   .track__show {
     flex-direction: row;
@@ -472,6 +483,9 @@
   .sound__footer {
     margin-top: 0px;
   }
+  .userStreamItem {
+  padding-bottom: 30px;
+}
 }
 
 @media screen and (min-width: $tablet-large) {

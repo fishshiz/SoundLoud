@@ -78,10 +78,6 @@ export default class TrackShow extends React.Component {
                       </div>
                       {this.props.currentArtist.id === this.props.artist.id ? <DeleteTrackContainer track={this.props.track} /> : null}
                     </div>
-
-                    <div className="sound__footer g-all-transitions-300">
-                      <div className="sound__footerRight" />
-                    </div>
                   </div>
                 </div>
               </div>
