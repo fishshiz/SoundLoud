@@ -29,14 +29,16 @@ export default class PlaylistShow extends React.Component {
       JSON.stringify(Object.values(this.props.playlistSongs)[0]) !==
         undefined ? (
         <div>
-          <div className="headerContainer">
-            <div className="trackNum">#</div>
-            <div className="title">Title</div>
-            <div className="artist-listing">Artist</div>
-            <div className="addHeader">Add to Playlist</div>
-            <div className="addedHeader">Added</div>
-          </div>
+          <table>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Add to Playlist</th>
+            <th>Added</th>
+            </tr>
           <PlaylistTrackListingContainer />
+          </table>
         </div>
       ) : (
         <div className="noTrackContainer">

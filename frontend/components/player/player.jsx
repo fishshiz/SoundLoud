@@ -15,7 +15,7 @@ export default class Player extends React.Component {
       artist: { id: "", name: "" },
       trackList: []
     };
-    
+
     this.updatePlayCount = this.updatePlayCount.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.changeVolume = this.changeVolume.bind(this);
@@ -25,7 +25,7 @@ export default class Player extends React.Component {
     this.toggleMute = this.toggleMute.bind(this);
     this.getLastTrack = this.getLastTrack.bind(this);
   }
-  
+
   componentDidMount(track, paused, artist, trackList) {
     this.setState({ track, paused, artist, trackList });
     const player = document.querySelector(".player");
@@ -66,7 +66,12 @@ export default class Player extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.props.track !== nextProps.track || this.props.paused !== nextProps.paused || this.state.mute !== nextState.mute || this.state.mid !== nextState.mid ? true : false;
+    return this.props.track !== nextProps.track ||
+      this.props.paused !== nextProps.paused ||
+      this.state.mute !== nextState.mute ||
+      this.state.mid !== nextState.mid
+      ? true
+      : false;
   }
 
   updatePlayCount() {
